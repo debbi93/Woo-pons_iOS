@@ -1,0 +1,97 @@
+//
+//  RecentlyAddedViewController.swift
+//  Woopons
+//
+//  Created by harsh on 28/11/22.
+//
+
+import UIKit
+
+class RecentlyAddedViewController: UIViewController {
+    
+    @IBOutlet weak var recentlyAddedTableView: UITableView!
+    
+    var recentlyAdded = [Favorites]()
+    var page = 1
+    var contentOffSet = CGFloat()
+    var totalCount = 0
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.title = "Recently added"
+        self.setBackButtonWithTitle(title: "")
+        recentlyAddedTableView.estimatedRowHeight = UITableView.automaticDimension
+        recentlyAddedTableView.rowHeight = UITableView.automaticDimension
+        recentlyAddedTableView.register(UINib(nibName: "RecentlyAddedTableCell", bundle: nil), forCellReuseIdentifier: "RecentlyAddedTableCell")
+        // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        getRecentlyAdded()
+    }
+    
+    // MARK: - Api Call's
+    
+    func getRecentlyAdded() {
+        
+        ApiService.getAPIWithoutParameters(urlString: Constants.AppUrls.getAllRecentlyAdded + "\(page)&limit=20", view: self.view) { response in
+            
+            if let dict = response as? [String:AnyObject] {
+                let data = Favorites.eventWithObject(data: dict)
+                if self.page == 1 {
+                    self.recentlyAdded.removeAll()
+                }
+                if(data.count > 0){
+                    self.recentlyAdded.append(contentsOf: data)
+                }
+                if let total = response["data"] as? [String:AnyObject] {
+                    self.totalCount = total["total_count"] as? Int ?? 0
+                }
+                self.recentlyAddedTableView.reloadData()
+            }
+        }
+    failure: { error in
+        self.showError(message: error.localizedDescription)
+    }
+    }
+    
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        contentOffSet = self.recentlyAddedTableView.contentOffset.y;
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if scrollView == self.recentlyAddedTableView && (self.recentlyAdded.count) < self.totalCount {
+            if ((self.recentlyAddedTableView.contentOffset.y + self.recentlyAddedTableView.frame.size.height) >= self.recentlyAddedTableView.contentSize.height){
+                self.page += 1
+                getRecentlyAdded()
+            }
+        }
+    }
+}
+
+
+extension RecentlyAddedViewController : UITableViewDelegate,UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return recentlyAdded.count
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 180
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "RecentlyAddedTableCell", for: indexPath) as! RecentlyAddedTableCell
+        
+        let recentData = self.recentlyAdded[indexPath.row]
+        cell.imgView.setImage(with: recentData.companyLogo , placeholder: UIImage(named: "placeholder")!)
+        cell.nameLabel.text = recentData.companyName
+        cell.categoryLabel.text = recentData.name
+        cell.typeLabel.text = recentData.repetition
+        cell.detailButton.tag = indexPath.section
+        
+        return cell
+    }
+    
+}

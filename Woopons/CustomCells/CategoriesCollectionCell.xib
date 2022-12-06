@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Poppins-Medium.ttf">
+            <string>Poppins-Medium</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CategoriesCollectionCell" id="gTV-IL-0wX" customClass="CategoriesCollectionCell" customModule="Woopons" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="178" height="122"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="178" height="122"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="food" translatesAutoresizingMaskIntoConstraints="NO" id="3VT-Fm-duQ">
+                        <rect key="frame" x="0.0" y="0.0" width="178" height="122"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="10"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </imageView>
+                    <view clipsSubviews="YES" contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Cm-y6-1p7">
+                        <rect key="frame" x="0.0" y="0.0" width="178" height="122"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Health/Beauty/ Fitness" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lfL-kA-G5q">
+                                <rect key="frame" x="10" y="38" width="158" height="46"/>
+                                <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="14"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" name="black5"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="lfL-kA-G5q" secondAttribute="trailing" constant="10" id="3SS-Ef-Pfw"/>
+                            <constraint firstItem="lfL-kA-G5q" firstAttribute="leading" secondItem="6Cm-y6-1p7" secondAttribute="leading" constant="10" id="oOn-WU-RvN"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="10"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstItem="6Cm-y6-1p7" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="1re-jD-7ek"/>
+                <constraint firstItem="6Cm-y6-1p7" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="1xg-UL-g2n"/>
+                <constraint firstItem="3VT-Fm-duQ" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="8d3-CZ-NNc"/>
+                <constraint firstItem="lfL-kA-G5q" firstAttribute="centerY" secondItem="3VT-Fm-duQ" secondAttribute="centerY" id="Gnp-2J-gFQ"/>
+                <constraint firstAttribute="bottom" secondItem="3VT-Fm-duQ" secondAttribute="bottom" id="MZ4-b6-KPZ"/>
+                <constraint firstAttribute="trailing" secondItem="6Cm-y6-1p7" secondAttribute="trailing" id="W5E-3j-X07"/>
+                <constraint firstAttribute="trailing" secondItem="3VT-Fm-duQ" secondAttribute="trailing" id="Zr0-Zl-Dih"/>
+                <constraint firstItem="3VT-Fm-duQ" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="chQ-GZ-GsR"/>
+                <constraint firstAttribute="bottom" secondItem="6Cm-y6-1p7" secondAttribute="bottom" id="qC8-Cb-tM9"/>
+            </constraints>
+            <size key="customSize" width="178" height="122"/>
+            <connections>
+                <outlet property="bgView" destination="6Cm-y6-1p7" id="m9a-vj-RxV"/>
+                <outlet property="categoryImgView" destination="3VT-Fm-duQ" id="8ak-D0-unW"/>
+                <outlet property="categoryNameLabel" destination="lfL-kA-G5q" id="JYH-fj-mkH"/>
+            </connections>
+            <point key="canvasLocation" x="36.641221374045799" y="63.380281690140848"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="food" width="398" height="169"/>
+        <namedColor name="black5">
+            <color red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

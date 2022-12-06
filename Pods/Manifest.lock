@@ -1,0 +1,44 @@
+PODS:
+  - Alamofire (5.5.0)
+  - Cosmos (23.0.0)
+  - FSPagerView (0.8.3)
+  - IQKeyboardManagerSwift (6.5.9)
+  - Kingfisher (7.1.2)
+  - MaterialActivityIndicator (0.0.6)
+  - SVProgressHUD (2.2.5)
+  - Toast-Swift (5.0.1)
+
+DEPENDENCIES:
+  - Alamofire
+  - Cosmos (~> 23.0)
+  - FSPagerView
+  - IQKeyboardManagerSwift
+  - Kingfisher
+  - MaterialActivityIndicator
+  - SVProgressHUD
+  - Toast-Swift (~> 5.0.1)
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - Cosmos
+    - FSPagerView
+    - IQKeyboardManagerSwift
+    - Kingfisher
+    - MaterialActivityIndicator
+    - SVProgressHUD
+    - Toast-Swift
+
+SPEC CHECKSUMS:
+  Alamofire: 1c4fb5369c3fe93d2857c780d8bbe09f06f97e7c
+  Cosmos: b5c6a9a637e28a061b54c8f8b1d8529d7d4db73f
+  FSPagerView: 670405b2f18e2a87fa37f20b00de783e562c25a8
+  IQKeyboardManagerSwift: 6e839c575c4aa1078d58a596e41244e77abe918f
+  Kingfisher: 44ed6a8504763f27bab46163adfac83f5deb240c
+  MaterialActivityIndicator: 5061a52fadf7d22533734f2d34806311331bc424
+  SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
+  Toast-Swift: 9b6a70f28b3bf0b96c40d46c0c4b9d6639846711
+
+PODFILE CHECKSUM: 2a5f1b9181b030ed8a1a9e82d0e1585836c0315d
+
+COCOAPODS: 1.11.3
