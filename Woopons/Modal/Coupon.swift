@@ -9,8 +9,8 @@ import Foundation
 
 class Coupon {
     
-    var history : [History]?
-    var newlyAdded : [NewlyAdded]?
+    var history : [Favorites]?
+    var newlyAdded : [Favorites]?
     
     class func eventWithObject(data:[String : AnyObject]) -> Coupon {
         

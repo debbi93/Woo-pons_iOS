@@ -23,23 +23,23 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bPG-qI-J7h">
-                        <rect key="frame" x="10" y="5" width="343" height="66"/>
+                        <rect key="frame" x="10" y="0.0" width="343" height="66"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rate your experience" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="otT-2w-AYH">
-                                <rect key="frame" x="10" y="21.666666666666671" width="147" height="23"/>
+                                <rect key="frame" x="10" y="8" width="147" height="50"/>
                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="14"/>
                                 <color key="textColor" name="yellowText"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bL1-Mr-vKj" customClass="CosmosView" customModule="Cosmos">
-                                <rect key="frame" x="213" y="26" width="120" height="14"/>
+                                <rect key="frame" x="213" y="23" width="120" height="20"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="14" id="iUd-Om-tfN"/>
+                                    <constraint firstAttribute="height" constant="20" id="iUd-Om-tfN"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="rating">
-                                        <real key="value" value="4.5"/>
+                                        <real key="value" value="3"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="filledBorderColor">
                                         <color key="value" name="yellowText"/>
@@ -69,15 +69,16 @@
                         <constraints>
                             <constraint firstItem="otT-2w-AYH" firstAttribute="leading" secondItem="bPG-qI-J7h" secondAttribute="leading" constant="10" id="AJI-1K-oz3"/>
                             <constraint firstAttribute="trailing" secondItem="bL1-Mr-vKj" secondAttribute="trailing" constant="10" id="Auw-c2-lGe"/>
+                            <constraint firstAttribute="bottom" secondItem="otT-2w-AYH" secondAttribute="bottom" constant="8" id="Eww-7X-8ak"/>
                             <constraint firstItem="bL1-Mr-vKj" firstAttribute="width" secondItem="bPG-qI-J7h" secondAttribute="width" multiplier="0.35" id="SPA-C5-atC"/>
-                            <constraint firstItem="otT-2w-AYH" firstAttribute="centerY" secondItem="bPG-qI-J7h" secondAttribute="centerY" id="cSc-CM-gue"/>
-                            <constraint firstItem="bL1-Mr-vKj" firstAttribute="centerY" secondItem="bPG-qI-J7h" secondAttribute="centerY" id="yqZ-1i-k1K"/>
+                            <constraint firstItem="otT-2w-AYH" firstAttribute="top" secondItem="bPG-qI-J7h" secondAttribute="top" constant="8" id="tTJ-bv-QsR"/>
+                            <constraint firstItem="bL1-Mr-vKj" firstAttribute="centerY" secondItem="otT-2w-AYH" secondAttribute="centerY" id="vXN-sG-aLL"/>
                         </constraints>
                     </view>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="bottom" secondItem="bPG-qI-J7h" secondAttribute="bottom" constant="5" id="EdW-eM-9N6"/>
-                    <constraint firstItem="bPG-qI-J7h" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="ZsF-zk-khE"/>
+                    <constraint firstAttribute="bottom" secondItem="bPG-qI-J7h" secondAttribute="bottom" constant="10" id="EdW-eM-9N6"/>
+                    <constraint firstItem="bPG-qI-J7h" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="ZsF-zk-khE"/>
                     <constraint firstItem="bPG-qI-J7h" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="eQe-dV-Fl8"/>
                     <constraint firstAttribute="trailing" secondItem="bPG-qI-J7h" secondAttribute="trailing" constant="10" id="rxc-O8-uwx"/>
                 </constraints>

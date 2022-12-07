@@ -144,4 +144,17 @@ extension CouponsViewController : UITableViewDelegate,UITableViewDataSource {
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if isHistory {
+            if let data = self.couponData?.history?[indexPath.row] {
+               pushToCouponDetail(couponDetail: data,titleString: data.companyName,isFromCouponTab: false,isHistory: true)
+            }
+        }
+        else {
+            if let data = self.couponData?.newlyAdded?[indexPath.row] {
+                pushToCouponDetail(couponDetail: data,titleString: data.companyName,isFromCouponTab: true,isHistory: false)
+            }
+        }
+    }
+    
 }

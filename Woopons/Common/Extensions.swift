@@ -1408,12 +1408,14 @@ extension UIViewController {
         }
     }
         
-    func pushToCouponDetail(couponDetail:Favorites,titleString:String) {
+    func pushToCouponDetail(couponDetail:Favorites,titleString:String,isFromCouponTab:Bool,isHistory:Bool) {
         
         if let viewController = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(withIdentifier: "CouponDetailViewController") as? CouponDetailViewController {
             if let navigator = navigationController {
                 viewController.couponDetail = couponDetail
                 viewController.titleString = titleString
+                viewController.isFromCouponTab = isFromCouponTab
+                viewController.isHistory = isHistory
                 navigator.pushViewController(viewController, animated: true)
             }
         }

@@ -413,7 +413,7 @@ extension HomeViewController : HomeSection2Delegate {
     func collectionView(collectionviewcell: RecentsCollectionCell?, index: IndexPath,sectionTag: Int, didTappedInTableViewCell: HomeTableCell) {
         
         if let data = self.dashboardData?.recentList?[index.row] {
-            pushToCouponDetail(couponDetail: data,titleString: data.companyName)
+            pushToCouponDetail(couponDetail: data,titleString: data.companyName,isFromCouponTab: false,isHistory:false)
         }
     }
 }

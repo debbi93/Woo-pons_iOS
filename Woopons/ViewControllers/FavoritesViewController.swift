@@ -68,6 +68,18 @@ class FavoritesViewController: UIViewController {
     }
     }
     
+    func addCoupon(couponId:Int) {
+        
+        let parameters: [String: Any] = ["coupon_id":couponId]
+        
+        ApiService.postAPIWithHeaderAndParameters1(urlString: Constants.AppUrls.addCoupon, view: self.view, jsonString: parameters as [String : AnyObject] ) { response in
+            
+        }
+    failure: { error in
+        self.showError(message: error.localizedDescription)
+    }
+    }
+    
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         contentOffSet = self.favoritesTableView.contentOffset.y;
     }
@@ -85,11 +97,13 @@ class FavoritesViewController: UIViewController {
     
     @objc func couponDetailAction(sender: UIButton){
         let data = favoriteList[sender.tag]
-        pushToCouponDetail(couponDetail: data,titleString: data.companyName)
+        pushToCouponDetail(couponDetail: data,titleString: data.companyName,isFromCouponTab: false,isHistory:false)
     }
     
     @objc func getCouponAction(sender: UIButton){
         
+        let data = favoriteList[sender.tag]
+        addCoupon(couponId: data.id)
     }
     
     @objc func favButtonAction(sender: UIButton){
@@ -139,7 +153,7 @@ extension FavoritesViewController : UITableViewDelegate,UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let data = favoriteList[indexPath.row]
-        pushToCouponDetail(couponDetail: data,titleString: data.companyName)
+        pushToCouponDetail(couponDetail: data,titleString: data.companyName,isFromCouponTab: false,isHistory:false)
         
     }
     

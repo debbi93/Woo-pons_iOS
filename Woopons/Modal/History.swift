@@ -25,14 +25,14 @@ class History {
     var isfavorite = false
     var howToUse = ""
     
-    class func eventWithObject(data:[String : AnyObject]) -> [History] {
+    class func eventWithObject(data:[String : AnyObject]) -> [Favorites] {
         
-        var value:[History] = []
+        var value:[Favorites] = []
  
             if let details = data["data"] as? [String:AnyObject],  let coupons = details["history"] as? [AnyObject] {
                    
                     for coupon in coupons {
-                        let categoryDetails = History()
+                        let categoryDetails = Favorites()
                         categoryDetails.id = coupon["id"] as? Int ?? 0
                         categoryDetails.name = coupon["name"] as? String ?? ""
                         categoryDetails.offer = coupon["offer"] as? String ?? ""

@@ -10,6 +10,7 @@ import UIKit
 class GetCouponTableCell: UITableViewCell {
 
     @IBOutlet weak var getCouponButton: UIButton!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

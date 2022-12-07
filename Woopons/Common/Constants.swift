@@ -32,6 +32,6 @@ struct Constants {
         static var sendFeedback = "user/feedback"
         static var searchData = "searchanything"
         static var toggleFavorite = "toggleFavoriteCoupon"
-        
+        static var addCoupon = "addcouponorder"
     }
 }

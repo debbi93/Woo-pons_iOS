@@ -25,14 +25,14 @@ class NewlyAdded {
     var isfavorite = false
     var howToUse = ""
     
-    class func eventWithObject(data:[String : AnyObject]) -> [NewlyAdded] {
+    class func eventWithObject(data:[String : AnyObject]) -> [Favorites] {
         
-        var value:[NewlyAdded] = []
+        var value:[Favorites] = []
  
             if let details = data["data"] as? [String:AnyObject],  let coupons = details["newly_added"] as? [AnyObject] {
                    
                     for coupon in coupons {
-                        let categoryDetails = NewlyAdded()
+                        let categoryDetails = Favorites()
                         categoryDetails.id = coupon["id"] as? Int ?? 0
                         categoryDetails.name = coupon["name"] as? String ?? ""
                         categoryDetails.offer = coupon["offer"] as? String ?? ""
