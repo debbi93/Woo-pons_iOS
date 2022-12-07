@@ -17,6 +17,7 @@ protocol BackButtonDelegate {
 
 let indicator = MaterialActivityIndicatorView()
 
+
 func maskRoundedImage(image: UIImage, radius: CGFloat) -> UIImage {
     let imageView: UIImageView = UIImageView(image: image)
     let layer = imageView.layer
@@ -1236,7 +1237,7 @@ extension UIViewController {
         style.messageColor = .white
         style.backgroundColor = UIColor(named: "primaryRed")!
         ToastManager.shared.style = style
-        self.view.makeToast(message) // now uses the shared style
+        currentWindow?.view.makeToast(message) // now uses the shared style
         ToastManager.shared.isTapToDismissEnabled = true
         ToastManager.shared.isQueueEnabled = true
     }

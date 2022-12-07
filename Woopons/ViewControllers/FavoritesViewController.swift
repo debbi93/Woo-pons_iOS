@@ -8,7 +8,7 @@
 import UIKit
 
 class FavoritesViewController: UIViewController {
-
+    
     @IBOutlet weak var favoritesTableView: UITableView!
     
     var favoriteList = [Favorites]()
@@ -56,6 +56,18 @@ class FavoritesViewController: UIViewController {
     }
     }
     
+    func addRemoveFavorite(couponId:Int) {
+        
+        let parameters: [String: Any] = ["coupon_id":couponId]
+        
+        ApiService.postAPIWithHeaderAndParameters1(urlString: Constants.AppUrls.addRemoveFavorite, view: self.view, jsonString: parameters as [String : AnyObject] ) { response in
+            
+        }
+    failure: { error in
+        self.showError(message: error.localizedDescription)
+    }
+    }
+    
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         contentOffSet = self.favoritesTableView.contentOffset.y;
     }
@@ -66,6 +78,31 @@ class FavoritesViewController: UIViewController {
                 self.page += 1
                 getFavorites()
             }
+        }
+    }
+    
+    // MARK: - Actions
+    
+    @objc func couponDetailAction(sender: UIButton){
+        let data = favoriteList[sender.tag]
+        pushToCouponDetail(couponDetail: data,titleString: data.companyName)
+    }
+    
+    @objc func getCouponAction(sender: UIButton){
+        
+    }
+    
+    @objc func favButtonAction(sender: UIButton){
+        if self.pageTitle != "My Favorites" {
+            let indexPath = IndexPath(row: sender.tag, section: 0)
+            let cell = favoritesTableView.cellForRow(at: indexPath) as? FavoriteTableCell
+            if cell?.favButton.imageView?.image == UIImage(named: "heart"){
+                cell?.favButton.setImage(UIImage(named: "heart-empty"), for: .normal)
+            }
+            else {
+                cell?.favButton.setImage(UIImage(named: "heart"), for: .normal)
+            }
+            addRemoveFavorite(couponId: self.favoriteList[sender.tag].id)
         }
     }
 }
@@ -94,6 +131,9 @@ extension FavoritesViewController : UITableViewDelegate,UITableViewDataSource {
         cell.favButton.tag = indexPath.row
         cell.detailsButton.tag = indexPath.row
         cell.couponButton.tag = indexPath.row
+        cell.detailsButton.addTarget(self, action: #selector(couponDetailAction(sender:)), for: .touchUpInside)
+        cell.couponButton.addTarget(self, action: #selector(getCouponAction(sender:)), for: .touchUpInside)
+        cell.favButton.addTarget(self, action: #selector(favButtonAction(sender:)), for: .touchUpInside)
         return cell
     }
     

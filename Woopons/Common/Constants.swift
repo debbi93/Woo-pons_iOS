@@ -11,7 +11,7 @@ struct Constants {
     
     struct AppUrls {
         static let baseUrl = "https://woopons.xcelanceweb.com/api/v1/"
-        static let imageBaseUrl = "https://woopons.xcelanceweb.com/"
+        static let imageBaseUrl = "https://woopons.xcelanceweb.com"
         static var login = "auth/login"
         static var myProfile = "user/myaccount"
         static var logout = "logout"
@@ -30,8 +30,8 @@ struct Constants {
         static var getCouponsFromBrand = "getcoupons/business/"
         static var getMyCoupons = "getmycoupons"
         static var sendFeedback = "user/feedback"
-        
-        
+        static var searchData = "searchanything"
+        static var toggleFavorite = "toggleFavoriteCoupon"
         
     }
 }

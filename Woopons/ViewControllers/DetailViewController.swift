@@ -8,7 +8,7 @@
 import UIKit
 
 class CouponDetailViewController: UIViewController {
-
+    
     @IBOutlet weak var detailTableView: UITableView!
     
     var titleString = ""
@@ -52,7 +52,7 @@ extension CouponDetailViewController : UITableViewDelegate,UITableViewDataSource
         cell.repititionLabel.text = self.couponDetail.repetition
         cell.uniqueLabel.text = self.couponDetail.offer
         cell.aboutLabel.text = self.couponDetail.about
-        cell.howToUseLabel.text = ""
+        cell.howToUseLabel.text = self.couponDetail.howToUse
         if self.couponDetail.isfavorite {
             cell.favButton.setImage(UIImage(named: "heart"), for: .normal)
         }

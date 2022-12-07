@@ -24,7 +24,7 @@ class TrendingCategories {
                    let categoryDetails = TrendingCategories()
                    categoryDetails.id = category["id"] as? Int ?? -1
                    categoryDetails.name = category["name"] as? String ?? ""
-                   categoryDetails.image = category["image"] as? String ?? ""
+                   categoryDetails.image = category["trending_image"] as? String ?? ""
                    categoryDetails.description = category["description"] as? String ?? ""
                    value.append(categoryDetails)
                }

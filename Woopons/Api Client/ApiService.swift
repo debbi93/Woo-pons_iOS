@@ -61,6 +61,44 @@ class ApiService {
         }
     }
     
+    class func postAPIWithHeaderAndParameters1(urlString:String, view:UIView ,jsonString:[String: AnyObject] ,success: @escaping (AnyObject) -> Void,failure: @escaping(NSError)  -> Void) {
+        
+        let url = Constants.AppUrls.baseUrl + urlString
+        print(url)
+        if (NetworkReachabilityManager()?.isReachable)!{
+            
+            UIView().isUserInteractionEnabled = false
+            
+            AF.request(url, method: .post, parameters: jsonString, encoding: JSONEncoding.default, headers: CustomHeaders.apiHeaders()).responseJSON {
+                response in
+                
+                UIView().isUserInteractionEnabled = true
+                
+                switch(response.result) {
+                case .success(_):
+                    print(response)
+                    if (response.response?.statusCode == 200){
+                        if let value = response.value {
+                            success(value as AnyObject)
+                        }
+                    }
+                    else {
+                        let value = response.value as? [String:Any]
+                        if let errorKey = value?["message"] as? String{
+                           // showError(message:errorKey)
+                        }
+                    }
+                    break
+                case .failure(let error):
+                    showError(message: error.localizedDescription)
+                }
+            }
+        }
+        else {
+            showError(message: SInternetConnection)
+        }
+    }
+    
     class func getAPIWithoutParameters(urlString:String,view:UIView,success: @escaping (AnyObject) -> Void,failure: @escaping(NSError)  -> Void){
         
         let url = Constants.AppUrls.baseUrl + urlString

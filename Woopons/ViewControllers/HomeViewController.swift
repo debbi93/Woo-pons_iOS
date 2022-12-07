@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HomeViewController: UIViewController {
+class HomeViewController: UIViewController,UISearchBarDelegate {
     
     @IBOutlet weak var homeTableView: UITableView!
     @IBOutlet var headerView: UIView!
@@ -22,6 +22,7 @@ class HomeViewController: UIViewController {
         self.tabBarController?.tabBar.backgroundColor = UIColor.white
         homeTableView.register(UINib(nibName: "HomeTableCell", bundle: nil), forCellReuseIdentifier: "HomeTableCell")
         self.tabBarController?.title = "Home"
+        searchBar.delegate = self
         // Do any additional setup after loading the view.
     }
     
@@ -81,6 +82,57 @@ class HomeViewController: UIViewController {
         self.showError(message: error.localizedDescription)
     }
     }
+    
+    // MARK: - SearchBar Delegates
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+    }
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.text = nil
+        self.view.endEditing(true)
+        self.homeTableView.reloadData()
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        
+    }
+    
+    
+    func searchBarShouldEndEditing(_ searchBar: UISearchBar) -> Bool {
+        
+        return true
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if(searchText.count > 0){
+            NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(search), object: nil)
+            self.perform(#selector(search), with: nil, afterDelay: 1)
+        }
+        else{
+            self.getDashboardData()
+            self.homeTableView.reloadData()
+        }
+    }
+    
+    @objc func search(){
+        
+        let parameters: [String: Any] = ["search":self.searchBar.text ?? "" ]
+        
+        ApiService.postAPIWithHeaderAndParameters(urlString: Constants.AppUrls.searchData, view: self.view, jsonString: parameters as [String : AnyObject] ) { response in
+            
+            if let dict = response as? [String:AnyObject] {
+                self.dashboardData =  Home.eventWithObject(data: dict)
+                self.homeTableView.reloadData()
+            }
+        }
+    failure: { error in
+        self.showError(message: error.localizedDescription)
+    }
+    }
 }
 
 
@@ -97,13 +149,33 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.section {
         case 0:
-            return 80
+            if self.dashboardData?.categoryList?.count ?? 0 > 0 {
+                return 80
+            }
+            else {
+                return 0
+            }
         case 1:
-            return 180
+            if self.dashboardData?.recentList?.count ?? 0 > 0 {
+                return 180
+            }
+            else {
+                return 0
+            }
         case 2:
-            return 80
+            if self.dashboardData?.topBrands?.count ?? 0 > 0 {
+                return 80
+            }
+            else {
+                return 0
+            }
         case 3:
-            return 130
+            if self.dashboardData?.trendingCategories?.count ?? 0 > 0 {
+                return 130
+            }
+            else {
+                return 0
+            }
         default:
             return 150
         }
@@ -131,7 +203,38 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         
-        return 30
+        switch section {
+        case 0:
+            if self.dashboardData?.categoryList?.count ?? 0 > 0 {
+                return 30
+            }
+            else {
+                return 0
+            }
+        case 1:
+            if self.dashboardData?.recentList?.count ?? 0 > 0 {
+                return 30
+            }
+            else {
+                return 0
+            }
+        case 2:
+            if self.dashboardData?.topBrands?.count ?? 0 > 0 {
+                return 30
+            }
+            else {
+                return 0
+            }
+        case 3:
+            if self.dashboardData?.trendingCategories?.count ?? 0 > 0 {
+                return 30
+            }
+            else {
+                return 0
+            }
+        default:
+            return 30
+        }
         
     }
     
@@ -219,7 +322,7 @@ extension HomeTableCell : UICollectionViewDelegate, UICollectionViewDataSource, 
             let recentData = self.recentList?[indexPath.item]
             cell.imgView.setImage(with: recentData?.companyLogo ?? "", placeholder: UIImage(named: "placeholder")!)
             cell.nameLabel.text = recentData?.companyName
-            cell.categoryLabel.text = recentData?.name
+            cell.categoryLabel.text = recentData?.companyCategory
             cell.typeLabel.text = recentData?.repetition
             cell.detailButton.tag = indexPath.section
             return cell
@@ -272,11 +375,11 @@ extension HomeTableCell : UICollectionViewDelegate, UICollectionViewDataSource, 
         
         switch sectionTag {
         case 0:
-            return CGSize(width: CGFloat((collectionView.frame.size.width / 2) - 20), height: 80)
-        case 1:
-            return CGSize(width: CGFloat((collectionView.frame.size.width / 1.3) - 10), height: 180)
-        case 2:
             return CGSize(width: CGFloat((collectionView.frame.size.width / 2.3) - 20), height: 80)
+        case 1:
+            return CGSize(width: CGFloat((collectionView.frame.size.width / 1.5) - 10), height: 180)
+        case 2:
+            return CGSize(width: CGFloat((collectionView.frame.size.width / 2.5) - 20), height: 80)
         case 3:
             return CGSize(width: CGFloat((collectionView.frame.size.width / 1.2) - 10), height: 130)
         default:
@@ -306,11 +409,12 @@ extension HomeViewController : HomeSection1Delegate {
 }
 
 extension HomeViewController : HomeSection2Delegate {
-
+    
     func collectionView(collectionviewcell: RecentsCollectionCell?, index: IndexPath,sectionTag: Int, didTappedInTableViewCell: HomeTableCell) {
-
-       // let data =  self.dashboardData?.categoryList?[index.item]
-      //  self.pushToFavorites(pageTitle: data?.name ?? "", urlString: "\(Constants.AppUrls.getCouponsFromCategory)\(data?.id ?? 0)?page=")
+        
+        if let data = self.dashboardData?.recentList?[index.row] {
+            pushToCouponDetail(couponDetail: data,titleString: data.companyName)
+        }
     }
 }
 

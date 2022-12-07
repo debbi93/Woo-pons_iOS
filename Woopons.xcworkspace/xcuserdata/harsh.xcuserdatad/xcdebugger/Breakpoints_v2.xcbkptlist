@@ -36,14 +36,14 @@
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "913C0374-8C98-404F-B5E0-A870CE2DF25E - 56c3d88fd189f40"
+                  uuid = "913C0374-8C98-404F-B5E0-A870CE2DF25E - 2fdab0874274d88a"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "Woopons.ProfileViewController.imagePickerController(_: __C.UIImagePickerController, didFinishPickingMediaWithInfo: Swift.Dictionary&lt;__C.UIImagePickerControllerInfoKey, Any&gt;) -&gt; ()"
                   moduleName = "Woopons"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/harsh/Documents/iOS%20Projects/Woopons/Woopons/ViewControllers/ProfileViewController.swift"
+                  urlString = "file:///Users/harsh/Documents/iOS%20Projects/Woo-pons_iOS/Woopons/ViewControllers/ProfileViewController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "79"
@@ -51,14 +51,14 @@
                   offsetFromSymbolStart = "680">
                </Location>
                <Location
-                  uuid = "913C0374-8C98-404F-B5E0-A870CE2DF25E - e1a1aad1d3c4ff10"
+                  uuid = "913C0374-8C98-404F-B5E0-A870CE2DF25E - cb1727de6ca8b95e"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "closure #1 @Swift.MainActor () -&gt; () in Woopons.ProfileViewController.imagePickerController(_: __C.UIImagePickerController, didFinishPickingMediaWithInfo: Swift.Dictionary&lt;__C.UIImagePickerControllerInfoKey, Any&gt;) -&gt; ()"
                   moduleName = "Woopons"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/harsh/Documents/iOS%20Projects/Woopons/Woopons/ViewControllers/ProfileViewController.swift"
+                  urlString = "file:///Users/harsh/Documents/iOS%20Projects/Woo-pons_iOS/Woopons/ViewControllers/ProfileViewController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "80"
@@ -151,133 +151,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "9684C7B8-88FE-4678-8862-CCB4D0F3E450"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Woopons/Modal/AllCategories.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "20"
-            endingLineNumber = "20"
-            landmarkName = "eventWithObject(data:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "8124C436-F412-4BCF-8A4D-517A075346C6"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Woopons/Modal/AllCategories.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "31"
-            endingLineNumber = "31"
-            landmarkName = "eventWithObject(data:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "8124C436-F412-4BCF-8A4D-517A075346C6 - 4db184abc81868bf"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "static Woopons.AllCategories.eventWithObject(data: Swift.Dictionary&lt;Swift.String, Swift.AnyObject&gt;) -&gt; Swift.Array&lt;Woopons.AllCategories&gt;"
-                  moduleName = "Woopons"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/harsh/Documents/iOS%20Projects/Woopons/Woopons/Modal/AllCategories.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "31"
-                  endingLineNumber = "31"
-                  offsetFromSymbolStart = "2776">
-               </Location>
-               <Location
-                  uuid = "8124C436-F412-4BCF-8A4D-517A075346C6 - 4db184abc81868bf"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "static Woopons.AllCategories.eventWithObject(data: Swift.Dictionary&lt;Swift.String, Swift.AnyObject&gt;) -&gt; Swift.Array&lt;Woopons.AllCategories&gt;"
-                  moduleName = "Woopons"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/harsh/Documents/iOS%20Projects/Woopons/Woopons/Modal/AllCategories.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "31"
-                  endingLineNumber = "31"
-                  offsetFromSymbolStart = "3069">
-               </Location>
-               <Location
-                  uuid = "8124C436-F412-4BCF-8A4D-517A075346C6 - 4db184abc81868bf"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "static Woopons.AllCategories.eventWithObject(data: Swift.Dictionary&lt;Swift.String, Swift.AnyObject&gt;) -&gt; Swift.Array&lt;Woopons.AllCategories&gt;"
-                  moduleName = "Woopons"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/harsh/Documents/iOS%20Projects/Woopons/Woopons/Modal/AllCategories.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "31"
-                  endingLineNumber = "31"
-                  offsetFromSymbolStart = "3392">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "06E12E6C-A0FA-47AE-A126-C090EA98DC4A"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Woopons/ViewControllers/HomeViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "199"
-            endingLineNumber = "199"
-            landmarkName = "collectionView(_:numberOfItemsInSection:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "37F80E3C-130B-4563-85FE-A9965815B243"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Woopons/ViewControllers/HomeViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "298"
-            endingLineNumber = "298"
-            landmarkName = "collectionView(collectionviewcell:index:sectionTag:didTappedInTableViewCell:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "46CE4FA8-E156-4DF4-88F1-C5ED516CAFD4"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Woopons/ViewControllers/HomeViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "312"
-            endingLineNumber = "312"
-            landmarkName = "collectionView(collectionviewcell:index:sectionTag:didTappedInTableViewCell:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "B435CFDB-82BF-40A0-BE8D-9244461C67BA"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
@@ -285,56 +158,40 @@
             filePath = "Woopons/ViewControllers/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "321"
-            endingLineNumber = "321"
+            startingLineNumber = "425"
+            endingLineNumber = "425"
             landmarkName = "collectionView(collectionviewcell:index:sectionTag:didTappedInTableViewCell:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "013D1F8D-AF5D-4F06-8872-32314E75F801"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Woopons/ViewControllers/HomeViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "260"
-            endingLineNumber = "260"
-            landmarkName = "collectionView(_:didSelectItemAt:)"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "013D1F8D-AF5D-4F06-8872-32314E75F801 - b5581d4a1488642f"
+                  uuid = "B435CFDB-82BF-40A0-BE8D-9244461C67BA - 43dfbe62b9066fad"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "Woopons.HomeTableCell.collectionView(_: __C.UICollectionView, didSelectItemAt: Foundation.IndexPath) -&gt; ()"
+                  symbolName = "Woopons.HomeViewController.collectionView(collectionviewcell: Swift.Optional&lt;Woopons.TrendingCollectionCell&gt;, index: Foundation.IndexPath, sectionTag: Swift.Int, didTappedInTableViewCell: Woopons.HomeTableCell) -&gt; ()"
                   moduleName = "Woopons"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/harsh/Documents/iOS%20Projects/Woopons/Woopons/ViewControllers/HomeViewController.swift"
+                  urlString = "file:///Users/harsh/Documents/iOS%20Projects/Woo-pons_iOS/Woopons/ViewControllers/HomeViewController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "260"
-                  endingLineNumber = "260"
-                  offsetFromSymbolStart = "1341">
+                  startingLineNumber = "425"
+                  endingLineNumber = "425"
+                  offsetFromSymbolStart = "589">
                </Location>
                <Location
-                  uuid = "013D1F8D-AF5D-4F06-8872-32314E75F801 - b5581d4a1488642f"
+                  uuid = "B435CFDB-82BF-40A0-BE8D-9244461C67BA - 43dfbe62b9066fad"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "Woopons.HomeTableCell.collectionView(_: __C.UICollectionView, didSelectItemAt: Foundation.IndexPath) -&gt; ()"
+                  symbolName = "Woopons.HomeViewController.collectionView(collectionviewcell: Swift.Optional&lt;Woopons.TrendingCollectionCell&gt;, index: Foundation.IndexPath, sectionTag: Swift.Int, didTappedInTableViewCell: Woopons.HomeTableCell) -&gt; ()"
                   moduleName = "Woopons"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/harsh/Documents/iOS%20Projects/Woopons/Woopons/ViewControllers/HomeViewController.swift"
+                  urlString = "file:///Users/harsh/Documents/iOS%20Projects/Woo-pons_iOS/Woopons/ViewControllers/HomeViewController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "260"
-                  endingLineNumber = "260"
-                  offsetFromSymbolStart = "1492">
+                  startingLineNumber = "425"
+                  endingLineNumber = "425"
+                  offsetFromSymbolStart = "639">
                </Location>
             </Locations>
          </BreakpointContent>

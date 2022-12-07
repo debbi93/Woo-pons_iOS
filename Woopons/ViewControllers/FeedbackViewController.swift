@@ -49,10 +49,9 @@ class FeedbackViewController: UIViewController {
         
         ApiService.postAPIWithHeaderAndParameters(urlString: Constants.AppUrls.sendFeedback, view: self.view, jsonString: parameters as [String : AnyObject] ) { response in
             
-            if let dict = response["data"] as? [String:AnyObject] {
-                self.showError(message: dict["message"] as? String ?? "")
-            }
+            self.showError(message: response["message"] as? String ?? "")
             self.navigationController?.popViewController(animated: true)
+            
         }
     failure: { error in
         self.showError(message: error.localizedDescription)
