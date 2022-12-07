@@ -9,6 +9,7 @@ import UIKit
 
 class RecentlyAddedViewController: UIViewController {
     
+    @IBOutlet weak var errorImage: UIImageView!
     @IBOutlet weak var recentlyAddedTableView: UITableView!
     
     var recentlyAdded = [Favorites]()
@@ -47,6 +48,12 @@ class RecentlyAddedViewController: UIViewController {
                 }
                 if let total = response["data"] as? [String:AnyObject] {
                     self.totalCount = total["total_count"] as? Int ?? 0
+                }
+                if self.totalCount == 0 {
+                    self.errorImage.isHidden = false
+                }
+                else {
+                    self.errorImage.isHidden = true
                 }
                 self.recentlyAddedTableView.reloadData()
             }

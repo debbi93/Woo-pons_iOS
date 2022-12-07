@@ -33,5 +33,7 @@ struct Constants {
         static var searchData = "searchanything"
         static var toggleFavorite = "toggleFavoriteCoupon"
         static var addCoupon = "addcouponorder"
+        static var removeCoupon = "removecoupon"
+        static var unlockCoupon = "unlockcoupon"
     }
 }

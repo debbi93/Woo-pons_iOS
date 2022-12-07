@@ -14,6 +14,7 @@ class CouponsViewController: UIViewController {
     @IBOutlet weak var historyButton: UIButton!
     @IBOutlet weak var newButton: UIButton!
     @IBOutlet weak var couponsTableView: UITableView!
+    @IBOutlet weak var errorImage: UIImageView!
     
     var isHistory = false
     var couponData : Coupon?
@@ -43,6 +44,13 @@ class CouponsViewController: UIViewController {
             
             if let dict = response as? [String:AnyObject] {
                 self.couponData = Coupon.eventWithObject(data: dict)
+                
+                if ((self.couponData?.newlyAdded?.count ?? 0) == 0) {
+                    self.errorImage.isHidden = false
+                }
+                else {
+                    self.errorImage.isHidden = true
+                }
                 self.couponsTableView.reloadData()
             }
         }
@@ -50,13 +58,20 @@ class CouponsViewController: UIViewController {
         self.showError(message: error.localizedDescription)
     }
     }
+
     
     @IBAction func historyButtonTapped(_ sender: UIButton) {
         historyButton.tintColor = UIColor(named: "primaryRed")
         newButton.tintColor = UIColor(named: "black5")
         historyButtonView.backgroundColor = UIColor(named: "primaryRed")
-        newButtonView.backgroundColor = UIColor(named: "black5")
+        newButtonView.backgroundColor = .clear
         isHistory = true
+        if ((self.couponData?.history?.count ?? 0) == 0){
+            self.errorImage.isHidden = false
+        }
+        else {
+            self.errorImage.isHidden = true
+        }
         self.couponsTableView.reloadData()
     }
     
@@ -66,8 +81,14 @@ class CouponsViewController: UIViewController {
         newButton.tintColor = UIColor(named: "primaryRed")
         historyButton.tintColor = UIColor(named: "black5")
         newButtonView.backgroundColor = UIColor(named: "primaryRed")
-        historyButtonView.backgroundColor = UIColor(named: "black5")
+        historyButtonView.backgroundColor = .clear
         isHistory = false
+        if ((self.couponData?.newlyAdded?.count ?? 0) == 0) {
+            self.errorImage.isHidden = false
+        }
+        else {
+            self.errorImage.isHidden = true
+        }
         self.couponsTableView.reloadData()
     }
     

@@ -9,6 +9,7 @@ import UIKit
 
 class CategoriesViewController: UIViewController {
     
+    @IBOutlet weak var errorImage: UIImageView!
     @IBOutlet weak var categoriesCollectionView: UICollectionView!
     
     var categoryList = [AllCategories]()
@@ -36,6 +37,12 @@ class CategoriesViewController: UIViewController {
             
             if let dict = response as? [String:AnyObject] {
                 self.categoryList =  AllCategories.eventWithObject(data: dict)
+                if self.categoryList.count > 0 {
+                    self.errorImage.isHidden = false
+                }
+                else {
+                    self.errorImage.isHidden = true
+                }
                 self.categoriesCollectionView.reloadData()
             }
         }

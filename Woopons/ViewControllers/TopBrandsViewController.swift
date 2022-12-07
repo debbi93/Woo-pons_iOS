@@ -10,6 +10,7 @@ import UIKit
 class TopBrandsViewController: UIViewController {
     
     @IBOutlet weak var brandsCollectionView: UICollectionView!
+    @IBOutlet weak var errorImage: UIImageView!
     
     var topBrands = [TopBrands]()
     var page = 1
@@ -45,6 +46,12 @@ class TopBrandsViewController: UIViewController {
                 }
                 if let total = response["data"] as? [String:AnyObject] {
                     self.totalCount = total["total_count"] as? Int ?? 0
+                }
+                if self.totalCount == 0 {
+                    self.errorImage.isHidden = false
+                }
+                else {
+                    self.errorImage.isHidden = true
                 }
                 self.brandsCollectionView.reloadData()
             }

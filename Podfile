@@ -14,6 +14,7 @@ target 'Woopons' do
   pod 'Cosmos', '~> 23.0'
   pod 'Toast-Swift', '~> 5.0.1'
   pod 'MaterialActivityIndicator'
+  pod 'MTSlideToOpen'
 
   target 'WooponsTests' do
     inherit! :search_paths

@@ -16,7 +16,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         IQKeyboardManager.shared.enable = true
         setNavigationBarColor()
-
+        if UserDefaults.standard.value(forKey: "isLoggedIn") as? Bool ==  true {
+            self.moveToHome()
+        }
+        else {
+            moveToLogin()
+        }
         return true
     }
 
@@ -54,6 +59,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let viewController = storyboard.instantiateViewController(withIdentifier: "TabbarViewController") as! TabbarViewController
         let navigationController = UINavigationController()
        viewController.selectedIndex = 0
+        navigationController.navigationItem.setHidesBackButton(true, animated: true)
+        navigationController.navigationBar.isHidden = false
+        navigationController.pushViewController(viewController, animated: true)
+        window?.rootViewController = navigationController
+        window?.makeKeyAndVisible()
+        
+    }
+    
+    func moveToLogin(){
+        
+        let window = (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.window
+        let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
+        let viewController = storyboard.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+        let navigationController = UINavigationController()
         navigationController.navigationItem.setHidesBackButton(true, animated: true)
         navigationController.navigationBar.isHidden = false
         navigationController.pushViewController(viewController, animated: true)

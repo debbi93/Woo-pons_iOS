@@ -5,6 +5,7 @@ PODS:
   - IQKeyboardManagerSwift (6.5.9)
   - Kingfisher (7.1.2)
   - MaterialActivityIndicator (0.0.6)
+  - MTSlideToOpen (1.5.1)
   - SVProgressHUD (2.2.5)
   - Toast-Swift (5.0.1)
 
@@ -15,6 +16,7 @@ DEPENDENCIES:
   - IQKeyboardManagerSwift
   - Kingfisher
   - MaterialActivityIndicator
+  - MTSlideToOpen
   - SVProgressHUD
   - Toast-Swift (~> 5.0.1)
 
@@ -26,6 +28,7 @@ SPEC REPOS:
     - IQKeyboardManagerSwift
     - Kingfisher
     - MaterialActivityIndicator
+    - MTSlideToOpen
     - SVProgressHUD
     - Toast-Swift
 
@@ -36,9 +39,10 @@ SPEC CHECKSUMS:
   IQKeyboardManagerSwift: 6e839c575c4aa1078d58a596e41244e77abe918f
   Kingfisher: 44ed6a8504763f27bab46163adfac83f5deb240c
   MaterialActivityIndicator: 5061a52fadf7d22533734f2d34806311331bc424
+  MTSlideToOpen: dedc9abf1e377fef40544b84e5590d4981055030
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   Toast-Swift: 9b6a70f28b3bf0b96c40d46c0c4b9d6639846711
 
-PODFILE CHECKSUM: 2a5f1b9181b030ed8a1a9e82d0e1585836c0315d
+PODFILE CHECKSUM: 85501b39c1eb80418f796d69c55214d729601531
 
 COCOAPODS: 1.11.3

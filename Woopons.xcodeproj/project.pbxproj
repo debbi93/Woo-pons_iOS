@@ -69,6 +69,9 @@
 		3AC676B2292B2F5D0012A7DF /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC676B1292B2F5D0012A7DF /* ChangePasswordViewController.swift */; };
 		3AD1ECAA292FBF2E00838D85 /* RightCornerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD1ECA9292FBF2E00838D85 /* RightCornerView.swift */; };
 		3AD1ECAC292FBF4B00838D85 /* LeftCornerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD1ECAB292FBF4B00838D85 /* LeftCornerView.swift */; };
+		3AE4DAEB2940C6D5009E5DE4 /* UnlockCouponPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE4DAEA2940C6D5009E5DE4 /* UnlockCouponPopUp.swift */; };
+		3AE4DAED2940C746009E5DE4 /* UnlockCouponViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE4DAEC2940C746009E5DE4 /* UnlockCouponViewController.swift */; };
+		3AE4DAEF2940CAA0009E5DE4 /* CouponSuccessPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE4DAEE2940CAA0009E5DE4 /* CouponSuccessPopUp.swift */; };
 		3AFB9449293C623D00D888C7 /* Coupon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AFB9448293C623D00D888C7 /* Coupon.swift */; };
 		4231FF32292A5D7F00E42000 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4231FF31292A5D7F00E42000 /* Reachability.swift */; };
 		4231FF35292A5D9E00E42000 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4231FF34292A5D9E00E42000 /* Constants.swift */; };
@@ -168,6 +171,9 @@
 		3AC676B1292B2F5D0012A7DF /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
 		3AD1ECA9292FBF2E00838D85 /* RightCornerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RightCornerView.swift; sourceTree = "<group>"; };
 		3AD1ECAB292FBF4B00838D85 /* LeftCornerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftCornerView.swift; sourceTree = "<group>"; };
+		3AE4DAEA2940C6D5009E5DE4 /* UnlockCouponPopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnlockCouponPopUp.swift; sourceTree = "<group>"; };
+		3AE4DAEC2940C746009E5DE4 /* UnlockCouponViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnlockCouponViewController.swift; sourceTree = "<group>"; };
+		3AE4DAEE2940CAA0009E5DE4 /* CouponSuccessPopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponSuccessPopUp.swift; sourceTree = "<group>"; };
 		3AFB9448293C623D00D888C7 /* Coupon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coupon.swift; sourceTree = "<group>"; };
 		4231FF31292A5D7F00E42000 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		4231FF34292A5D9E00E42000 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -404,6 +410,9 @@
 				3A146B4F293504DD00FBADF4 /* RecentlyAddedViewController.swift */,
 				3A3BDC51293BCA6D00DB749A /* TrendingCategoryViewController.swift */,
 				3A3BDC53293BDB2100DB749A /* DetailViewController.swift */,
+				3AE4DAEA2940C6D5009E5DE4 /* UnlockCouponPopUp.swift */,
+				3AE4DAEC2940C746009E5DE4 /* UnlockCouponViewController.swift */,
+				3AE4DAEE2940CAA0009E5DE4 /* CouponSuccessPopUp.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -711,6 +720,8 @@
 				3A36E0B6292BDF3C009DBE7B /* SettingTableCell.swift in Sources */,
 				3A2D68D4292C614700F0BD32 /* ProfileViewController.swift in Sources */,
 				3A146B4C2934F3B500FBADF4 /* CategoriesViewController.swift in Sources */,
+				3AE4DAED2940C746009E5DE4 /* UnlockCouponViewController.swift in Sources */,
+				3AE4DAEF2940CAA0009E5DE4 /* CouponSuccessPopUp.swift in Sources */,
 				3A8D951B292DB3D900CA24D4 /* CouponsViewController.swift in Sources */,
 				3A17CD22292FA0BD00B56D39 /* TrendingCollectionCell.swift in Sources */,
 				3A626A8029367E12007143C1 /* CustomHeaders.swift in Sources */,
@@ -734,6 +745,7 @@
 				4231FF32292A5D7F00E42000 /* Reachability.swift in Sources */,
 				3A2D68D6292C6A4D00F0BD32 /* LogoutViewController.swift in Sources */,
 				3A3BDC4F293BABB100DB749A /* RecentlyAddedTableCell.swift in Sources */,
+				3AE4DAEB2940C6D5009E5DE4 /* UnlockCouponPopUp.swift in Sources */,
 				3AAF114D293E6C2E0055E202 /* TrendingCategories.swift in Sources */,
 				3A2201A9293B17E100A98C4C /* Home.swift in Sources */,
 				3AC1C3AF29390F7F00048082 /* Favorites.swift in Sources */,

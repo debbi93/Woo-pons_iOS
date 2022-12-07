@@ -10,6 +10,7 @@ import UIKit
 class TrendingCategoryViewController: UIViewController {
 
     @IBOutlet weak var trendingCategoryTableView: UITableView!
+    @IBOutlet weak var errorImage: UIImageView!
     
     var trendingCategory = [AllCategories]()
     var page = 1
@@ -47,6 +48,12 @@ class TrendingCategoryViewController: UIViewController {
                 }
                 if let total = response["data"] as? [String:AnyObject] {
                     self.totalCount = total["total_count"] as? Int ?? 0
+                }
+                if self.totalCount == 0 {
+                    self.errorImage.isHidden = false
+                }
+                else {
+                    self.errorImage.isHidden = true
                 }
                 self.trendingCategoryTableView.reloadData()
             }

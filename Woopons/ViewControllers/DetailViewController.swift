@@ -6,8 +6,10 @@
 //
 
 import UIKit
+import MTSlideToOpen
 
-class CouponDetailViewController: UIViewController {
+class CouponDetailViewController: UIViewController, MTSlideToOpenDelegate {
+   
     
     @IBOutlet weak var detailTableView: UITableView!
     
@@ -25,12 +27,27 @@ class CouponDetailViewController: UIViewController {
         detailTableView.register(UINib(nibName: "DescriptionTableCell", bundle: nil), forCellReuseIdentifier: "DescriptionTableCell")
         detailTableView.register(UINib(nibName: "GetCouponTableCell", bundle: nil), forCellReuseIdentifier: "GetCouponTableCell")
         detailTableView.register(UINib(nibName: "RateExperienceTableCell", bundle: nil), forCellReuseIdentifier: "RateExperienceTableCell")
+        detailTableView.register(UINib(nibName: "ResetCouponTableCell", bundle: nil), forCellReuseIdentifier: "ResetCouponTableCell")
         // Do any additional setup after loading the view.
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.detailTableView.reloadData()
+    }
+    
+    func mtSlideToOpenDelegateDidFinish(_ sender: MTSlideToOpen.MTSlideToOpenView) {
+       
+        let storyboard = UIStoryboard(name: "Home", bundle: nil)
+        let myAlert = storyboard.instantiateViewController(withIdentifier: "UnlockCouponPopUp") as! UnlockCouponPopUp
+        myAlert.couponId = self.couponDetail.couponCode
+        myAlert.titleString = self.couponDetail.name
+        myAlert.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
+        myAlert.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
+        sender.resetStateWithAnimation(true)
+        let nav = UINavigationController(rootViewController: myAlert)
+        self.present(nav, animated: true, completion: nil)
+        
     }
     
     func addCoupon(couponId:Int) {
@@ -46,10 +63,28 @@ class CouponDetailViewController: UIViewController {
     }
     }
     
+    func removeCoupon(orderId:Int) {
+        
+        let parameters: [String: Any] = ["order_id":orderId]
+        
+        ApiService.postAPIWithHeaderAndParameters(urlString: Constants.AppUrls.removeCoupon, view: self.view, jsonString: parameters as [String : AnyObject] ) { response in
+            self.showError(message: response["message"] as? String ?? "")
+            self.navigationController?.popViewController(animated: true)
+        }
+    failure: { error in
+        self.showError(message: error.localizedDescription)
+    }
+    }
+    
     @objc func getCouponAction(sender: UIButton){
         
         addCoupon(couponId: self.couponDetail.id)
         
+    }
+    
+    @objc func removeCouponAction(sender: UIButton){
+        
+        removeCoupon(orderId: self.couponDetail.orderId)
     }
 }
 
@@ -92,14 +127,18 @@ extension CouponDetailViewController : UITableViewDelegate,UITableViewDataSource
         case 1:
             if isHistory {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "RateExperienceTableCell", for: indexPath) as! RateExperienceTableCell
+                
+                
                 return cell
             }
             else if (isFromCouponTab) {
-                
+                let cell = tableView.dequeueReusableCell(withIdentifier: "ResetCouponTableCell", for: indexPath) as! ResetCouponTableCell
+                cell.removeButton.addTarget(self, action: #selector(removeCouponAction(sender:)), for: .touchUpInside)
+                cell.slider.delegate = self
+                return cell
             }
             else {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "GetCouponTableCell", for: indexPath) as! GetCouponTableCell
-                cell.getCouponButton.tag = indexPath.row
                 cell.getCouponButton.addTarget(self, action: #selector(getCouponAction(sender:)), for: .touchUpInside)
                 return cell
             }
@@ -107,7 +146,6 @@ extension CouponDetailViewController : UITableViewDelegate,UITableViewDataSource
         default:
             return UITableViewCell()
         }
-        return UITableViewCell()
     }
     
 }

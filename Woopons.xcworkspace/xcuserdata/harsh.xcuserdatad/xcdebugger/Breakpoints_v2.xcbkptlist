@@ -7,266 +7,81 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "BF73393C-B974-4762-90A1-1F70DD3D30A1"
+            uuid = "FE56BB46-BD68-4FC5-80C6-9A225EBBCE24"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Woopons/ViewControllers/ProfileViewController.swift"
+            filePath = "Woopons/ViewControllers/UnlockCouponPopUp.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "78"
-            endingLineNumber = "78"
-            landmarkName = "imagePickerController(_:didFinishPickingMediaWithInfo:)"
+            startingLineNumber = "35"
+            endingLineNumber = "35"
+            landmarkName = "unlockButtonTapped(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "913C0374-8C98-404F-B5E0-A870CE2DF25E"
+            uuid = "AFA2F5E2-DF1A-456F-9B8D-0A6B76F14E7F"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Woopons/ViewControllers/ProfileViewController.swift"
+            filePath = "Woopons/SceneDelegate.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "79"
-            endingLineNumber = "79"
-            landmarkName = "imagePickerController(_:didFinishPickingMediaWithInfo:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "913C0374-8C98-404F-B5E0-A870CE2DF25E - 2fdab0874274d88a"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Woopons.ProfileViewController.imagePickerController(_: __C.UIImagePickerController, didFinishPickingMediaWithInfo: Swift.Dictionary&lt;__C.UIImagePickerControllerInfoKey, Any&gt;) -&gt; ()"
-                  moduleName = "Woopons"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/harsh/Documents/iOS%20Projects/Woo-pons_iOS/Woopons/ViewControllers/ProfileViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "79"
-                  endingLineNumber = "79"
-                  offsetFromSymbolStart = "680">
-               </Location>
-               <Location
-                  uuid = "913C0374-8C98-404F-B5E0-A870CE2DF25E - cb1727de6ca8b95e"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 @Swift.MainActor () -&gt; () in Woopons.ProfileViewController.imagePickerController(_: __C.UIImagePickerController, didFinishPickingMediaWithInfo: Swift.Dictionary&lt;__C.UIImagePickerControllerInfoKey, Any&gt;) -&gt; ()"
-                  moduleName = "Woopons"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/harsh/Documents/iOS%20Projects/Woo-pons_iOS/Woopons/ViewControllers/ProfileViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "80"
-                  endingLineNumber = "80"
-                  offsetFromSymbolStart = "65">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "18C242C2-75B4-4D1C-96F3-8F8D54B45739"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Woopons/ViewControllers/ProfileViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "80"
-            endingLineNumber = "80"
-            landmarkName = "imagePickerController(_:didFinishPickingMediaWithInfo:)"
+            startingLineNumber = "17"
+            endingLineNumber = "17"
+            landmarkName = "scene(_:willConnectTo:options:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "63F4C050-CCB6-4D9B-ADFF-8520197AC427"
+            uuid = "BD36D85D-A535-49CF-8F71-D133306CB544"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Woopons/ViewControllers/ProfileViewController.swift"
+            filePath = "Woopons/ViewControllers/CouponsViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "81"
-            endingLineNumber = "81"
-            landmarkName = "imagePickerController(_:didFinishPickingMediaWithInfo:)"
+            startingLineNumber = "48"
+            endingLineNumber = "48"
+            landmarkName = "getCoupons()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "AA191814-96E2-4FE1-B8FE-FEC30576A07B"
+            uuid = "9015388D-2120-4391-A4FC-3B862F52E45D"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Woopons/ViewControllers/ProfileViewController.swift"
+            filePath = "Woopons/ViewControllers/CouponsViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "73"
-            endingLineNumber = "73"
-            landmarkName = "imagePickerController(_:didFinishPickingMediaWithInfo:)"
+            startingLineNumber = "49"
+            endingLineNumber = "49"
+            landmarkName = "getCoupons()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "E72B49E4-4D73-48FC-853E-D44E3DB81BE2"
+            uuid = "66EFAFB7-3C59-4F12-9C5D-18CBF8B948C6"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Woopons/ViewControllers/ProfileViewController.swift"
+            filePath = "Woopons/ViewControllers/CouponsViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "74"
-            endingLineNumber = "74"
-            landmarkName = "imagePickerController(_:didFinishPickingMediaWithInfo:)"
+            startingLineNumber = "52"
+            endingLineNumber = "52"
+            landmarkName = "getCoupons()"
             landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "8D62DA87-EDFB-4253-AFD1-1D88B8FF7689"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Woopons/ViewControllers/ProfileViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "75"
-            endingLineNumber = "75"
-            landmarkName = "imagePickerController(_:didFinishPickingMediaWithInfo:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "B435CFDB-82BF-40A0-BE8D-9244461C67BA"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Woopons/ViewControllers/HomeViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "425"
-            endingLineNumber = "425"
-            landmarkName = "collectionView(collectionviewcell:index:sectionTag:didTappedInTableViewCell:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "2B9754A8-456B-41E6-A4A8-7AF858BE9A21"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Woopons/Modal/Favorites.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "54"
-            endingLineNumber = "54"
-            landmarkName = "eventWithObject(data:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "1B394E5A-14E6-42CC-83BC-EC1F94D3942A"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Woopons/Modal/Favorites.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "80"
-            endingLineNumber = "80">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "F0B4B255-DC39-4B72-905A-88E86890F481"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Woopons/Modal/Favorites.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "77"
-            endingLineNumber = "77">
-            <Locations>
-               <Location
-                  uuid = "F0B4B255-DC39-4B72-905A-88E86890F481 - c98376a31b08b071"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "static Woopons.Favorites.eventWithObject(data: Swift.Dictionary&lt;Swift.String, Swift.AnyObject&gt;) -&gt; Swift.Array&lt;Woopons.Favorites&gt;"
-                  moduleName = "Woopons"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/harsh/Documents/iOS%20Projects/Woo-pons_iOS/Woopons/Modal/Favorites.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "77"
-                  endingLineNumber = "77"
-                  offsetFromSymbolStart = "33381">
-               </Location>
-               <Location
-                  uuid = "F0B4B255-DC39-4B72-905A-88E86890F481 - c98376a31b08b071"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "static Woopons.Favorites.eventWithObject(data: Swift.Dictionary&lt;Swift.String, Swift.AnyObject&gt;) -&gt; Swift.Array&lt;Woopons.Favorites&gt;"
-                  moduleName = "Woopons"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/harsh/Documents/iOS%20Projects/Woo-pons_iOS/Woopons/Modal/Favorites.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "77"
-                  endingLineNumber = "77"
-                  offsetFromSymbolStart = "33674">
-               </Location>
-               <Location
-                  uuid = "F0B4B255-DC39-4B72-905A-88E86890F481 - c98376a31b08b071"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "static Woopons.Favorites.eventWithObject(data: Swift.Dictionary&lt;Swift.String, Swift.AnyObject&gt;) -&gt; Swift.Array&lt;Woopons.Favorites&gt;"
-                  moduleName = "Woopons"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/harsh/Documents/iOS%20Projects/Woo-pons_iOS/Woopons/Modal/Favorites.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "77"
-                  endingLineNumber = "77"
-                  offsetFromSymbolStart = "34006">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "C927671B-F176-4DD1-9DF0-3AE601F46D67"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Woopons/Modal/Favorites.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "61"
-            endingLineNumber = "61">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

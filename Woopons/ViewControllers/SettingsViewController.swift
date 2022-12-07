@@ -60,9 +60,8 @@ extension SettingsViewController : UITableViewDelegate, UITableViewDataSource {
         case 5:
             let storyboard = UIStoryboard(name: "Home", bundle: nil)
             let myAlert = storyboard.instantiateViewController(withIdentifier: "LogoutViewController")
-            myAlert.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
-            myAlert.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
-            self.present(myAlert, animated: true, completion: nil)
+            self.presentfromBottomToTop(vc: myAlert)
+
         default:
             break
         }

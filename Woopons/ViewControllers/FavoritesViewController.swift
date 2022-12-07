@@ -9,6 +9,7 @@ import UIKit
 
 class FavoritesViewController: UIViewController {
     
+    @IBOutlet weak var errorImage: UIImageView!
     @IBOutlet weak var favoritesTableView: UITableView!
     
     var favoriteList = [Favorites]()
@@ -47,6 +48,12 @@ class FavoritesViewController: UIViewController {
                 }
                 if let total = response["data"] as? [String:AnyObject] {
                     self.totalCount = total["total_count"] as? Int ?? 0
+                }
+                if self.totalCount == 0 {
+                    self.errorImage.isHidden = false
+                }
+                else {
+                    self.errorImage.isHidden = true
                 }
                 self.favoritesTableView.reloadData()
             }
@@ -154,7 +161,5 @@ extension FavoritesViewController : UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let data = favoriteList[indexPath.row]
         pushToCouponDetail(couponDetail: data,titleString: data.companyName,isFromCouponTab: false,isHistory:false)
-        
     }
-    
 }

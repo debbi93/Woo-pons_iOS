@@ -16,6 +16,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
+        if UserDefaults.standard.value(forKey: "isLoggedIn") as? Bool ==  true {
+            self.moveToHome()
+        }
+        else {
+            moveToLogin()
+        }
         guard let _ = (scene as? UIWindowScene) else { return }
     }
 
@@ -47,6 +53,34 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // to restore the scene back to its current state.
     }
 
+    func moveToHome(){
+        
+        let window = (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.window
+        let storyboard = UIStoryboard.init(name: "Home", bundle: nil)
+        let viewController = storyboard.instantiateViewController(withIdentifier: "TabbarViewController") as! TabbarViewController
+        let navigationController = UINavigationController()
+       viewController.selectedIndex = 0
+        navigationController.navigationItem.setHidesBackButton(true, animated: true)
+        navigationController.navigationBar.isHidden = false
+        navigationController.pushViewController(viewController, animated: true)
+        window?.rootViewController = navigationController
+        window?.makeKeyAndVisible()
+        
+    }
+    
+    func moveToLogin(){
+        
+        let window = (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.window
+        let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
+        let viewController = storyboard.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+        let navigationController = UINavigationController()
+        navigationController.navigationItem.setHidesBackButton(true, animated: true)
+        navigationController.navigationBar.isHidden = false
+        navigationController.pushViewController(viewController, animated: true)
+        window?.rootViewController = navigationController
+        window?.makeKeyAndVisible()
+        
+    }
 
 }
 

@@ -198,7 +198,7 @@
                                                         <color key="value" name="placeholderColor"/>
                                                     </userDefinedRuntimeAttribute>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="maxLength">
-                                                        <integer key="value" value="10"/>
+                                                        <integer key="value" value="50"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
@@ -360,7 +360,7 @@
                                                         <color key="value" name="placeholderColor"/>
                                                     </userDefinedRuntimeAttribute>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="maxLength">
-                                                        <integer key="value" value="10"/>
+                                                        <integer key="value" value="50"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
@@ -688,7 +688,7 @@
                                                         <color key="value" name="placeholderColor"/>
                                                     </userDefinedRuntimeAttribute>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="maxLength">
-                                                        <integer key="value" value="10"/>
+                                                        <integer key="value" value="50"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
@@ -720,7 +720,7 @@
                                                         <color key="value" name="placeholderColor"/>
                                                     </userDefinedRuntimeAttribute>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="maxLength">
-                                                        <integer key="value" value="10"/>
+                                                        <integer key="value" value="50"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>

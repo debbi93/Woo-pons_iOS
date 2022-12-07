@@ -20,9 +20,7 @@ class Pager1ViewController: UIViewController {
     }
     
     @IBAction func nextButtonTapped(_ sender: UIButton) {
-    // pushToLogin()
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        appDelegate.moveToHome()
+        pushToPager2()
     }
     
 }

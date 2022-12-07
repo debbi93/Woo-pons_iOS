@@ -51,14 +51,26 @@ class LoginViewController: UIViewController {
     
     func doLogin() {
         
-        // let parameters: [String: Any] = [ "password": self.passwordTextField.text ?? "" , "email":self.usernameTextField.text ?? "" ]
+         let parameters: [String: Any] = [ "password": self.passwordTextField.text ?? "" , "email":self.usernameTextField.text ?? "" ]
         
-        let parameters: [String: Any] = [ "password": "JSPAZV567" , "email":"rashpal.singh@xcelance.com1","mobile":true ]
         
         ApiService.postAPIWithHeaderAndParameters(urlString: Constants.AppUrls.login, view: self.view, jsonString: parameters as [String : AnyObject] ) { response in
             
             if let dict = response["data"] as? [String:AnyObject] {
                 UserDefaults.standard.setValue(dict["token"], forKey: "accessToken")
+                UserDefaults.standard.set(true, forKey: "isLoggedIn")
+                // iOS13 or later
+                if #available(iOS 13.0, *) {
+                    let sceneDelegate = UIApplication.shared.connectedScenes
+                        .first!.delegate as! SceneDelegate
+                    sceneDelegate.moveToHome()
+
+                // iOS12 or earlier
+                } else {
+                    // UIApplication.shared.keyWindow?.rootViewController
+                    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+                    appDelegate.moveToHome()
+                }
             }
         }
     failure: { error in

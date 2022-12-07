@@ -24,6 +24,7 @@ class Favorites {
     var ratingAvergae = 0.0
     var isfavorite = false
     var howToUse = ""
+    var orderId = 0
     
     class func eventWithObject(data:[String : AnyObject]) -> [Favorites] {
         
@@ -34,6 +35,7 @@ class Favorites {
                     for coupon in coupons {
                         let categoryDetails = Favorites()
                         categoryDetails.id = coupon["id"] as? Int ?? 0
+                        categoryDetails.orderId = coupon["order_id"] as? Int ?? 0
                         categoryDetails.name = coupon["name"] as? String ?? ""
                         categoryDetails.offer = coupon["offer"] as? String ?? ""
                         categoryDetails.about = coupon["about"] as? String ?? ""
