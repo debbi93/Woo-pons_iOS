@@ -297,7 +297,7 @@ extension UIImage {
 
 extension UIImageView {
     func setImage(with urlString: String, placeholder: UIImage){
-        guard let url = URL.init(string: urlString) else {
+        guard let url = URL.init(string: Constants.AppUrls.imageBaseUrl +  urlString) else {
             return
         }
         let resource = ImageResource(downloadURL: url, cacheKey: urlString )
