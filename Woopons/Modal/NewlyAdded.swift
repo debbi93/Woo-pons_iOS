@@ -30,7 +30,7 @@ class NewlyAdded {
                         categoryDetails.companyCategory = coupon["company_category"] as? String ?? ""
                         categoryDetails.companyLogo = coupon["company_logo"] as? String ?? ""
                         categoryDetails.companyLocation = coupon["company_location"] as? String ?? ""
-                        categoryDetails.rating = coupon["rating_count"] as? Int ?? 0
+                        categoryDetails.ratingCount = coupon["rating_count"] as? Int ?? 0
                         categoryDetails.ratingAvergae = coupon["rating_avg"] as? Double ?? 0.0
                         categoryDetails.isfavorite = coupon["is_favourited"] as? Bool ?? false
                         categoryDetails.howToUse = coupon["how_to_use"] as? String ?? ""

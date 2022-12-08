@@ -9,6 +9,7 @@ import UIKit
 
 class CouponsViewController: UIViewController {
     
+    @IBOutlet weak var popupView: UIView!
     @IBOutlet weak var historyButtonView: UIView!
     @IBOutlet weak var newButtonView: UIView!
     @IBOutlet weak var historyButton: UIButton!
@@ -18,6 +19,9 @@ class CouponsViewController: UIViewController {
     
     var isHistory = false
     var couponData : Coupon?
+    var titleString = ""
+    var couponCode = ""
+    var orderId = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,6 +63,8 @@ class CouponsViewController: UIViewController {
     }
     }
 
+    // MARK: - Actions
+    
     
     @IBAction func historyButtonTapped(_ sender: UIButton) {
         historyButton.tintColor = UIColor(named: "primaryRed")
@@ -92,8 +98,40 @@ class CouponsViewController: UIViewController {
         self.couponsTableView.reloadData()
     }
     
+    @IBAction func unlockButtonTapped(_ sender: Any) {
+        self.popupView.isHidden = true
+        self.pushToUnlockCoupon(title: self.titleString, coupon: self.couponCode,orderId: self.orderId)
+    }
+    
+    @IBAction func noButtonTapped(_ sender: Any) {
+        self.popupView.isHidden = true
+    }
+    
+    @objc func couponDetailAction(sender: UIButton){
+        if let data = self.couponData?.newlyAdded?[sender.tag] {
+            pushToCouponDetail(couponDetail: data,titleString: data.companyName,isFromCouponTab: true,isHistory:false)
+            
+        }
+    }
+    
+    @objc func getCouponAction(sender: UIButton){
+        self.popupView.isHidden = false
+        if let data = self.couponData?.newlyAdded?[sender.tag] {
+            self.titleString = data.name
+            self.couponCode = data.couponCode
+            self.orderId = data.orderId
+           
+        }
+    }
+    
+    @objc func historyDetailAction(sender: UIButton){
+        
+        if let data = self.couponData?.history?[sender.tag] {
+            pushToCouponDetail(couponDetail: data,titleString: data.companyName,isFromCouponTab: false,isHistory:true)
+            
+        }
+    }
 }
-
 
 extension CouponsViewController : UITableViewDelegate,UITableViewDataSource {
     
@@ -126,12 +164,11 @@ extension CouponsViewController : UITableViewDelegate,UITableViewDataSource {
             cell.nameLabel.text = data?.name
             cell.typeLabel.text = data?.repetition
             cell.imgView.setImage(with: data?.companyLogo ?? "", placeholder: UIImage(named: "placeholder")!)
-            cell.ratingLabel.text = "\(data?.ratingAvergae ?? 0.0) (\(data?.rating ?? 0)) ratings"
+            cell.ratingLabel.text = "\(data?.ratingAvergae ?? 0.0) (\(data?.ratingCount ?? 0)) ratings"
             cell.ratingView.rating = data?.ratingAvergae ?? 0.0
-            cell.favButton.tag = indexPath.row
             cell.detailsButton.tag = indexPath.row
-            cell.couponButton.tag = indexPath.row
             cell.typeLabel.isHidden = true
+            cell.detailsButton.addTarget(self, action: #selector(historyDetailAction(sender:)), for: .touchUpInside)
             cell.couponButton.isHidden = true
             cell.labelTopConstraint.constant = 0
             cell.labelBottomConstraint.constant = 0
@@ -151,15 +188,15 @@ extension CouponsViewController : UITableViewDelegate,UITableViewDataSource {
             cell.nameLabel.text = data?.name
             cell.typeLabel.text = data?.repetition
             cell.imgView.setImage(with: data?.companyLogo ?? "", placeholder: UIImage(named: "placeholder")!)
-            cell.ratingLabel.text = "\(data?.ratingAvergae ?? 0.0) (\(data?.rating ?? 0)) ratings"
+            cell.ratingLabel.text = "\(data?.ratingAvergae ?? 0.0) (\(data?.ratingCount ?? 0)) ratings"
             cell.ratingView.rating = data?.ratingAvergae ?? 0.0
-            cell.favButton.tag = indexPath.row
             cell.detailsButton.tag = indexPath.row
+            cell.couponButton.setTitle("Unlock Coupon", for: .normal)
+            cell.couponButton.underline(color: "primaryRed")
+            cell.detailsButton.addTarget(self, action: #selector(couponDetailAction(sender:)), for: .touchUpInside)
+            cell.couponButton.addTarget(self, action: #selector(getCouponAction(sender:)), for: .touchUpInside)
             cell.couponButton.tag = indexPath.row
-            cell.typeLabel.isHidden = true
-            cell.couponButton.isHidden = true
-            cell.labelTopConstraint.constant = 0
-            cell.labelBottomConstraint.constant = 0
+
         }
       
         return cell

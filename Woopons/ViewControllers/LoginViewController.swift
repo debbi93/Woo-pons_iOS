@@ -36,14 +36,17 @@ class LoginViewController: UIViewController {
     
     func checkValidations(){
         self.view.endEditing(true)
-        doLogin()
-        //        if(usernameTextField.text!.isEmptyOrWhitespace)() {
-        //            self.showError(message: "Please enter your username")
-        //        }
-        //
-        //        else if(passwordTextField.text!.isEmptyOrWhitespace()){
-        //            self.showError(message: "Please enter your password")
-        //        }
+        
+        if(usernameTextField.text!.isEmptyOrWhitespace)() {
+            self.showError(message: "Please enter your username")
+        }
+        
+        else if(passwordTextField.text!.isEmptyOrWhitespace()){
+            self.showError(message: "Please enter your password")
+        }
+        else {
+            doLogin()
+        }
         
     }
     
@@ -51,8 +54,7 @@ class LoginViewController: UIViewController {
     
     func doLogin() {
         
-         let parameters: [String: Any] = [ "password": self.passwordTextField.text ?? "" , "email":self.usernameTextField.text ?? "" ]
-        
+        let parameters: [String: Any] = [ "password": self.passwordTextField.text ?? "" , "email":self.usernameTextField.text ?? "","mobile":true ]
         
         ApiService.postAPIWithHeaderAndParameters(urlString: Constants.AppUrls.login, view: self.view, jsonString: parameters as [String : AnyObject] ) { response in
             
@@ -64,10 +66,9 @@ class LoginViewController: UIViewController {
                     let sceneDelegate = UIApplication.shared.connectedScenes
                         .first!.delegate as! SceneDelegate
                     sceneDelegate.moveToHome()
-
-                // iOS12 or earlier
+                    
+                    // iOS12 or earlier
                 } else {
-                    // UIApplication.shared.keyWindow?.rootViewController
                     let appDelegate = UIApplication.shared.delegate as! AppDelegate
                     appDelegate.moveToHome()
                 }

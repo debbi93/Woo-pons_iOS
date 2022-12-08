@@ -9,6 +9,7 @@ import UIKit
 
 class FavoritesViewController: UIViewController {
     
+    @IBOutlet weak var popUpView: UIView!
     @IBOutlet weak var errorImage: UIImageView!
     @IBOutlet weak var favoritesTableView: UITableView!
     
@@ -32,6 +33,12 @@ class FavoritesViewController: UIViewController {
         getFavorites()
     }
     
+    @IBAction func okButtonTapped(_ sender: UIButton) {
+        self.popUpView.isHidden = true
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+   
     // MARK: - Api Call's
     
     func getFavorites() {
@@ -79,7 +86,8 @@ class FavoritesViewController: UIViewController {
         
         let parameters: [String: Any] = ["coupon_id":couponId]
         
-        ApiService.postAPIWithHeaderAndParameters1(urlString: Constants.AppUrls.addCoupon, view: self.view, jsonString: parameters as [String : AnyObject] ) { response in
+        ApiService.postAPIWithHeaderAndParameters(urlString: Constants.AppUrls.addCoupon, view: self.view, jsonString: parameters as [String : AnyObject] ) { response in
+            self.popUpView.isHidden = false
             
         }
     failure: { error in
@@ -147,11 +155,12 @@ extension FavoritesViewController : UITableViewDelegate,UITableViewDataSource {
         }
         cell.typeLabel.text = data.repetition
         cell.imgView.setImage(with: data.companyLogo, placeholder: UIImage(named: "placeholder")!)
-        cell.ratingLabel.text = "\(data.ratingAvergae) (\(data.rating)) ratings"
+        cell.ratingLabel.text = "\(data.ratingAvergae) (\(data.ratingCount)) ratings"
         cell.ratingView.rating = data.ratingAvergae
         cell.favButton.tag = indexPath.row
         cell.detailsButton.tag = indexPath.row
         cell.couponButton.tag = indexPath.row
+        cell.couponButton.underline(color: "primaryRed")
         cell.detailsButton.addTarget(self, action: #selector(couponDetailAction(sender:)), for: .touchUpInside)
         cell.couponButton.addTarget(self, action: #selector(getCouponAction(sender:)), for: .touchUpInside)
         cell.favButton.addTarget(self, action: #selector(favButtonAction(sender:)), for: .touchUpInside)

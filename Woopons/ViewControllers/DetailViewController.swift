@@ -7,16 +7,21 @@
 
 import UIKit
 import MTSlideToOpen
+import Cosmos
 
 class CouponDetailViewController: UIViewController, MTSlideToOpenDelegate {
    
-    
+    @IBOutlet weak var successLabel: UILabel!
+    @IBOutlet weak var successView: UIView!
+    @IBOutlet weak var redeemCouponView: UIView!
+    @IBOutlet weak var popupView: UIView!
     @IBOutlet weak var detailTableView: UITableView!
     
     var titleString = ""
     var couponDetail = Favorites()
     var isFromCouponTab = false
     var isHistory = false
+    var rating = 0.0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,15 +43,25 @@ class CouponDetailViewController: UIViewController, MTSlideToOpenDelegate {
     
     func mtSlideToOpenDelegateDidFinish(_ sender: MTSlideToOpen.MTSlideToOpenView) {
        
-        let storyboard = UIStoryboard(name: "Home", bundle: nil)
-        let myAlert = storyboard.instantiateViewController(withIdentifier: "UnlockCouponPopUp") as! UnlockCouponPopUp
-        myAlert.couponId = self.couponDetail.couponCode
-        myAlert.titleString = self.couponDetail.name
-        myAlert.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
-        myAlert.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
+        self.popupView.isHidden = false
+        self.redeemCouponView.isHidden = false
         sender.resetStateWithAnimation(true)
-        let nav = UINavigationController(rootViewController: myAlert)
-        self.present(nav, animated: true, completion: nil)
+    }
+    
+    func addReview () {
+            
+        let parameters: [String: Any] = ["rating":rating,"coupon_id":self.couponDetail.id ]
+            
+            ApiService.postAPIWithHeaderAndParameters(urlString: Constants.AppUrls.addReview, view: self.view, jsonString: parameters as [String : AnyObject] ) { response in
+                
+              //  if let dict = response["data"] as? [String:AnyObject] {
+                    self.showError(message: response["message"] as? String ?? "")
+                    self.navigationController?.popViewController(animated: true)
+               // }
+            }
+        failure: { error in
+            self.showError(message: error.localizedDescription)
+        }
         
     }
     
@@ -55,8 +70,10 @@ class CouponDetailViewController: UIViewController, MTSlideToOpenDelegate {
         let parameters: [String: Any] = ["coupon_id":couponId]
         
         ApiService.postAPIWithHeaderAndParameters(urlString: Constants.AppUrls.addCoupon, view: self.view, jsonString: parameters as [String : AnyObject] ) { response in
-            self.showError(message: response["message"] as? String ?? "")
-            self.navigationController?.popViewController(animated: true)
+           
+            self.popupView.isHidden = false
+            self.successView.isHidden = false
+            self.successLabel.text = "Coupon Added"
         }
     failure: { error in
         self.showError(message: error.localizedDescription)
@@ -68,8 +85,10 @@ class CouponDetailViewController: UIViewController, MTSlideToOpenDelegate {
         let parameters: [String: Any] = ["order_id":orderId]
         
         ApiService.postAPIWithHeaderAndParameters(urlString: Constants.AppUrls.removeCoupon, view: self.view, jsonString: parameters as [String : AnyObject] ) { response in
-            self.showError(message: response["message"] as? String ?? "")
-            self.navigationController?.popViewController(animated: true)
+            
+            self.popupView.isHidden = false
+            self.successView.isHidden = false
+            self.successLabel.text = "Coupon Removed"
         }
     failure: { error in
         self.showError(message: error.localizedDescription)
@@ -86,11 +105,29 @@ class CouponDetailViewController: UIViewController, MTSlideToOpenDelegate {
         
         removeCoupon(orderId: self.couponDetail.orderId)
     }
+    
+    // MARK: - Actions
+     
+     @IBAction func unlockButtonTapped(_ sender: UIButton) {
+         
+         self.popupView.isHidden = true
+         self.redeemCouponView.isHidden = true
+         self.pushToUnlockCoupon(title: self.titleString, coupon: self.couponDetail.couponCode,orderId: self.couponDetail.orderId)
+         
+     }
+     @IBAction func noButtonTapped(_ sender: UIButton) {
+         self.popupView.isHidden = true
+         self.redeemCouponView.isHidden = true
+     }
+     @IBAction func okButtonTapped(_ sender: UIButton) {
+         
+         self.popupView.isHidden = true
+         self.successView.isHidden = true
+         self.navigationController?.popViewController(animated: true)
+     }
 }
 
-
 extension CouponDetailViewController : UITableViewDelegate,UITableViewDataSource {
-    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 2
@@ -107,7 +144,7 @@ extension CouponDetailViewController : UITableViewDelegate,UITableViewDataSource
             let cell = tableView.dequeueReusableCell(withIdentifier: "DescriptionTableCell", for: indexPath) as! DescriptionTableCell
             
             cell.imgView.setImage(with: self.couponDetail.companyLogo, placeholder: UIImage(named: "placeholder")!)
-            cell.ratingLabel.text = "\(self.couponDetail.ratingAvergae) (\(self.couponDetail.rating)) ratings"
+            cell.ratingLabel.text = "\(self.couponDetail.ratingAvergae) (\(self.couponDetail.ratingCount)) ratings"
             cell.ratingView.rating = self.couponDetail.ratingAvergae
             cell.nameLabel.text = self.couponDetail.companyName
             cell.locationLabel.text = self.couponDetail.companyLocation
@@ -127,7 +164,15 @@ extension CouponDetailViewController : UITableViewDelegate,UITableViewDataSource
         case 1:
             if isHistory {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "RateExperienceTableCell", for: indexPath) as! RateExperienceTableCell
-                
+                cell.ratingView.settings.fillMode = .half
+                if self.couponDetail.rating != 0.0 {
+                    cell.ratingView.didFinishTouchingCosmos = { rating in
+                        cell.ratingView.rating = rating
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
+                            self.addReview()
+                        })
+                    }
+                }
                 
                 return cell
             }

@@ -38,10 +38,10 @@ class CategoriesViewController: UIViewController {
             if let dict = response as? [String:AnyObject] {
                 self.categoryList =  AllCategories.eventWithObject(data: dict)
                 if self.categoryList.count > 0 {
-                    self.errorImage.isHidden = false
+                    self.errorImage.isHidden = true
                 }
                 else {
-                    self.errorImage.isHidden = true
+                    self.errorImage.isHidden = false
                 }
                 self.categoriesCollectionView.reloadData()
             }

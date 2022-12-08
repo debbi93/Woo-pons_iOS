@@ -20,11 +20,12 @@ class Favorites {
     var companyCategory = ""
     var companyLogo = ""
     var companyLocation = ""
-    var rating = 0
+    var ratingCount = 0
     var ratingAvergae = 0.0
     var isfavorite = false
     var howToUse = ""
     var orderId = 0
+    var rating = 0.0
     
     class func eventWithObject(data:[String : AnyObject]) -> [Favorites] {
         
@@ -46,10 +47,10 @@ class Favorites {
                         categoryDetails.companyCategory = coupon["company_category"] as? String ?? ""
                         categoryDetails.companyLogo = coupon["company_logo"] as? String ?? ""
                         categoryDetails.companyLocation = coupon["company_location"] as? String ?? ""
-                        categoryDetails.rating = coupon["rating_count"] as? Int ?? 0
+                        categoryDetails.ratingCount = coupon["rating_count"] as? Int ?? 0
                         categoryDetails.ratingAvergae = coupon["rating_avg"] as? Double ?? 0.0
                         categoryDetails.isfavorite = coupon["is_favourited"] as? Bool ?? false
-                        categoryDetails.howToUse = coupon["how_to_use"] as? String ?? ""
+                        categoryDetails.rating = coupon["rating"] as? Double ?? 0.0
                         value.append(categoryDetails)
                     }
                     }
