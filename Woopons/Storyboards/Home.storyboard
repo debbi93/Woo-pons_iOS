@@ -1372,8 +1372,8 @@ passages van Lorem Ipsum beschikbaar maarhet .</string>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:59" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NGy-1h-cGF">
-                                <rect key="frame" x="139" y="261.5" width="97" height="56"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:60" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NGy-1h-cGF">
+                                <rect key="frame" x="139" y="261.5" width="97.5" height="56"/>
                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="34"/>
                                 <color key="textColor" name="primaryRed"/>
                                 <nil key="highlightedColor"/>
