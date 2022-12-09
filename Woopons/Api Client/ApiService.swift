@@ -27,13 +27,13 @@ class ApiService {
         print(url)
         if (NetworkReachabilityManager()?.isReachable)!{
             
-            UIView().isUserInteractionEnabled = false
+           view.isUserInteractionEnabled = false
             view.startActivityIndicator()
             
             AF.request(url, method: .post, parameters: jsonString, encoding: JSONEncoding.default, headers: CustomHeaders.apiHeaders()).responseJSON {
                 response in
                 
-                UIView().isUserInteractionEnabled = true
+               view.isUserInteractionEnabled = true
                 view.stopActivityIndicator()
                 
                 switch(response.result) {
@@ -67,12 +67,12 @@ class ApiService {
         print(url)
         if (NetworkReachabilityManager()?.isReachable)!{
             
-            UIView().isUserInteractionEnabled = false
+           view.isUserInteractionEnabled = false
             
             AF.request(url, method: .post, parameters: jsonString, encoding: JSONEncoding.default, headers: CustomHeaders.apiHeaders()).responseJSON {
                 response in
                 
-                UIView().isUserInteractionEnabled = true
+               view.isUserInteractionEnabled = true
                 
                 switch(response.result) {
                 case .success(_):
@@ -105,13 +105,13 @@ class ApiService {
         print(url)
         if (NetworkReachabilityManager()?.isReachable)!{
             
-            UIView().isUserInteractionEnabled = false
+           view.isUserInteractionEnabled = false
             view.startActivityIndicator()
             
             AF.request(url, method: .get, encoding: JSONEncoding.default, headers: CustomHeaders.apiHeaders()).responseJSON {
                 response in
                 
-                UIView().isUserInteractionEnabled = true
+               view.isUserInteractionEnabled = true
                 view.stopActivityIndicator()
                 
                 switch(response.result) {

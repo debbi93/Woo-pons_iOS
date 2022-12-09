@@ -75,6 +75,11 @@ class TrendingCategoryViewController: UIViewController {
             }
         }
     }
+    
+    @objc func exploreAction(sender: UIButton){
+        let data =  self.trendingCategory[sender.tag]
+        self.pushToFavorites(pageTitle: data.name, urlString: "\(Constants.AppUrls.getCouponsFromCategory)\(data.id)?page=")
+    }
 }
 
 
@@ -94,6 +99,7 @@ extension TrendingCategoryViewController : UITableViewDelegate,UITableViewDataSo
         let trendingData = self.trendingCategory[indexPath.row]
         cell.titleLabel.text = trendingData.name
         cell.exploreButton.tag = indexPath.row
+        cell.exploreButton.addTarget(self, action: #selector(exploreAction(sender:)), for: .touchUpInside)
         cell.descLabel.text = trendingData.description
         cell.imgView.image = nil
         if !trendingData.trendingImage.isEmpty {

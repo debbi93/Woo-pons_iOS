@@ -9,6 +9,7 @@ import UIKit
 
 class HomeViewController: UIViewController,UISearchBarDelegate {
     
+    @IBOutlet weak var errorImage: UIImageView!
     @IBOutlet weak var homeTableView: UITableView!
     @IBOutlet var headerView: UIView!
     @IBOutlet weak var searchBar: UISearchBar!
@@ -126,6 +127,13 @@ class HomeViewController: UIViewController,UISearchBarDelegate {
             
             if let dict = response as? [String:AnyObject] {
                 self.dashboardData =  Home.eventWithObject(data: dict)
+                if self.dashboardData?.categoryList?.count == 0 && self.dashboardData?.topBrands?.count ==  0 {
+                    self.errorImage.isHidden = false
+                }
+                else {
+                    self.errorImage.isHidden = true
+
+                }
                 self.homeTableView.reloadData()
             }
         }
@@ -267,6 +275,26 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
 
 extension HomeTableCell : UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
+    @objc func couponDetailAction(sender: UIButton){
+        
+       let row = sender.tag % 1000
+        let section = sender.tag / 1000
+        let indexPath = NSIndexPath(row: row, section: section)
+
+        let cell = self.homeTableCollectionCell.cellForItem(at: indexPath as IndexPath) as? RecentsCollectionCell
+        self.homeSection2Delegate?.collectionView(collectionviewcell: cell, index: indexPath as IndexPath,sectionTag: sectionTag, didTappedInTableViewCell: self)
+    }
+    
+    @objc func exploreAction(sender: UIButton){
+        
+       let row = sender.tag % 1000
+        let section = sender.tag / 1000
+        let indexPath = NSIndexPath(row: row, section: section)
+
+        let cell = self.homeTableCollectionCell.cellForItem(at: indexPath as IndexPath) as? TrendingCollectionCell
+        self.homeSection4Delegate?.collectionView(collectionviewcell: cell, index: indexPath as IndexPath, sectionTag: sectionTag,didTappedInTableViewCell: self)
+    }
+    
     func loadCategoriesSection(categories : [AllCategories]?) {
         self.categories = categories
         self.homeTableCollectionCell.reloadData()
@@ -333,10 +361,11 @@ extension HomeTableCell : UICollectionViewDelegate, UICollectionViewDataSource, 
             else {
                 cell.imgView.image = UIImage(named: "placeholder")
             }
-            cell.nameLabel.text = recentData?.companyName
+            cell.nameLabel.text = recentData?.name
             cell.categoryLabel.text = recentData?.companyCategory
             cell.typeLabel.text = recentData?.repetition
-            cell.detailButton.tag = indexPath.section
+            cell.detailButton.tag = (indexPath.section * 1000) + indexPath.row
+            cell.detailButton.addTarget(self, action: #selector(couponDetailAction(sender:)), for: .touchUpInside)
             return cell
             
             
@@ -360,7 +389,8 @@ extension HomeTableCell : UICollectionViewDelegate, UICollectionViewDataSource, 
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TrendingCollectionCell", for: indexPath) as! TrendingCollectionCell
             let trendingData = self.trendingCategories?[indexPath.item]
             cell.categoryLabel.text = trendingData?.name
-            cell.exploreButton.tag = indexPath.item
+            cell.exploreButton.tag = (indexPath.section * 1000) + indexPath.row
+            cell.exploreButton.addTarget(self, action: #selector(exploreAction(sender:)), for: .touchUpInside)
             cell.imgView.image = nil
             if let image = trendingData?.image , !image.isEmpty {
                 cell.imgView.setImage(with: image, placeholder: UIImage(named: "placeholder")!)
@@ -400,13 +430,13 @@ extension HomeTableCell : UICollectionViewDelegate, UICollectionViewDataSource, 
         
         switch sectionTag {
         case 0:
-            return CGSize(width: CGFloat((collectionView.frame.size.width / 2.3) - 20), height: 80)
+            return CGSize(width: CGFloat((collectionView.frame.size.width / 2.5) - 20), height: 80)
         case 1:
-            return CGSize(width: CGFloat((collectionView.frame.size.width / 1.5) - 10), height: 180)
+            return CGSize(width: CGFloat((collectionView.frame.size.width / 1.5) - 10), height: 200)
         case 2:
             return CGSize(width: CGFloat((collectionView.frame.size.width / 2.5) - 20), height: 80)
         case 3:
-            return CGSize(width: CGFloat((collectionView.frame.size.width / 1.2) - 10), height: 130)
+            return CGSize(width: CGFloat((collectionView.frame.size.width / 1.2) - 10), height: 150)
         default:
             return CGSize(width: CGFloat((collectionView.frame.size.width / 3) - 10), height: 150)
         }
@@ -438,7 +468,7 @@ extension HomeViewController : HomeSection2Delegate {
     func collectionView(collectionviewcell: RecentsCollectionCell?, index: IndexPath,sectionTag: Int, didTappedInTableViewCell: HomeTableCell) {
         
         if let data = self.dashboardData?.recentList?[index.row] {
-            pushToCouponDetail(couponDetail: data,titleString: data.companyName,isFromCouponTab: false,isHistory:false)
+            pushToCouponDetail(couponDetail: data,titleString: data.name,isFromCouponTab: false,isHistory:false)
         }
     }
 }

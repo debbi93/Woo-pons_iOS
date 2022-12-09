@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -301,18 +302,24 @@ after unlocking</string>
                                     <outlet property="delegate" destination="5ub-hJ-q7Z" id="3Os-ef-TgI"/>
                                 </connections>
                             </tableView>
+                            <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="Za3-UH-nMT">
+                                <rect key="frame" x="37.5" y="159" width="300" height="300"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="RyE-Yw-tfF"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="w5y-th-DAb" firstAttribute="top" secondItem="PF3-ZL-1ak" secondAttribute="top" id="C1c-MT-zKh"/>
                             <constraint firstAttribute="bottom" secondItem="w5y-th-DAb" secondAttribute="bottom" id="ED1-gb-8Dl"/>
+                            <constraint firstItem="Za3-UH-nMT" firstAttribute="centerY" secondItem="RyE-Yw-tfF" secondAttribute="centerY" id="JE2-rj-LWU"/>
                             <constraint firstItem="w5y-th-DAb" firstAttribute="leading" secondItem="RyE-Yw-tfF" secondAttribute="leading" id="Wrq-iR-kIH"/>
                             <constraint firstItem="RyE-Yw-tfF" firstAttribute="trailing" secondItem="w5y-th-DAb" secondAttribute="trailing" id="bbh-Il-M6K"/>
+                            <constraint firstItem="Za3-UH-nMT" firstAttribute="centerX" secondItem="RyE-Yw-tfF" secondAttribute="centerX" id="eji-PO-xcX"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Home" image="home" selectedImage="home-selected" id="lDB-O3-Rnd"/>
                     <connections>
+                        <outlet property="errorImage" destination="Za3-UH-nMT" id="vGB-wd-pMK"/>
                         <outlet property="headerView" destination="xSF-1m-l45" id="UQb-ll-Um6"/>
                         <outlet property="homeTableView" destination="w5y-th-DAb" id="ctm-Zm-ZXX"/>
                         <outlet property="searchBar" destination="KgD-4h-9Bt" id="z3l-dh-SPL"/>

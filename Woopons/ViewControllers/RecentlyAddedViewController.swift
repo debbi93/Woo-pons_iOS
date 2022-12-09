@@ -75,6 +75,11 @@ class RecentlyAddedViewController: UIViewController {
             }
         }
     }
+    
+    @objc func couponDetailAction(sender: UIButton){
+        let data = recentlyAdded[sender.tag]
+        pushToCouponDetail(couponDetail: data,titleString: data.name,isFromCouponTab: false,isHistory:false)
+    }
 }
 
 
@@ -99,12 +104,19 @@ extension RecentlyAddedViewController : UITableViewDelegate,UITableViewDataSourc
         else {
             cell.imgView.image = UIImage(named: "placeholder")
         }
-        cell.nameLabel.text = recentData.companyName
-        cell.categoryLabel.text = recentData.name
+        cell.nameLabel.text = recentData.name
+        cell.categoryLabel.text = recentData.companyCategory
         cell.typeLabel.text = recentData.repetition
         cell.detailButton.tag = indexPath.section
-        
+        cell.detailButton.addTarget(self, action: #selector(couponDetailAction(sender:)), for: .touchUpInside)
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let recentData = self.recentlyAdded[indexPath.row]
+        pushToCouponDetail(couponDetail: recentData,titleString: recentData.companyName,isFromCouponTab: false,isHistory:false)
+        
     }
     
 }

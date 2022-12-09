@@ -40,10 +40,20 @@ class CouponsViewController: UIViewController {
         getCoupons()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        errorImage.isHidden = true
+        newButton.tintColor = UIColor(named: "primaryRed")
+        historyButton.tintColor = UIColor(named: "black5")
+        newButtonView.backgroundColor = UIColor(named: "primaryRed")
+        historyButtonView.backgroundColor = .clear
+        isHistory = false
+        
+    }
+    
     // MARK: - Api Call's
     
     func getCoupons() {
-        
         ApiService.getAPIWithoutParameters(urlString: Constants.AppUrls.getMyCoupons , view: self.view) { response in
             
             if let dict = response as? [String:AnyObject] {
@@ -62,11 +72,24 @@ class CouponsViewController: UIViewController {
         self.showError(message: error.localizedDescription)
     }
     }
+    
+    func addRemoveFavorite(couponId:Int) {
+        
+        let parameters: [String: Any] = ["coupon_id":couponId]
+        
+        ApiService.postAPIWithHeaderAndParameters(urlString: Constants.AppUrls.addRemoveFavorite, view: self.view, jsonString: parameters as [String : AnyObject] ) { response in
+            self.showError(message: response["message"] as? String ?? "")
+        }
+    failure: { error in
+        self.showError(message: error.localizedDescription)
+    }
+    }
 
     // MARK: - Actions
     
     
     @IBAction func historyButtonTapped(_ sender: UIButton) {
+        errorImage.isHidden = true
         historyButton.tintColor = UIColor(named: "primaryRed")
         newButton.tintColor = UIColor(named: "black5")
         historyButtonView.backgroundColor = UIColor(named: "primaryRed")
@@ -83,7 +106,7 @@ class CouponsViewController: UIViewController {
     
     
     @IBAction func newButtonTapped(_ sender: UIButton) {
-        
+        errorImage.isHidden = true
         newButton.tintColor = UIColor(named: "primaryRed")
         historyButton.tintColor = UIColor(named: "black5")
         newButtonView.backgroundColor = UIColor(named: "primaryRed")
@@ -110,7 +133,6 @@ class CouponsViewController: UIViewController {
     @objc func couponDetailAction(sender: UIButton){
         if let data = self.couponData?.newlyAdded?[sender.tag] {
             pushToCouponDetail(couponDetail: data,titleString: data.companyName,isFromCouponTab: true,isHistory:false)
-            
         }
     }
     
@@ -131,6 +153,31 @@ class CouponsViewController: UIViewController {
             
         }
     }
+    
+    @objc func favButtonAction(sender: UIButton){
+        
+        let indexPath = IndexPath(row: sender.tag, section: 0)
+        var couponId = 0
+        if isHistory {
+         
+            let data = self.couponData?.history?[indexPath.row]
+            couponId = data?.id ?? 0
+            
+        }
+        else {
+            let data = self.couponData?.newlyAdded?[indexPath.row]
+            couponId = data?.id ?? 0
+        }
+        let cell = couponsTableView.cellForRow(at: indexPath) as? FavoriteTableCell
+        if cell?.favButton.imageView?.image == UIImage(named: "heart"){
+            cell?.favButton.setImage(UIImage(named: "heart-empty"), for: .normal)
+        }
+        else {
+            cell?.favButton.setImage(UIImage(named: "heart"), for: .normal)
+        }
+            addRemoveFavorite(couponId:couponId )
+        }
+    
 }
 
 extension CouponsViewController : UITableViewDelegate,UITableViewDataSource {
@@ -161,6 +208,8 @@ extension CouponsViewController : UITableViewDelegate,UITableViewDataSource {
             else {
                 cell.favButton.setImage(UIImage(named: "heart-empty"), for: .normal)
             }
+            cell.favButton.tag = indexPath.row
+            cell.favButton.addTarget(self, action: #selector(favButtonAction(sender:)), for: .touchUpInside)
             cell.nameLabel.text = data?.name
             cell.typeLabel.text = data?.repetition
             cell.imgView.image = nil
@@ -200,6 +249,8 @@ extension CouponsViewController : UITableViewDelegate,UITableViewDataSource {
             else {
                 cell.imgView.image = UIImage(named: "placeholder")
             }
+            cell.favButton.tag = indexPath.row
+            cell.favButton.addTarget(self, action: #selector(favButtonAction(sender:)), for: .touchUpInside)
             cell.ratingLabel.text = "\(data?.ratingAvergae ?? 0.0) (\(data?.ratingCount ?? 0)) ratings"
             cell.ratingView.rating = data?.ratingAvergae ?? 0.0
             cell.detailsButton.tag = indexPath.row

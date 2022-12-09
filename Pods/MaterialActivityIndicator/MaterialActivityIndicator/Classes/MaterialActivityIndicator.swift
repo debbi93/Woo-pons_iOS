@@ -57,7 +57,7 @@ public class MaterialActivityIndicatorView: UIView {
 
 extension MaterialActivityIndicatorView {
     override public var intrinsicContentSize: CGSize {
-        return CGSize(width: 24, height: 24)
+        return CGSize(width: 50, height: 50)
     }
 
     override public func layoutSubviews() {

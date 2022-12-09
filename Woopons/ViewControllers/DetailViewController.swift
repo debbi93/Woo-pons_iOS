@@ -50,7 +50,7 @@ class CouponDetailViewController: UIViewController, MTSlideToOpenDelegate {
     
     func addReview () {
             
-        let parameters: [String: Any] = ["rating":rating,"coupon_id":self.couponDetail.id ]
+        let parameters: [String: Any] = ["rating":rating,"coupon_id":self.couponDetail.id,"order_id":self.couponDetail.orderId ]
             
             ApiService.postAPIWithHeaderAndParameters(urlString: Constants.AppUrls.addReview, view: self.view, jsonString: parameters as [String : AnyObject] ) { response in
                 
@@ -170,15 +170,7 @@ extension CouponDetailViewController : UITableViewDelegate,UITableViewDataSource
             if isHistory {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "RateExperienceTableCell", for: indexPath) as! RateExperienceTableCell
                 cell.ratingView.settings.fillMode = .half
-                if self.couponDetail.rating != 0.0 {
-                    cell.ratingView.didFinishTouchingCosmos = { rating in
-                        cell.ratingView.rating = rating
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
-                            self.addReview()
-                        })
-                    }
-                }
-                
+            
                 return cell
             }
             else if (isFromCouponTab) {
@@ -198,4 +190,27 @@ extension CouponDetailViewController : UITableViewDelegate,UITableViewDataSource
         }
     }
     
-}
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        if isHistory {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "RateExperienceTableCell", for: indexPath) as! RateExperienceTableCell
+            
+            if self.couponDetail.rating == 0.0 {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
+                    self.addReview()
+                })
+//                cell.ratingView.didFinishTouchingCosmos = { rating in
+//                    print(rating)
+//
+//                }
+//
+//                cell.ratingView.didTouchCosmos = { rating in
+//                    cell.ratingView.rating = rating
+//                    DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
+//                        self.addReview()
+//                    })
+                }
+            }
+        }
+    }
+

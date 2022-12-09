@@ -45,6 +45,7 @@ class Favorites {
                         categoryDetails.companyName = coupon["company_name"] as? String ?? ""
                         categoryDetails.couponCode = coupon["coupon_code"] as? String ?? ""
                         categoryDetails.companyCategory = coupon["company_category"] as? String ?? ""
+                        categoryDetails.howToUse = coupon["how_to_use"] as? String ?? ""
                         categoryDetails.companyLogo = coupon["company_logo"] as? String ?? ""
                         categoryDetails.companyLocation = coupon["company_location"] as? String ?? ""
                         categoryDetails.ratingCount = coupon["rating_count"] as? Int ?? 0

@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -26,10 +27,10 @@
                         <rect key="frame" x="10" y="10" width="526" height="198"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="g2r-6D-32I">
-                                <rect key="frame" x="15" y="10" width="170" height="90"/>
+                                <rect key="frame" x="15" y="10" width="160" height="90"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="90" id="cuC-DQ-znz"/>
-                                    <constraint firstAttribute="width" constant="170" id="fEi-az-njx"/>
+                                    <constraint firstAttribute="width" constant="160" id="fEi-az-njx"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -38,12 +39,12 @@
                                 </userDefinedRuntimeAttributes>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zlJ-U6-R0p">
-                                <rect key="frame" x="195" y="10" width="274" height="0.0"/>
+                                <rect key="frame" x="185" y="10" width="284" height="0.0"/>
                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="16"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xNn-xa-y65">
-                                <rect key="frame" x="195" y="34" width="0.0" height="0.0"/>
+                                <rect key="frame" x="185" y="34" width="0.0" height="0.0"/>
                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="12"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -57,7 +58,7 @@
                                 <buttonConfiguration key="configuration" style="plain" image="heart" title=" "/>
                             </button>
                             <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YeN-3e-yZd" customClass="CosmosView" customModule="Cosmos">
-                                <rect key="frame" x="195" y="10" width="50" height="14"/>
+                                <rect key="frame" x="185" y="10" width="50" height="14"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="14" id="e45-4C-Y5d"/>
