@@ -16,9 +16,9 @@ class UnlockCouponViewController: UIViewController {
     var titleString = ""
     var orderId = 0
     var coupon = ""
-    var count = 60
+    var count = 5
     var timer: Timer?
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setBackButtonWithTitle(title: "")
@@ -32,21 +32,21 @@ class UnlockCouponViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        timer?.invalidate()
-        self.unlockCoupon()
-        return
+        if count != 0 {
+            timer?.invalidate()
+            self.unlockCoupon()
+        }
     }
     
     @objc func updateCounter() {
-
+        
         if count > 0 {
             self.timerLabel.text = "00:\(count)"
             count -= 1
         }
         else if count == 0 {
             timer?.invalidate()
-            unlockCoupon()
-            return
+            self.unlockCoupon()
         }
         
     }
@@ -61,9 +61,9 @@ class UnlockCouponViewController: UIViewController {
             self.navigationController?.popToRootViewController(animated: true)
             
         }
-        failure: { error in
+    failure: { error in
         self.showError(message: error.localizedDescription)
     }
     }
-
+    
 }
