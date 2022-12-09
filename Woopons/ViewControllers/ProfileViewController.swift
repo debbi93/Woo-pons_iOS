@@ -25,6 +25,8 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let tap = UITapGestureRecognizer(target: self, action: #selector(self.handleTap(_:)))
+        self.view.addGestureRecognizer(tap)
         self.setBackButtonWithTitle(title: "")
         self.title = "Profile"
         self.uploadButton.underline(color: "black5")
@@ -38,6 +40,11 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         getProfileDetails()
+    }
+    
+    @objc func handleTap(_ sender: UITapGestureRecognizer? = nil) {
+        // handling code
+        self.view.endEditing(true)
     }
     
     @IBAction func uploadImageButtonAction(_ sender: UIButton) {

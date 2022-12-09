@@ -14,6 +14,8 @@ class FeedbackViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let tap = UITapGestureRecognizer(target: self, action: #selector(self.handleTap(_:)))
+        self.view.addGestureRecognizer(tap)
         self.setBackButtonWithTitle(title: "")
         self.title = "Feedback & Suggestions"
         messageTextView.delegate = self
@@ -26,6 +28,11 @@ class FeedbackViewController: UIViewController {
         placeholderLabel.textColor = .tertiaryLabel
         placeholderLabel.isHidden = !messageTextView.text.isEmpty
         // Do any additional setup after loading the view.
+    }
+    
+    @objc func handleTap(_ sender: UITapGestureRecognizer? = nil) {
+        // handling code
+        self.view.endEditing(true)
     }
     
     @IBAction func submitButtonAction(_ sender: UIButton) {

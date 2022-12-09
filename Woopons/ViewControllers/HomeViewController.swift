@@ -24,6 +24,8 @@ class HomeViewController: UIViewController,UISearchBarDelegate {
         homeTableView.register(UINib(nibName: "HomeTableCell", bundle: nil), forCellReuseIdentifier: "HomeTableCell")
         self.tabBarController?.title = "Home"
         searchBar.delegate = self
+        let tap = UITapGestureRecognizer(target: self, action: #selector(self.handleTap(_:)))
+        self.view.addGestureRecognizer(tap)
         // Do any additional setup after loading the view.
     }
     
@@ -47,11 +49,22 @@ class HomeViewController: UIViewController,UISearchBarDelegate {
         }
         if let textfield = searchBar.value(forKey: "searchField") as? UITextField {
             textfield.textColor = UIColor(named: "black3")
+            textfield.tintColor = UIColor(named: "primaryRed")
             textfield.backgroundColor = UIColor.clear
             textfield.font = UIFont.init(name: "Poppins-Light", size: 15.0)
         }
         searchBar.backgroundImage = UIImage()
         searchBar.barTintColor = .white
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        self.searchBar.text?.removeAll()
+    }
+    
+    @objc func handleTap(_ sender: UITapGestureRecognizer? = nil) {
+        // handling code
+        self.view.endEditing(true)
     }
     
     @objc func viewAllButtonClick(sender:UIButton)
@@ -72,8 +85,9 @@ class HomeViewController: UIViewController,UISearchBarDelegate {
     
     func getDashboardData() {
         
+        self.errorImage.isHidden = true
         ApiService.getAPIWithoutParameters(urlString: Constants.AppUrls.getHomeData, view: self.view) { response in
-            
+            self.homeTableView.isHidden = false
             if let dict = response as? [String:AnyObject] {
                 self.dashboardData =  Home.eventWithObject(data: dict)
                 self.homeTableView.reloadData()
@@ -128,9 +142,11 @@ class HomeViewController: UIViewController,UISearchBarDelegate {
             if let dict = response as? [String:AnyObject] {
                 self.dashboardData =  Home.eventWithObject(data: dict)
                 if self.dashboardData?.categoryList?.count == 0 && self.dashboardData?.topBrands?.count ==  0 {
+                    self.homeTableView.isHidden = true
                     self.errorImage.isHidden = false
                 }
                 else {
+                    self.homeTableView.isHidden = true
                     self.errorImage.isHidden = true
 
                 }
@@ -165,7 +181,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             }
         case 1:
             if self.dashboardData?.recentList?.count ?? 0 > 0 {
-                return 180
+                return 200
             }
             else {
                 return 0
@@ -179,7 +195,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             }
         case 3:
             if self.dashboardData?.trendingCategories?.count ?? 0 > 0 {
-                return 130
+                return 150
             }
             else {
                 return 0
