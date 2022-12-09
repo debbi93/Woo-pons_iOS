@@ -38,7 +38,7 @@ class LoginViewController: UIViewController {
         self.view.endEditing(true)
         
         if(usernameTextField.text!.isEmptyOrWhitespace)() {
-            self.showError(message: "Please enter your username")
+            self.showError(message: "Please enter email address")
         }
         
         else if(passwordTextField.text!.isEmptyOrWhitespace()){
