@@ -12,6 +12,7 @@ class AllCategories {
     var id = 0
     var name = ""
     var image = ""
+    var trendingImage = ""
     var description = ""
     
     class func eventWithObject(data:[String : AnyObject]) -> [AllCategories] {
@@ -23,6 +24,7 @@ class AllCategories {
                 categoryDetails.id = category["id"] as? Int ?? -1
                 categoryDetails.name = category["name"] as? String ?? ""
                 categoryDetails.image = category["image"] as? String ?? ""
+                categoryDetails.trendingImage = category["trending_image"] as? String ?? ""
                 categoryDetails.description = category["description"] as? String ?? ""
                 value.append(categoryDetails)
             }

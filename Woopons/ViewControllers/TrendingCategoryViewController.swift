@@ -96,8 +96,8 @@ extension TrendingCategoryViewController : UITableViewDelegate,UITableViewDataSo
         cell.exploreButton.tag = indexPath.row
         cell.descLabel.text = trendingData.description
         cell.imgView.image = nil
-        if !trendingData.image.isEmpty {
-            cell.imgView.setImage(with: trendingData.image, placeholder: UIImage(named: "placeholder")!)
+        if !trendingData.trendingImage.isEmpty {
+            cell.imgView.setImage(with: trendingData.trendingImage, placeholder: UIImage(named: "placeholder")!)
         }
         else {
             cell.imgView.image = UIImage(named: "placeholder")
