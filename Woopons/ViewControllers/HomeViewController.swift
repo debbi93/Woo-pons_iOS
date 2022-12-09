@@ -458,8 +458,8 @@ extension HomeViewController : HomeSection4Delegate {
 extension UIView {
     func rotate(angle: CGFloat) {
         let radians = angle / 180.0 * CGFloat.pi
-        let rotation = CGAffineTransformRotate(self.transform, radians);
+        let rotation = self.transform.rotated(by: radians);
         self.transform = rotation
     }
-    
 }
+
