@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Bnn-c7-7jd">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -385,8 +386,8 @@
                                     <constraint firstAttribute="height" constant="40" id="R7K-Pj-rKS"/>
                                 </constraints>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter your email to get 4 digit code" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KL4-zA-HEc">
-                                <rect key="frame" x="50.5" y="100" width="274" height="26.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter your email address to get 4 digit code" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KL4-zA-HEc">
+                                <rect key="frame" x="15" y="100" width="345" height="26.5"/>
                                 <fontDescription key="fontDescription" name="Poppins-Light" family="Poppins" pointSize="16"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -397,11 +398,12 @@
                             <constraint firstItem="KL4-zA-HEc" firstAttribute="top" secondItem="CWz-QS-3lL" secondAttribute="top" constant="100" id="2q2-hY-bgl"/>
                             <constraint firstItem="acn-A8-n5o" firstAttribute="trailing" secondItem="Haa-yV-FOS" secondAttribute="trailing" constant="20" id="3LE-Pk-XiG"/>
                             <constraint firstItem="wGu-4b-i0R" firstAttribute="top" secondItem="Haa-yV-FOS" secondAttribute="bottom" constant="40" id="5Od-OW-VIu"/>
-                            <constraint firstItem="KL4-zA-HEc" firstAttribute="centerX" secondItem="acn-A8-n5o" secondAttribute="centerX" id="8vW-Li-Qak"/>
+                            <constraint firstItem="KL4-zA-HEc" firstAttribute="leading" secondItem="acn-A8-n5o" secondAttribute="leading" constant="15" id="9RH-f6-bVt"/>
                             <constraint firstItem="Haa-yV-FOS" firstAttribute="leading" secondItem="acn-A8-n5o" secondAttribute="leading" constant="20" id="AK4-K3-VhE"/>
                             <constraint firstItem="acn-A8-n5o" firstAttribute="trailing" secondItem="wGu-4b-i0R" secondAttribute="trailing" constant="20" id="JGN-xC-bb3"/>
                             <constraint firstItem="Haa-yV-FOS" firstAttribute="top" secondItem="KL4-zA-HEc" secondAttribute="bottom" constant="40" id="V2g-FB-wCu"/>
                             <constraint firstItem="wGu-4b-i0R" firstAttribute="leading" secondItem="acn-A8-n5o" secondAttribute="leading" constant="20" id="axz-GH-gKD"/>
+                            <constraint firstItem="acn-A8-n5o" firstAttribute="trailing" secondItem="KL4-zA-HEc" secondAttribute="trailing" constant="15" id="uhW-uI-o24"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="FP6-PO-0uM"/>
