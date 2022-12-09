@@ -17,21 +17,24 @@ class UnlockCouponViewController: UIViewController {
     var orderId = 0
     var coupon = ""
     var count = 60
-    
+    var timer: Timer?
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setBackButtonWithTitle(title: "")
         self.title =  titleString
         dottedView.addDashedBorder()
         self.couponCode.text = coupon
-        Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateCounter), userInfo: nil, repeats: true)
+        self.timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateCounter), userInfo: nil, repeats: true)
         
         // Do any additional setup after loading the view.
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        timer?.invalidate()
         self.unlockCoupon()
+        return
     }
     
     @objc func updateCounter() {
@@ -41,7 +44,9 @@ class UnlockCouponViewController: UIViewController {
             count -= 1
         }
         else if count == 0 {
+            timer?.invalidate()
             unlockCoupon()
+            return
         }
         
     }
@@ -54,6 +59,7 @@ class UnlockCouponViewController: UIViewController {
             
             self.showError(message: response["message"] as? String ?? "")
             self.navigationController?.popToRootViewController(animated: true)
+            
         }
         failure: { error in
         self.showError(message: error.localizedDescription)
