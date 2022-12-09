@@ -142,7 +142,7 @@ extension CouponDetailViewController : UITableViewDelegate,UITableViewDataSource
         switch indexPath.row {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "DescriptionTableCell", for: indexPath) as! DescriptionTableCell
-            
+            cell.imgView.image = nil
             if !self.couponDetail.companyLogo.isEmpty {
                 cell.imgView.setImage(with: self.couponDetail.companyLogo, placeholder: UIImage(named: "placeholder")!)
             }

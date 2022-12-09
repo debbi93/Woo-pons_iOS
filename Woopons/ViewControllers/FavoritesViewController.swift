@@ -154,6 +154,7 @@ extension FavoritesViewController : UITableViewDelegate,UITableViewDataSource {
             cell.favButton.setImage(UIImage(named: "heart-empty"), for: .normal)
         }
         cell.typeLabel.text = data.repetition
+        cell.imgView.image = nil
         if !data.companyLogo.isEmpty {
             cell.imgView.setImage(with: data.companyLogo, placeholder: UIImage(named: "placeholder")!)
         }

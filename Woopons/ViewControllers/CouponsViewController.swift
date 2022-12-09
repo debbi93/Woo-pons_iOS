@@ -163,6 +163,7 @@ extension CouponsViewController : UITableViewDelegate,UITableViewDataSource {
             }
             cell.nameLabel.text = data?.name
             cell.typeLabel.text = data?.repetition
+            cell.imgView.image = nil
             if let image = data?.companyLogo , !image.isEmpty {
                 cell.imgView.setImage(with: image, placeholder: UIImage(named: "placeholder")!)
             }
@@ -192,6 +193,7 @@ extension CouponsViewController : UITableViewDelegate,UITableViewDataSource {
             }
             cell.nameLabel.text = data?.name
             cell.typeLabel.text = data?.repetition
+            cell.imgView.image = nil
             if let image = data?.companyLogo , !image.isEmpty {
                 cell.imgView.setImage(with: image, placeholder: UIImage(named: "placeholder")!)
             }

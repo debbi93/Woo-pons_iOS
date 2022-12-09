@@ -29,6 +29,11 @@ class CategoriesViewController: UIViewController {
         getAllCategories()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.categoryList.removeAll()
+    }
+    
     // MARK: - Api Call's
     
     func getAllCategories() {
@@ -63,6 +68,7 @@ extension CategoriesViewController: UICollectionViewDelegate, UICollectionViewDa
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CategoriesCollectionCell", for: indexPath) as! CategoriesCollectionCell
         let data = categoryList[indexPath.item]
         cell.categoryNameLabel.text = data.name
+        cell.categoryImgView.image = nil
         if !data.image.isEmpty {
             cell.categoryImgView.setImage(with: data.image, placeholder: UIImage(named: "placeholder")!)
         }

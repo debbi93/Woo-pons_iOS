@@ -313,6 +313,7 @@ extension HomeTableCell : UICollectionViewDelegate, UICollectionViewDataSource, 
             
             let categoryData = self.categories?[indexPath.item]
             cell.categoryNameLabel.text = categoryData?.name
+            cell.categoryImgView.image = nil
             if let image = categoryData?.image , !image.isEmpty {
                 cell.categoryImgView.setImage(with: image, placeholder: UIImage(named: "placeholder")!)
             }
@@ -325,6 +326,7 @@ extension HomeTableCell : UICollectionViewDelegate, UICollectionViewDataSource, 
         case 1:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RecentsCollectionCell", for: indexPath) as! RecentsCollectionCell
             let recentData = self.recentList?[indexPath.item]
+            cell.imgView.image = nil
             if let image = recentData?.companyLogo , !image.isEmpty {
                 cell.imgView.setImage(with: image, placeholder: UIImage(named: "placeholder")!)
             }
@@ -343,6 +345,7 @@ extension HomeTableCell : UICollectionViewDelegate, UICollectionViewDataSource, 
             cell.bgView.isHidden = true
             cell.categoryNameLabel.isHidden = true
             let categoryData = self.topBrands?[indexPath.item]
+            cell.categoryImgView.image = nil
             if let image = categoryData?.image , !image.isEmpty {
                 cell.categoryImgView.setImage(with: image, placeholder: UIImage(named: "placeholder")!)
             }
@@ -358,6 +361,7 @@ extension HomeTableCell : UICollectionViewDelegate, UICollectionViewDataSource, 
             let trendingData = self.trendingCategories?[indexPath.item]
             cell.categoryLabel.text = trendingData?.name
             cell.exploreButton.tag = indexPath.item
+            cell.imgView.image = nil
             if let image = trendingData?.image , !image.isEmpty {
                 cell.imgView.setImage(with: image, placeholder: UIImage(named: "placeholder")!)
             }
