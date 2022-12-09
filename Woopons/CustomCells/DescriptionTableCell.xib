@@ -28,7 +28,7 @@
                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8xu-4T-cVQ">
                         <rect key="frame" x="10" y="5" width="529" height="120"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="food" translatesAutoresizingMaskIntoConstraints="NO" id="wf1-MC-fAE">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wf1-MC-fAE">
                                 <rect key="frame" x="15" y="15" width="170" height="90"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="170" id="Yex-EP-AvG"/>
@@ -39,18 +39,18 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mcdonalds" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SBf-pH-OB3">
-                                <rect key="frame" x="195" y="14.999999999999998" width="277" height="26.333333333333329"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SBf-pH-OB3">
+                                <rect key="frame" x="195" y="15" width="277" height="0.0"/>
                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="16"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4.9 (120 ratings)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M3G-UC-qwC">
-                                <rect key="frame" x="195" y="65.333333333333329" width="98.666666666666686" height="20"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M3G-UC-qwC">
+                                <rect key="frame" x="195" y="39" width="0.0" height="0.0"/>
                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="12"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xdB-57-Ptf">
-                                <rect key="frame" x="482" y="12.333333333333332" width="32" height="31.999999999999996"/>
+                                <rect key="frame" x="482" y="-1" width="32" height="32"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="32" id="DO5-Ya-3sD"/>
                                     <constraint firstAttribute="height" constant="32" id="jsd-gj-S3U"/>
@@ -59,7 +59,7 @@
                                 <buttonConfiguration key="configuration" style="plain" image="heart" title=" "/>
                             </button>
                             <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QdS-n1-LFM" customClass="CosmosView" customModule="Cosmos">
-                                <rect key="frame" x="195" y="41.333333333333336" width="50" height="14"/>
+                                <rect key="frame" x="195" y="15" width="50" height="14"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="14" id="JdJ-5i-67c"/>
@@ -76,10 +76,10 @@
                                         <color key="value" name="yellowText"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="emptyColor">
-                                        <color key="value" name="textFieldBg"/>
+                                        <color key="value" white="0.83723958333333337" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="emptyBorderColor">
-                                        <color key="value" name="black7"/>
+                                        <color key="value" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="starMargin">
                                         <real key="value" value="0.0"/>
@@ -244,16 +244,12 @@ lijden gehad van wijzigingen in een of ander</string>
         </tableViewCell>
     </objects>
     <resources>
-        <image name="food" width="398" height="169"/>
         <image name="heart" width="16" height="14"/>
         <namedColor name="black3">
             <color red="0.0" green="0.0" blue="0.0" alpha="0.30000001192092896" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="black5">
             <color red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="black7">
-            <color red="1" green="1" blue="1" alpha="0.69999998807907104" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="textFieldBg">
             <color red="0.96078431372549022" green="0.96078431372549022" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

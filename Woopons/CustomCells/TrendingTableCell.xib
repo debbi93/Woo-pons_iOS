@@ -28,7 +28,7 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GgN-kD-XHp">
                         <rect key="frame" x="15" y="15" width="315" height="328"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="food" translatesAutoresizingMaskIntoConstraints="NO" id="3R6-41-UpJ">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3R6-41-UpJ">
                                 <rect key="frame" x="0.0" y="0.0" width="315" height="130"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="130" id="pAn-i0-Rwk"/>
@@ -115,7 +115,7 @@ providing delicious Food &amp; Beverages</string>
                                 <real key="value" value="15"/>
                             </userDefinedRuntimeAttribute>
                             <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
-                                <color key="value" systemColor="labelColor"/>
+                                <color key="value" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </userDefinedRuntimeAttribute>
                             <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
                                 <real key="value" value="1"/>
@@ -147,7 +147,6 @@ providing delicious Food &amp; Beverages</string>
         </tableViewCell>
     </objects>
     <resources>
-        <image name="food" width="398" height="169"/>
         <image name="right-arrow" width="14" height="12"/>
         <namedColor name="black5">
             <color red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
@@ -158,8 +157,5 @@ providing delicious Food &amp; Beverages</string>
         <namedColor name="yellowText">
             <color red="0.80000000000000004" green="0.76078431372549016" blue="0.13725490196078433" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <systemColor name="labelColor">
-            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
     </resources>
 </document>

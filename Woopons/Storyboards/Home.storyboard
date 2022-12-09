@@ -450,7 +450,7 @@ after unlocking</string>
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile-user" translatesAutoresizingMaskIntoConstraints="NO" id="XS6-KE-KQj">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XS6-KE-KQj">
                                 <rect key="frame" x="137.5" y="40" width="100" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="ive-bX-4gI"/>
@@ -581,8 +581,8 @@ after unlocking</string>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VNm-Ky-oXO">
                                 <rect key="frame" x="20" y="372" width="335" height="180"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Silver plan" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DJ2-Da-LS4">
-                                        <rect key="frame" x="126.5" y="35" width="82" height="26.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DJ2-Da-LS4">
+                                        <rect key="frame" x="167.5" y="35" width="0.0" height="0.0"/>
                                         <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="16"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -599,7 +599,7 @@ after unlocking</string>
                                         </userDefinedRuntimeAttributes>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hg6-di-UCW">
-                                        <rect key="frame" x="30" y="118" width="275" height="40"/>
+                                        <rect key="frame" x="30" y="65" width="275" height="40"/>
                                         <color key="backgroundColor" name="primaryRed"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="b9U-KY-SBu"/>
@@ -617,8 +617,8 @@ after unlocking</string>
                                             <action selector="upgradeButtonAction:" destination="q8x-dx-QOv" eventType="touchUpInside" id="fev-wl-phK"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Next billing date 12/30/2022" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oh7-3j-GYl">
-                                        <rect key="frame" x="58.5" y="71.5" width="218.5" height="26.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oh7-3j-GYl">
+                                        <rect key="frame" x="167.5" y="45" width="0.0" height="0.0"/>
                                         <fontDescription key="fontDescription" name="Poppins-Light" family="Poppins" pointSize="16"/>
                                         <color key="textColor" name="black5"/>
                                         <nil key="highlightedColor"/>
@@ -1411,7 +1411,6 @@ passages van Lorem Ipsum beschikbaar maarhet .</string>
         <image name="home" width="17" height="18"/>
         <image name="home-selected" width="17" height="18"/>
         <image name="placeholder" width="300" height="300"/>
-        <image name="profile-user" width="100" height="100"/>
         <image name="settings" width="15" height="16"/>
         <image name="settings-selected" width="15" height="16"/>
         <image name="splash" width="313" height="153"/>
