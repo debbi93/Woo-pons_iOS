@@ -92,7 +92,12 @@ extension RecentlyAddedViewController : UITableViewDelegate,UITableViewDataSourc
         let cell = tableView.dequeueReusableCell(withIdentifier: "RecentlyAddedTableCell", for: indexPath) as! RecentlyAddedTableCell
         
         let recentData = self.recentlyAdded[indexPath.row]
-        cell.imgView.setImage(with: recentData.companyLogo , placeholder: UIImage(named: "placeholder")!)
+        if !recentData.companyLogo.isEmpty {
+            cell.imgView.setImage(with: recentData.companyLogo, placeholder: UIImage(named: "placeholder")!)
+        }
+        else {
+            cell.imgView.image = UIImage(named: "placeholder")
+        }
         cell.nameLabel.text = recentData.companyName
         cell.categoryLabel.text = recentData.name
         cell.typeLabel.text = recentData.repetition

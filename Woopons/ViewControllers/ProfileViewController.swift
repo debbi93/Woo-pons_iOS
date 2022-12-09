@@ -105,6 +105,12 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     func setProfileData() {
         
         self.profileImageView.setImage(with: profileModel?.image ?? "", placeholder: UIImage(named: "placeholder")!)
+        if let image = profileModel?.image , !image.isEmpty {
+            self.profileImageView.setImage(with: image, placeholder: UIImage(named: "placeholder")!)
+        }
+        else {
+            self.profileImageView.image = UIImage(named: "placeholder")
+        }
         self.nameTextField.text = profileModel?.name
         self.emailTextField.text = profileModel?.email
         self.phoneTextField.text = profileModel?.phone

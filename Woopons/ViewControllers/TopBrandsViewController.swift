@@ -88,8 +88,12 @@ extension TopBrandsViewController: UICollectionViewDelegate, UICollectionViewDat
         cell.bgView.isHidden = true
         cell.categoryNameLabel.isHidden = true
         let categoryData = self.topBrands[indexPath.item]
-        cell.categoryImgView.setImage(with: categoryData.image, placeholder: UIImage(named: "placeholder")!)
-        
+        if !categoryData.image.isEmpty {
+            cell.categoryImgView.setImage(with: categoryData.image, placeholder: UIImage(named: "placeholder")!)
+        }
+        else {
+            cell.categoryImgView.image = UIImage(named: "placeholder")
+        }
         return cell
     }
     

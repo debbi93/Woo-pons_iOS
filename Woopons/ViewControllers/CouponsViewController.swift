@@ -163,7 +163,12 @@ extension CouponsViewController : UITableViewDelegate,UITableViewDataSource {
             }
             cell.nameLabel.text = data?.name
             cell.typeLabel.text = data?.repetition
-            cell.imgView.setImage(with: data?.companyLogo ?? "", placeholder: UIImage(named: "placeholder")!)
+            if let image = data?.companyLogo , !image.isEmpty {
+                cell.imgView.setImage(with: image, placeholder: UIImage(named: "placeholder")!)
+            }
+            else {
+                cell.imgView.image = UIImage(named: "placeholder")
+            }
             cell.ratingLabel.text = "\(data?.ratingAvergae ?? 0.0) (\(data?.ratingCount ?? 0)) ratings"
             cell.ratingView.rating = data?.ratingAvergae ?? 0.0
             cell.detailsButton.tag = indexPath.row
@@ -187,7 +192,12 @@ extension CouponsViewController : UITableViewDelegate,UITableViewDataSource {
             }
             cell.nameLabel.text = data?.name
             cell.typeLabel.text = data?.repetition
-            cell.imgView.setImage(with: data?.companyLogo ?? "", placeholder: UIImage(named: "placeholder")!)
+            if let image = data?.companyLogo , !image.isEmpty {
+                cell.imgView.setImage(with: image, placeholder: UIImage(named: "placeholder")!)
+            }
+            else {
+                cell.imgView.image = UIImage(named: "placeholder")
+            }
             cell.ratingLabel.text = "\(data?.ratingAvergae ?? 0.0) (\(data?.ratingCount ?? 0)) ratings"
             cell.ratingView.rating = data?.ratingAvergae ?? 0.0
             cell.detailsButton.tag = indexPath.row

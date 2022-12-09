@@ -313,14 +313,24 @@ extension HomeTableCell : UICollectionViewDelegate, UICollectionViewDataSource, 
             
             let categoryData = self.categories?[indexPath.item]
             cell.categoryNameLabel.text = categoryData?.name
-            cell.categoryImgView.setImage(with: categoryData?.image ?? "", placeholder: UIImage(named: "placeholder")!)
+            if let image = categoryData?.image , !image.isEmpty {
+                cell.categoryImgView.setImage(with: image, placeholder: UIImage(named: "placeholder")!)
+            }
+            else {
+                cell.categoryImgView.image = UIImage(named: "placeholder")
+            }
             
             return cell
             
         case 1:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RecentsCollectionCell", for: indexPath) as! RecentsCollectionCell
             let recentData = self.recentList?[indexPath.item]
-            cell.imgView.setImage(with: recentData?.companyLogo ?? "", placeholder: UIImage(named: "placeholder")!)
+            if let image = recentData?.companyLogo , !image.isEmpty {
+                cell.imgView.setImage(with: image, placeholder: UIImage(named: "placeholder")!)
+            }
+            else {
+                cell.imgView.image = UIImage(named: "placeholder")
+            }
             cell.nameLabel.text = recentData?.companyName
             cell.categoryLabel.text = recentData?.companyCategory
             cell.typeLabel.text = recentData?.repetition
@@ -333,7 +343,13 @@ extension HomeTableCell : UICollectionViewDelegate, UICollectionViewDataSource, 
             cell.bgView.isHidden = true
             cell.categoryNameLabel.isHidden = true
             let categoryData = self.topBrands?[indexPath.item]
-            cell.categoryImgView.setImage(with: categoryData?.image ?? "", placeholder: UIImage(named: "placeholder")!)
+            if let image = categoryData?.image , !image.isEmpty {
+                cell.categoryImgView.setImage(with: image, placeholder: UIImage(named: "placeholder")!)
+            }
+            else {
+                cell.categoryImgView.image = UIImage(named: "placeholder")
+            }
+            
             return cell
             
             
@@ -342,7 +358,12 @@ extension HomeTableCell : UICollectionViewDelegate, UICollectionViewDataSource, 
             let trendingData = self.trendingCategories?[indexPath.item]
             cell.categoryLabel.text = trendingData?.name
             cell.exploreButton.tag = indexPath.item
-            cell.imgView.setImage(with: trendingData?.image ?? "", placeholder: UIImage(named: "placeholder")!)
+            if let image = trendingData?.image , !image.isEmpty {
+                cell.imgView.setImage(with: image, placeholder: UIImage(named: "placeholder")!)
+            }
+            else {
+                cell.imgView.image = UIImage(named: "placeholder")
+            }
             return cell
             
             

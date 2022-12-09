@@ -63,7 +63,12 @@ extension CategoriesViewController: UICollectionViewDelegate, UICollectionViewDa
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CategoriesCollectionCell", for: indexPath) as! CategoriesCollectionCell
         let data = categoryList[indexPath.item]
         cell.categoryNameLabel.text = data.name
-        cell.categoryImgView.setImage(with: data.image, placeholder: UIImage(named: "placeholder")!)
+        if !data.image.isEmpty {
+            cell.categoryImgView.setImage(with: data.image, placeholder: UIImage(named: "placeholder")!)
+        }
+        else {
+            cell.categoryImgView.image = UIImage(named: "placeholder")
+        }
         
         return cell
     }

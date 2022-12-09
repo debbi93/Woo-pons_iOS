@@ -154,7 +154,12 @@ extension FavoritesViewController : UITableViewDelegate,UITableViewDataSource {
             cell.favButton.setImage(UIImage(named: "heart-empty"), for: .normal)
         }
         cell.typeLabel.text = data.repetition
-        cell.imgView.setImage(with: data.companyLogo, placeholder: UIImage(named: "placeholder")!)
+        if !data.companyLogo.isEmpty {
+            cell.imgView.setImage(with: data.companyLogo, placeholder: UIImage(named: "placeholder")!)
+        }
+        else {
+            cell.imgView.image = UIImage(named: "placeholder")
+        }
         cell.ratingLabel.text = "\(data.ratingAvergae) (\(data.ratingCount)) ratings"
         cell.ratingView.rating = data.ratingAvergae
         cell.favButton.tag = indexPath.row
