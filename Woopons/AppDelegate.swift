@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             self.moveToHome()
         }
         else {
-            moveToLogin()
+            moveToOnboardings()
         }
         return true
     }
@@ -81,5 +81,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
     }
     
+    func moveToOnboardings(){
+        
+        let window = (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.window
+        let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
+        let viewController = storyboard.instantiateViewController(withIdentifier: "Pager1ViewController") as! Pager1ViewController
+        let navigationController = UINavigationController()
+        navigationController.navigationItem.setHidesBackButton(true, animated: true)
+        navigationController.navigationBar.isHidden = false
+        navigationController.pushViewController(viewController, animated: true)
+        window?.rootViewController = navigationController
+        window?.makeKeyAndVisible()
+        
+    }
 }
 

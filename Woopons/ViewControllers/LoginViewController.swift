@@ -20,7 +20,7 @@ class LoginViewController: UIViewController {
         self.navigationController?.isNavigationBarHidden = false
         self.forgotButton.underline(color: "primaryRed")
         self.title = "Login"
-        self.setBackButtonWithTitle(title: "")
+        self.setLeftButnEmpty()
         // Do any additional setup after loading the view.
     }
     

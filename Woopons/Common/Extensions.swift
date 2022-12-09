@@ -1466,53 +1466,54 @@ extension UIViewController {
     }
     
     func setBackButtonWithTitle(title : String){
-        
-        let backBtn = UIButton()
-        backBtn.frame = CGRect(x: 0, y: 0, width: 18, height: 18)
-        backBtn.setImage(UIImage(named:"back"), for: .normal)
-        backBtn.setTitleColor(UIColor.black, for: .normal)
-        backBtn.addTarget(self, action: #selector(self.click_BackButton), for: .touchUpInside)
-        backBtn.isUserInteractionEnabled = true
-        backBtn.isEnabled = true
-        let backNavBtn = UIBarButtonItem.init(customView: backBtn)
-        backNavBtn.customView = backBtn
-        // Title Code
-        let titleLbl = UIButton()
-        titleLbl.setTitle(title, for: .normal)
-        //        titleLbl.titleLabel?.font = UIFont(name: Constants.fonts.ProximaNova_Regular, size: 20)!
-        //titleLbl.titleLabel?.font = UIFont.boldSystemFont(ofSize: 18)
-        titleLbl.titleLabel?.font = UIFont.init(name: "Poppins-Medium", size: 18.0)
-        titleLbl.frame = CGRect(x: 0, y: 0, width: (titleLbl.titleLabel?.optimalWidth)!, height: 40)
-        titleLbl.addTarget(self, action: #selector(self.click_BackButton), for: .touchUpInside)
-        titleLbl.setTitleColor(.black, for: .normal)
-        
-        let leftItem = UIBarButtonItem.init(customView: titleLbl)
-        leftItem.customView?.frame = CGRect(x: 0, y: 0, width: (titleLbl.titleLabel?.optimalWidth)!, height: 40)
-        leftItem.customView = titleLbl
-        let _ = navigationItem.backBarButtonItem
-        self.navigationItem.leftBarButtonItems = [backNavBtn, leftItem]
-        
-        if #available(iOS 13.0, *) {
-            let app = UIApplication.shared
-            let statusBarHeight: CGFloat = app.statusBarFrame.size.height
+        if title != "login" {
+            let backBtn = UIButton()
+            backBtn.frame = CGRect(x: 0, y: 0, width: 18, height: 18)
+            backBtn.setImage(UIImage(named:"back"), for: .normal)
+            backBtn.setTitleColor(UIColor.black, for: .normal)
+            backBtn.addTarget(self, action: #selector(self.click_BackButton), for: .touchUpInside)
+            backBtn.isUserInteractionEnabled = true
+            backBtn.isEnabled = true
+            let backNavBtn = UIBarButtonItem.init(customView: backBtn)
+            backNavBtn.customView = backBtn
+            // Title Code
+            let titleLbl = UIButton()
+            titleLbl.setTitle(title, for: .normal)
+            //        titleLbl.titleLabel?.font = UIFont(name: Constants.fonts.ProximaNova_Regular, size: 20)!
+            //titleLbl.titleLabel?.font = UIFont.boldSystemFont(ofSize: 18)
+            titleLbl.titleLabel?.font = UIFont.init(name: "Poppins-Medium", size: 18.0)
+            titleLbl.frame = CGRect(x: 0, y: 0, width: (titleLbl.titleLabel?.optimalWidth)!, height: 40)
+            titleLbl.addTarget(self, action: #selector(self.click_BackButton), for: .touchUpInside)
+            titleLbl.setTitleColor(.black, for: .normal)
             
-            let statusbarView = UIView()
-            //  statusbarView.backgroundColor = UIColor.init(hex: Constants.Colors.statusColor, alpha: 1.0)
-            view.addSubview(statusbarView)
+            let leftItem = UIBarButtonItem.init(customView: titleLbl)
+            leftItem.customView?.frame = CGRect(x: 0, y: 0, width: (titleLbl.titleLabel?.optimalWidth)!, height: 40)
+            leftItem.customView = titleLbl
+            let _ = navigationItem.backBarButtonItem
+            self.navigationItem.leftBarButtonItems = [backNavBtn, leftItem]
             
-            statusbarView.translatesAutoresizingMaskIntoConstraints = false
-            statusbarView.heightAnchor
-                .constraint(equalToConstant: statusBarHeight).isActive = true
-            statusbarView.widthAnchor
-                .constraint(equalTo: view.widthAnchor, multiplier: 1.0).isActive = true
-            statusbarView.topAnchor
-                .constraint(equalTo: view.topAnchor).isActive = true
-            statusbarView.centerXAnchor
-                .constraint(equalTo: view.centerXAnchor).isActive = true
-            
-        } else {
-            let statusBar = UIApplication.shared.value(forKeyPath: "statusBarWindow.statusBar") as? UIView
-            // statusBar?.backgroundColor = UIColor.init(hex: Constants.Colors.statusColor, alpha: 1.0)
+            if #available(iOS 13.0, *) {
+                let app = UIApplication.shared
+                let statusBarHeight: CGFloat = app.statusBarFrame.size.height
+                
+                let statusbarView = UIView()
+                //  statusbarView.backgroundColor = UIColor.init(hex: Constants.Colors.statusColor, alpha: 1.0)
+                view.addSubview(statusbarView)
+                
+                statusbarView.translatesAutoresizingMaskIntoConstraints = false
+                statusbarView.heightAnchor
+                    .constraint(equalToConstant: statusBarHeight).isActive = true
+                statusbarView.widthAnchor
+                    .constraint(equalTo: view.widthAnchor, multiplier: 1.0).isActive = true
+                statusbarView.topAnchor
+                    .constraint(equalTo: view.topAnchor).isActive = true
+                statusbarView.centerXAnchor
+                    .constraint(equalTo: view.centerXAnchor).isActive = true
+                
+            } else {
+                let statusBar = UIApplication.shared.value(forKeyPath: "statusBarWindow.statusBar") as? UIView
+                // statusBar?.backgroundColor = UIColor.init(hex: Constants.Colors.statusColor, alpha: 1.0)
+            }
         }
     }
     
