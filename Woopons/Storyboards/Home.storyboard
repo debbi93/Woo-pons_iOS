@@ -294,12 +294,11 @@ after unlocking</string>
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" id="xSF-1m-l45">
-                                <rect key="frame" x="0.0" y="8" width="375" height="60"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VVt-dy-6nQ">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
                                 <subviews>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ftg-5M-zfx">
-                                        <rect key="frame" x="15" y="15" width="345" height="35"/>
+                                        <rect key="frame" x="15" y="12.5" width="345" height="35"/>
                                         <subviews>
                                             <searchBar contentMode="redraw" placeholder="Search here for anything..." translatesAutoresizingMaskIntoConstraints="NO" id="KgD-4h-9Bt">
                                                 <rect key="frame" x="0.0" y="0.0" width="345" height="35"/>
@@ -326,16 +325,17 @@ after unlocking</string>
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                 </subviews>
-                                <viewLayoutGuide key="safeArea" id="ujh-R1-6nr"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstItem="Ftg-5M-zfx" firstAttribute="leading" secondItem="ujh-R1-6nr" secondAttribute="leading" constant="15" id="Hu5-ci-tsi"/>
-                                    <constraint firstItem="ujh-R1-6nr" firstAttribute="trailing" secondItem="Ftg-5M-zfx" secondAttribute="trailing" constant="15" id="Li0-Fw-ih7"/>
-                                    <constraint firstItem="Ftg-5M-zfx" firstAttribute="top" secondItem="ujh-R1-6nr" secondAttribute="top" constant="15" id="RCF-ib-0Ae"/>
+                                    <constraint firstItem="Ftg-5M-zfx" firstAttribute="centerX" secondItem="VVt-dy-6nQ" secondAttribute="centerX" id="Ebu-AX-1zV"/>
+                                    <constraint firstItem="Ftg-5M-zfx" firstAttribute="leading" secondItem="VVt-dy-6nQ" secondAttribute="leading" constant="15" id="Uc7-wo-lBe"/>
+                                    <constraint firstAttribute="height" constant="60" id="cZy-zH-0wn"/>
+                                    <constraint firstAttribute="trailing" secondItem="Ftg-5M-zfx" secondAttribute="trailing" constant="15" id="ilD-O7-I1k"/>
+                                    <constraint firstItem="Ftg-5M-zfx" firstAttribute="centerY" secondItem="VVt-dy-6nQ" secondAttribute="centerY" id="t2A-YB-QMc"/>
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="w5y-th-DAb">
-                                <rect key="frame" x="0.0" y="78" width="375" height="589"/>
+                                <rect key="frame" x="0.0" y="70" width="375" height="597"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <connections>
                                     <outlet property="dataSource" destination="5ub-hJ-q7Z" id="qXJ-pO-0ab"/>
@@ -349,12 +349,15 @@ after unlocking</string>
                         <viewLayoutGuide key="safeArea" id="RyE-Yw-tfF"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="VVt-dy-6nQ" firstAttribute="leading" secondItem="RyE-Yw-tfF" secondAttribute="leading" id="04d-kY-bpC"/>
+                            <constraint firstItem="VVt-dy-6nQ" firstAttribute="top" secondItem="RyE-Yw-tfF" secondAttribute="top" id="C3e-kh-4Dd"/>
                             <constraint firstAttribute="bottom" secondItem="w5y-th-DAb" secondAttribute="bottom" id="ED1-gb-8Dl"/>
+                            <constraint firstItem="RyE-Yw-tfF" firstAttribute="trailing" secondItem="VVt-dy-6nQ" secondAttribute="trailing" id="FBM-rK-uGl"/>
                             <constraint firstItem="Za3-UH-nMT" firstAttribute="centerY" secondItem="RyE-Yw-tfF" secondAttribute="centerY" id="JE2-rj-LWU"/>
                             <constraint firstItem="w5y-th-DAb" firstAttribute="leading" secondItem="RyE-Yw-tfF" secondAttribute="leading" id="Wrq-iR-kIH"/>
                             <constraint firstItem="RyE-Yw-tfF" firstAttribute="trailing" secondItem="w5y-th-DAb" secondAttribute="trailing" id="bbh-Il-M6K"/>
+                            <constraint firstItem="w5y-th-DAb" firstAttribute="top" secondItem="VVt-dy-6nQ" secondAttribute="bottom" constant="10" id="dUj-io-dVz"/>
                             <constraint firstItem="Za3-UH-nMT" firstAttribute="centerX" secondItem="RyE-Yw-tfF" secondAttribute="centerX" id="eji-PO-xcX"/>
-                            <constraint firstItem="w5y-th-DAb" firstAttribute="top" secondItem="xSF-1m-l45" secondAttribute="bottom" constant="10" id="ovF-LM-hQP"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Home" image="home" selectedImage="home-selected" id="lDB-O3-Rnd"/>
