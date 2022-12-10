@@ -335,7 +335,7 @@ after unlocking</string>
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="w5y-th-DAb">
-                                <rect key="frame" x="0.0" y="70" width="375" height="597"/>
+                                <rect key="frame" x="0.0" y="65" width="375" height="602"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <connections>
                                     <outlet property="dataSource" destination="5ub-hJ-q7Z" id="qXJ-pO-0ab"/>
@@ -356,7 +356,7 @@ after unlocking</string>
                             <constraint firstItem="Za3-UH-nMT" firstAttribute="centerY" secondItem="RyE-Yw-tfF" secondAttribute="centerY" id="JE2-rj-LWU"/>
                             <constraint firstItem="w5y-th-DAb" firstAttribute="leading" secondItem="RyE-Yw-tfF" secondAttribute="leading" id="Wrq-iR-kIH"/>
                             <constraint firstItem="RyE-Yw-tfF" firstAttribute="trailing" secondItem="w5y-th-DAb" secondAttribute="trailing" id="bbh-Il-M6K"/>
-                            <constraint firstItem="w5y-th-DAb" firstAttribute="top" secondItem="VVt-dy-6nQ" secondAttribute="bottom" constant="10" id="dUj-io-dVz"/>
+                            <constraint firstItem="w5y-th-DAb" firstAttribute="top" secondItem="VVt-dy-6nQ" secondAttribute="bottom" constant="5" id="dUj-io-dVz"/>
                             <constraint firstItem="Za3-UH-nMT" firstAttribute="centerX" secondItem="RyE-Yw-tfF" secondAttribute="centerX" id="eji-PO-xcX"/>
                         </constraints>
                     </view>
