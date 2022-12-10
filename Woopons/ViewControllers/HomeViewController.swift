@@ -22,7 +22,8 @@ class HomeViewController: UIViewController,UISearchBarDelegate {
         homeTableView.register(UINib(nibName: "HomeTableCell", bundle: nil), forCellReuseIdentifier: "HomeTableCell")
         searchBar.delegate = self
         let tap = UITapGestureRecognizer(target: self, action: #selector(self.handleTap(_:)))
-       // self.view.addGestureRecognizer(tap)
+        tap.cancelsTouchesInView = false
+       self.view.addGestureRecognizer(tap)
         // Do any additional setup after loading the view.
     }
     
@@ -98,22 +99,12 @@ class HomeViewController: UIViewController,UISearchBarDelegate {
     
     // MARK: - SearchBar Delegates
     
-    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-    }
-    
-    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
-    }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchBar.text = nil
         self.view.endEditing(true)
         self.homeTableView.reloadData()
     }
-    
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        
-    }
-    
     
     func searchBarShouldEndEditing(_ searchBar: UISearchBar) -> Bool {
         
@@ -139,15 +130,15 @@ class HomeViewController: UIViewController,UISearchBarDelegate {
             
             if let dict = response as? [String:AnyObject] {
                 self.dashboardData =  Home.eventWithObject(data: dict)
-//                if self.dashboardData?.categoryList?.count == 0 && self.dashboardData?.topBrands?.count ==  0 {
-//                    self.homeTableView.isHidden = true
-//                    self.errorImage.isHidden = false
-//                }
-//                else {
-//                    self.homeTableView.isHidden = true
-//                    self.errorImage.isHidden = true
-//
-//                }
+                if self.dashboardData?.categoryList?.count == 0 && self.dashboardData?.topBrands?.count ==  0 {
+                    self.homeTableView.isHidden = true
+                    self.errorImage.isHidden = false
+                }
+                else {
+                    self.homeTableView.isHidden = false
+                    self.errorImage.isHidden = true
+
+                }
                 self.homeTableView.reloadData()
             }
         }
@@ -193,7 +184,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             }
         case 3:
             if self.dashboardData?.trendingCategories?.count ?? 0 > 0 {
-                return 90
+                return 160
             }
             else {
                 return 0
