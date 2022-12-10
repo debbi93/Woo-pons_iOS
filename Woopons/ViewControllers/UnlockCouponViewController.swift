@@ -22,12 +22,12 @@ class UnlockCouponViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       // self.setBackButtonWithTitle(title: "")
+
         self.title =  titleString
         dottedView.addDashedBorder()
         self.couponCode.text = coupon
         self.timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateCounter), userInfo: nil, repeats: true)
-        //self.unlockCoupon()
+        self.unlockCoupon()
         let closeButtonImage = UIImage(named: "back")?.withRenderingMode(.alwaysOriginal)
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: closeButtonImage, style: .plain, target: self, action:  #selector(UnlockCouponViewController.barButtonDidTap(_:)))
         // Do any additional setup after loading the view.
