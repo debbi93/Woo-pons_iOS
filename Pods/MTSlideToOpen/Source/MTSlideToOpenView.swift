@@ -175,7 +175,7 @@ import UIKit
         view.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
         view.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
         // Setup for circle View
-        leadingThumbnailViewConstraint = thumnailImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor)
+        leadingThumbnailViewConstraint = thumnailImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor ,constant: thumnailImageView.frame.width + 10.0)
         leadingThumbnailViewConstraint?.isActive = true
         topThumbnailViewConstraint = thumnailImageView.topAnchor.constraint(equalTo: view.topAnchor, constant: thumbnailViewTopDistance)
         topThumbnailViewConstraint?.isActive = true
