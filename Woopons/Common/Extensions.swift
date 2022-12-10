@@ -1466,7 +1466,6 @@ extension UIViewController {
     }
     
     func setBackButtonWithTitle(title : String){
-        if title != "login" {
             let backBtn = UIButton()
             backBtn.frame = CGRect(x: 0, y: 0, width: 18, height: 18)
             backBtn.setImage(UIImage(named:"back"), for: .normal)
@@ -1514,7 +1513,7 @@ extension UIViewController {
                 let statusBar = UIApplication.shared.value(forKeyPath: "statusBarWindow.statusBar") as? UIView
                 // statusBar?.backgroundColor = UIColor.init(hex: Constants.Colors.statusColor, alpha: 1.0)
             }
-        }
+        
     }
     
     @objc func click_BackButton(){

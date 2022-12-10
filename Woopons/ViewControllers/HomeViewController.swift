@@ -170,7 +170,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             }
         case 1:
             if self.dashboardData?.recentList?.count ?? 0 > 0 {
-                return 200
+                return 190
             }
             else {
                 return 0
@@ -437,7 +437,7 @@ extension HomeTableCell : UICollectionViewDelegate, UICollectionViewDataSource, 
         case 0:
             return CGSize(width: CGFloat((collectionView.frame.size.width / 2.5) - 20), height: 90)
         case 1:
-            return CGSize(width: CGFloat((collectionView.frame.size.width / 1.5) - 10), height: 200)
+            return CGSize(width: CGFloat((collectionView.frame.size.width / 1.5) - 10), height: 190)
         case 2:
             return CGSize(width: CGFloat((collectionView.frame.size.width / 2.5) - 20), height: 90)
         case 3:
@@ -448,7 +448,19 @@ extension HomeTableCell : UICollectionViewDelegate, UICollectionViewDataSource, 
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
+        switch sectionTag {
+        case 0:
+            return UIEdgeInsets(top: 5, left: 16, bottom: 5, right: 16)
+        case 1:
+            return UIEdgeInsets(top: 5, left: 11, bottom: 5, right: 11)
+        case 2:
+            return UIEdgeInsets(top: 10, left: 16, bottom: 10, right: 16)
+        case 3:
+            return UIEdgeInsets(top: 5, left: 16, bottom: 5, right: 16)
+        default:
+            return UIEdgeInsets(top: 10, left: 16, bottom: 10, right: 16)
+        }
+        
     }
 }
 

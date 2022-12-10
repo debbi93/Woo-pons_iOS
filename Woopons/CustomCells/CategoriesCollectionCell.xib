@@ -6,6 +6,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -24,7 +25,7 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3VT-Fm-duQ">
-                        <rect key="frame" x="0.0" y="0.0" width="178" height="122"/>
+                        <rect key="frame" x="0.0" y="5" width="178" height="112"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                 <real key="value" value="10"/>
@@ -44,10 +45,10 @@
                         </userDefinedRuntimeAttributes>
                     </imageView>
                     <view clipsSubviews="YES" contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Cm-y6-1p7">
-                        <rect key="frame" x="0.0" y="0.0" width="178" height="122"/>
+                        <rect key="frame" x="0.0" y="5" width="178" height="112"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Health/Beauty/ Fitness" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lfL-kA-G5q">
-                                <rect key="frame" x="10" y="38" width="158" height="46"/>
+                                <rect key="frame" x="10" y="33" width="158" height="46"/>
                                 <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="14"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -69,14 +70,14 @@
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
                 <constraint firstItem="6Cm-y6-1p7" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="1re-jD-7ek"/>
-                <constraint firstItem="6Cm-y6-1p7" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="1xg-UL-g2n"/>
-                <constraint firstItem="3VT-Fm-duQ" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="8d3-CZ-NNc"/>
+                <constraint firstItem="6Cm-y6-1p7" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="5" id="1xg-UL-g2n"/>
+                <constraint firstItem="3VT-Fm-duQ" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="5" id="8d3-CZ-NNc"/>
                 <constraint firstItem="lfL-kA-G5q" firstAttribute="centerY" secondItem="3VT-Fm-duQ" secondAttribute="centerY" id="Gnp-2J-gFQ"/>
-                <constraint firstAttribute="bottom" secondItem="3VT-Fm-duQ" secondAttribute="bottom" id="MZ4-b6-KPZ"/>
+                <constraint firstAttribute="bottom" secondItem="3VT-Fm-duQ" secondAttribute="bottom" constant="5" id="MZ4-b6-KPZ"/>
                 <constraint firstAttribute="trailing" secondItem="6Cm-y6-1p7" secondAttribute="trailing" id="W5E-3j-X07"/>
                 <constraint firstAttribute="trailing" secondItem="3VT-Fm-duQ" secondAttribute="trailing" id="Zr0-Zl-Dih"/>
                 <constraint firstItem="3VT-Fm-duQ" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="chQ-GZ-GsR"/>
-                <constraint firstAttribute="bottom" secondItem="6Cm-y6-1p7" secondAttribute="bottom" id="qC8-Cb-tM9"/>
+                <constraint firstAttribute="bottom" secondItem="6Cm-y6-1p7" secondAttribute="bottom" constant="5" id="qC8-Cb-tM9"/>
             </constraints>
             <size key="customSize" width="178" height="122"/>
             <connections>

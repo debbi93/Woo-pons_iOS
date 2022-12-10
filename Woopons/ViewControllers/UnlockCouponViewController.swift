@@ -26,16 +26,8 @@ class UnlockCouponViewController: UIViewController {
         dottedView.addDashedBorder()
         self.couponCode.text = coupon
         self.timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateCounter), userInfo: nil, repeats: true)
-        
+        self.unlockCoupon()
         // Do any additional setup after loading the view.
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        if count != 0 {
-            timer?.invalidate()
-            self.unlockCoupon()
-        }
     }
     
     @objc func updateCounter() {
@@ -46,7 +38,7 @@ class UnlockCouponViewController: UIViewController {
         }
         else if count == 0 {
             timer?.invalidate()
-            self.unlockCoupon()
+            self.navigationController?.popToRootViewController(animated: true)
         }
         
     }
@@ -58,7 +50,6 @@ class UnlockCouponViewController: UIViewController {
         ApiService.postAPIWithHeaderAndParameters(urlString: Constants.AppUrls.unlockCoupon, view: self.view, jsonString: parameters as [String : AnyObject] ) { response in
             
             self.showError(message: response["message"] as? String ?? "")
-            self.navigationController?.popToRootViewController(animated: true)
             
         }
     failure: { error in
