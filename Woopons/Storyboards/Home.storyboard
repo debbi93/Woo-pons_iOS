@@ -294,8 +294,48 @@ after unlocking</string>
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" id="xSF-1m-l45">
+                                <rect key="frame" x="0.0" y="8" width="375" height="60"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ftg-5M-zfx">
+                                        <rect key="frame" x="15" y="15" width="345" height="35"/>
+                                        <subviews>
+                                            <searchBar contentMode="redraw" placeholder="Search here for anything..." translatesAutoresizingMaskIntoConstraints="NO" id="KgD-4h-9Bt">
+                                                <rect key="frame" x="0.0" y="0.0" width="345" height="35"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <offsetWrapper key="searchFieldBackgroundPositionAdjustment" horizontal="0.0" vertical="-50"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="5ub-hJ-q7Z" id="3B6-RS-sLh"/>
+                                                </connections>
+                                            </searchBar>
+                                        </subviews>
+                                        <color key="backgroundColor" name="textFieldBg"/>
+                                        <constraints>
+                                            <constraint firstItem="KgD-4h-9Bt" firstAttribute="top" secondItem="Ftg-5M-zfx" secondAttribute="top" id="KDo-0U-NUj"/>
+                                            <constraint firstItem="KgD-4h-9Bt" firstAttribute="leading" secondItem="Ftg-5M-zfx" secondAttribute="leading" id="Pu3-F1-tSF"/>
+                                            <constraint firstAttribute="height" constant="35" id="SLY-Qd-Eq6"/>
+                                            <constraint firstAttribute="trailing" secondItem="KgD-4h-9Bt" secondAttribute="trailing" id="f8G-dO-9GU"/>
+                                            <constraint firstAttribute="bottom" secondItem="KgD-4h-9Bt" secondAttribute="bottom" id="oc2-h0-Gn5"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="4"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                </subviews>
+                                <viewLayoutGuide key="safeArea" id="ujh-R1-6nr"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="Ftg-5M-zfx" firstAttribute="leading" secondItem="ujh-R1-6nr" secondAttribute="leading" constant="15" id="Hu5-ci-tsi"/>
+                                    <constraint firstItem="ujh-R1-6nr" firstAttribute="trailing" secondItem="Ftg-5M-zfx" secondAttribute="trailing" constant="15" id="Li0-Fw-ih7"/>
+                                    <constraint firstItem="Ftg-5M-zfx" firstAttribute="top" secondItem="ujh-R1-6nr" secondAttribute="top" constant="15" id="RCF-ib-0Ae"/>
+                                </constraints>
+                            </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="w5y-th-DAb">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="78" width="375" height="589"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <connections>
                                     <outlet property="dataSource" destination="5ub-hJ-q7Z" id="qXJ-pO-0ab"/>
@@ -309,63 +349,22 @@ after unlocking</string>
                         <viewLayoutGuide key="safeArea" id="RyE-Yw-tfF"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="w5y-th-DAb" firstAttribute="top" secondItem="PF3-ZL-1ak" secondAttribute="top" id="C1c-MT-zKh"/>
                             <constraint firstAttribute="bottom" secondItem="w5y-th-DAb" secondAttribute="bottom" id="ED1-gb-8Dl"/>
                             <constraint firstItem="Za3-UH-nMT" firstAttribute="centerY" secondItem="RyE-Yw-tfF" secondAttribute="centerY" id="JE2-rj-LWU"/>
                             <constraint firstItem="w5y-th-DAb" firstAttribute="leading" secondItem="RyE-Yw-tfF" secondAttribute="leading" id="Wrq-iR-kIH"/>
                             <constraint firstItem="RyE-Yw-tfF" firstAttribute="trailing" secondItem="w5y-th-DAb" secondAttribute="trailing" id="bbh-Il-M6K"/>
                             <constraint firstItem="Za3-UH-nMT" firstAttribute="centerX" secondItem="RyE-Yw-tfF" secondAttribute="centerX" id="eji-PO-xcX"/>
+                            <constraint firstItem="w5y-th-DAb" firstAttribute="top" secondItem="xSF-1m-l45" secondAttribute="bottom" constant="10" id="ovF-LM-hQP"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Home" image="home" selectedImage="home-selected" id="lDB-O3-Rnd"/>
                     <connections>
                         <outlet property="errorImage" destination="Za3-UH-nMT" id="vGB-wd-pMK"/>
-                        <outlet property="headerView" destination="xSF-1m-l45" id="UQb-ll-Um6"/>
                         <outlet property="homeTableView" destination="w5y-th-DAb" id="ctm-Zm-ZXX"/>
                         <outlet property="searchBar" destination="KgD-4h-9Bt" id="z3l-dh-SPL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1zQ-EE-Qe2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <view contentMode="scaleToFill" id="xSF-1m-l45">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                    <subviews>
-                        <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ftg-5M-zfx">
-                            <rect key="frame" x="15" y="10" width="345" height="35"/>
-                            <subviews>
-                                <searchBar contentMode="redraw" placeholder="Search here for anything..." translatesAutoresizingMaskIntoConstraints="NO" id="KgD-4h-9Bt">
-                                    <rect key="frame" x="0.0" y="0.0" width="345" height="35"/>
-                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <offsetWrapper key="searchFieldBackgroundPositionAdjustment" horizontal="0.0" vertical="-50"/>
-                                    <textInputTraits key="textInputTraits"/>
-                                    <connections>
-                                        <outlet property="delegate" destination="5ub-hJ-q7Z" id="3B6-RS-sLh"/>
-                                    </connections>
-                                </searchBar>
-                            </subviews>
-                            <color key="backgroundColor" name="textFieldBg"/>
-                            <constraints>
-                                <constraint firstItem="KgD-4h-9Bt" firstAttribute="top" secondItem="Ftg-5M-zfx" secondAttribute="top" id="KDo-0U-NUj"/>
-                                <constraint firstItem="KgD-4h-9Bt" firstAttribute="leading" secondItem="Ftg-5M-zfx" secondAttribute="leading" id="Pu3-F1-tSF"/>
-                                <constraint firstAttribute="height" constant="35" id="SLY-Qd-Eq6"/>
-                                <constraint firstAttribute="trailing" secondItem="KgD-4h-9Bt" secondAttribute="trailing" id="f8G-dO-9GU"/>
-                                <constraint firstAttribute="bottom" secondItem="KgD-4h-9Bt" secondAttribute="bottom" id="oc2-h0-Gn5"/>
-                            </constraints>
-                            <userDefinedRuntimeAttributes>
-                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                    <real key="value" value="4"/>
-                                </userDefinedRuntimeAttribute>
-                            </userDefinedRuntimeAttributes>
-                        </view>
-                    </subviews>
-                    <viewLayoutGuide key="safeArea" id="ujh-R1-6nr"/>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    <constraints>
-                        <constraint firstItem="Ftg-5M-zfx" firstAttribute="leading" secondItem="ujh-R1-6nr" secondAttribute="leading" constant="15" id="Hu5-ci-tsi"/>
-                        <constraint firstItem="ujh-R1-6nr" firstAttribute="trailing" secondItem="Ftg-5M-zfx" secondAttribute="trailing" constant="15" id="Li0-Fw-ih7"/>
-                        <constraint firstItem="Ftg-5M-zfx" firstAttribute="top" secondItem="ujh-R1-6nr" secondAttribute="top" constant="10" id="RCF-ib-0Ae"/>
-                    </constraints>
-                </view>
             </objects>
             <point key="canvasLocation" x="-34.399999999999999" y="-974.6626686656673"/>
         </scene>

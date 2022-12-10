@@ -43,11 +43,6 @@ class CouponsViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         errorImage.isHidden = true
-        newButton.tintColor = UIColor(named: "primaryRed")
-        historyButton.tintColor = UIColor(named: "black5")
-        newButtonView.backgroundColor = UIColor(named: "primaryRed")
-        historyButtonView.backgroundColor = .clear
-        isHistory = false
         
     }
     
@@ -132,7 +127,7 @@ class CouponsViewController: UIViewController {
     
     @objc func couponDetailAction(sender: UIButton){
         if let data = self.couponData?.newlyAdded?[sender.tag] {
-            pushToCouponDetail(couponDetail: data,titleString: data.companyName,isFromCouponTab: true,isHistory:false)
+            pushToCouponDetail(couponDetail: data,titleString: data.name,isFromCouponTab: true,isHistory:false)
         }
     }
     
@@ -147,10 +142,10 @@ class CouponsViewController: UIViewController {
     }
     
     @objc func historyDetailAction(sender: UIButton){
-        
-        if let data = self.couponData?.history?[sender.tag] {
-            pushToCouponDetail(couponDetail: data,titleString: data.companyName,isFromCouponTab: false,isHistory:true)
-            
+        if isHistory {
+            if let data = self.couponData?.history?[sender.tag] {
+                pushToCouponDetail(couponDetail: data,titleString: data.name,isFromCouponTab: false,isHistory:true)
+            }
         }
     }
     
@@ -268,12 +263,12 @@ extension CouponsViewController : UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if isHistory {
             if let data = self.couponData?.history?[indexPath.row] {
-               pushToCouponDetail(couponDetail: data,titleString: data.companyName,isFromCouponTab: false,isHistory: true)
+               pushToCouponDetail(couponDetail: data,titleString: data.name,isFromCouponTab: false,isHistory: true)
             }
         }
         else {
             if let data = self.couponData?.newlyAdded?[indexPath.row] {
-                pushToCouponDetail(couponDetail: data,titleString: data.companyName,isFromCouponTab: true,isHistory: false)
+                pushToCouponDetail(couponDetail: data,titleString: data.name,isFromCouponTab: true,isHistory: false)
             }
         }
     }

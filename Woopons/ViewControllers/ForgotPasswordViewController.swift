@@ -30,9 +30,18 @@ class ForgotPasswordViewController: UIViewController {
         if(emailTextField.text!.isEmptyOrWhitespace)() {
             self.showError(message: "Please enter your email address")
         }
+       else if !self.isValidEmail(self.emailTextField.text ?? "") {
+            self.showError(message: "Please enter valid email address")
+        }
         else {
             forgotPassword()
         }
+    }
+    
+    func isValidEmail(_ emailString: String) -> Bool {
+        let emailRegex = "[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[‌​a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?"
+        let emailTest = NSPredicate(format: "SELF MATCHES %@", emailRegex)
+        return emailTest.evaluate(with: emailString)
     }
     
     func forgotPassword() {

@@ -10,10 +10,12 @@ import MaterialActivityIndicator
 
 class LoginViewController: UIViewController {
     
+    @IBOutlet weak var eyeButton: UIButton!
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var forgotButton: UIButton!
     
+    var iconClick = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,6 +43,10 @@ class LoginViewController: UIViewController {
             self.showError(message: "Please enter email address")
         }
         
+       else if !self.isValidEmail(self.usernameTextField.text ?? "") {
+            self.showError(message: "Please enter valid email address")
+        }
+        
         else if(passwordTextField.text!.isEmptyOrWhitespace()){
             self.showError(message: "Please enter your password")
         }
@@ -48,6 +54,23 @@ class LoginViewController: UIViewController {
             doLogin()
         }
         
+    }
+    
+    func isValidEmail(_ emailString: String) -> Bool {
+        let emailRegex = "[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[‌​a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?"
+        let emailTest = NSPredicate(format: "SELF MATCHES %@", emailRegex)
+        return emailTest.evaluate(with: emailString)
+    }
+    
+    @IBAction func iconAction(sender: AnyObject) {
+        if iconClick {
+            passwordTextField.isSecureTextEntry = false
+            eyeButton.setImage(UIImage(systemName: "eye"), for: .normal)
+        } else {
+            passwordTextField.isSecureTextEntry = true
+            eyeButton.setImage(UIImage(systemName: "eye.slash"), for: .normal)
+        }
+        iconClick = !iconClick
     }
     
     // MARK: - Api Call's

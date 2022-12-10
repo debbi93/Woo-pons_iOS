@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -24,26 +25,26 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oDF-A7-Dj5">
-                        <rect key="frame" x="5" y="5" width="305" height="177"/>
+                        <rect key="frame" x="0.0" y="5" width="315" height="177"/>
                         <subviews>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="efn-SD-pc9" customClass="RightCornerView" customModule="Woopons" customModuleProvider="target">
-                                <rect key="frame" x="10" y="5" width="196" height="115"/>
+                                <rect key="frame" x="10" y="5" width="204" height="115"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="barcode" translatesAutoresizingMaskIntoConstraints="NO" id="dEO-e3-Aun">
-                                        <rect key="frame" x="15" y="42.666666666666664" width="166" height="29.999999999999993"/>
+                                        <rect key="frame" x="15" y="42.666666666666664" width="174" height="29.999999999999993"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="aYT-7L-pzg"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="KFC" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JOC-Aa-sJ0">
-                                        <rect key="frame" x="15" y="9.6666666666666679" width="166" height="23.000000000000004"/>
+                                        <rect key="frame" x="15" y="9.6666666666666679" width="174" height="23.000000000000004"/>
                                         <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="14"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Unlimited" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="apy-qm-YSm">
-                                        <rect key="frame" x="15" y="85" width="166" height="20"/>
+                                        <rect key="frame" x="15" y="85" width="174" height="20"/>
                                         <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="12"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -64,10 +65,10 @@
                                 </constraints>
                             </view>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rdK-6f-bvL" customClass="RightCornerView" customModule="Woopons" customModuleProvider="target">
-                                <rect key="frame" x="236" y="5" width="59" height="115"/>
+                                <rect key="frame" x="244" y="5" width="61" height="115"/>
                                 <subviews>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FOOD &amp; BEVERAGE" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="8" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6GE-IO-7ar">
-                                        <rect key="frame" x="10" y="10" width="39" height="95"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="61" height="115"/>
                                         <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="12"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -75,11 +76,11 @@
                                 </subviews>
                                 <color key="backgroundColor" name="yellowText"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="6GE-IO-7ar" secondAttribute="trailing" constant="10" id="I16-pI-bDg"/>
+                                    <constraint firstAttribute="trailing" secondItem="6GE-IO-7ar" secondAttribute="trailing" id="I16-pI-bDg"/>
                                     <constraint firstItem="6GE-IO-7ar" firstAttribute="centerX" secondItem="rdK-6f-bvL" secondAttribute="centerX" id="KLa-H3-uld"/>
-                                    <constraint firstItem="6GE-IO-7ar" firstAttribute="top" secondItem="rdK-6f-bvL" secondAttribute="top" constant="10" id="Qnu-ud-AkJ"/>
-                                    <constraint firstItem="6GE-IO-7ar" firstAttribute="leading" secondItem="rdK-6f-bvL" secondAttribute="leading" constant="10" id="Y0N-Qd-Teu"/>
-                                    <constraint firstAttribute="bottom" secondItem="6GE-IO-7ar" secondAttribute="bottom" constant="10" id="YDU-2o-JgH"/>
+                                    <constraint firstItem="6GE-IO-7ar" firstAttribute="top" secondItem="rdK-6f-bvL" secondAttribute="top" id="Qnu-ud-AkJ"/>
+                                    <constraint firstItem="6GE-IO-7ar" firstAttribute="leading" secondItem="rdK-6f-bvL" secondAttribute="leading" id="Y0N-Qd-Teu"/>
+                                    <constraint firstAttribute="bottom" secondItem="6GE-IO-7ar" secondAttribute="bottom" id="YDU-2o-JgH"/>
                                     <constraint firstItem="6GE-IO-7ar" firstAttribute="centerY" secondItem="rdK-6f-bvL" secondAttribute="centerY" id="lWK-cm-4Gf"/>
                                 </constraints>
                             </view>
@@ -96,13 +97,13 @@
                                 </userDefinedRuntimeAttributes>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="design" translatesAutoresizingMaskIntoConstraints="NO" id="KnM-dE-VND">
-                                <rect key="frame" x="206" y="5" width="30" height="115"/>
+                                <rect key="frame" x="214" y="5" width="30" height="115"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="30" id="AaC-hX-f32"/>
                                 </constraints>
                             </imageView>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m2T-PB-Bzg">
-                                <rect key="frame" x="198.66666666666666" y="142" width="96.333333333333343" height="25"/>
+                                <rect key="frame" x="208.66666666666666" y="142" width="96.333333333333343" height="25"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="See details" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jNv-p2-wJU">
                                         <rect key="frame" x="10" y="2.6666666666666572" width="65.333333333333329" height="20"/>
@@ -185,8 +186,8 @@
             <constraints>
                 <constraint firstItem="oDF-A7-Dj5" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="5" id="6Db-Hq-W6a"/>
                 <constraint firstAttribute="bottom" secondItem="oDF-A7-Dj5" secondAttribute="bottom" constant="5" id="KD9-8E-iC3"/>
-                <constraint firstAttribute="trailing" secondItem="oDF-A7-Dj5" secondAttribute="trailing" constant="5" id="q0A-6q-yck"/>
-                <constraint firstItem="oDF-A7-Dj5" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="sCs-eZ-KX0"/>
+                <constraint firstAttribute="trailing" secondItem="oDF-A7-Dj5" secondAttribute="trailing" id="q0A-6q-yck"/>
+                <constraint firstItem="oDF-A7-Dj5" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="sCs-eZ-KX0"/>
             </constraints>
             <size key="customSize" width="315" height="187"/>
             <connections>

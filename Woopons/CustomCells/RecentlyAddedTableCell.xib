@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -24,26 +25,26 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aoB-0n-ALH">
-                        <rect key="frame" x="10" y="10" width="339" height="199"/>
+                        <rect key="frame" x="15" y="10" width="329" height="199"/>
                         <subviews>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sfR-pv-GRh" customClass="RightCornerView" customModule="Woopons" customModuleProvider="target">
-                                <rect key="frame" x="10" y="10" width="222.33333333333334" height="132"/>
+                                <rect key="frame" x="10" y="10" width="214.66666666666666" height="132"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="barcode" translatesAutoresizingMaskIntoConstraints="NO" id="mxZ-TM-sJY">
-                                        <rect key="frame" x="15" y="51" width="192.33333333333334" height="30"/>
+                                        <rect key="frame" x="15" y="51" width="184.66666666666666" height="30"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="c8y-GC-6Dw"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="KFC" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fK0-wc-6kf">
-                                        <rect key="frame" x="15" y="10" width="192.33333333333334" height="31"/>
+                                        <rect key="frame" x="15" y="10" width="184.66666666666666" height="31"/>
                                         <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="14"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Unlimited" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fbb-LF-KgS">
-                                        <rect key="frame" x="15" y="102" width="192.33333333333334" height="20"/>
+                                        <rect key="frame" x="15" y="102" width="184.66666666666666" height="20"/>
                                         <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="12"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -65,10 +66,10 @@
                                 </constraints>
                             </view>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xq6-iz-TOh" customClass="RightCornerView" customModule="Woopons" customModuleProvider="target">
-                                <rect key="frame" x="262.33333333333331" y="10" width="66.666666666666686" height="132"/>
+                                <rect key="frame" x="254.66666666666671" y="10" width="64.333333333333343" height="132"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FOOD &amp; BEVERAGE" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="ccc-hC-xFB">
-                                        <rect key="frame" x="9.9999999999999964" y="10" width="46.666666666666657" height="112"/>
+                                        <rect key="frame" x="10.000000000000004" y="10" width="44.333333333333343" height="112"/>
                                         <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="12"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -97,7 +98,7 @@
                                 </userDefinedRuntimeAttributes>
                             </imageView>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jzK-N1-fdh">
-                                <rect key="frame" x="232.66666666666666" y="164" width="96.333333333333343" height="25"/>
+                                <rect key="frame" x="222.66666666666666" y="164" width="96.333333333333343" height="25"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="See details" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hcJ-wt-QCm">
                                         <rect key="frame" x="10" y="2.6666666666666572" width="65.333333333333329" height="20"/>
@@ -138,7 +139,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="design" translatesAutoresizingMaskIntoConstraints="NO" id="cvw-qG-vDC">
-                                <rect key="frame" x="232.33333333333334" y="10" width="30.000000000000028" height="132"/>
+                                <rect key="frame" x="224.66666666666666" y="10" width="30" height="132"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="30" id="aGi-ve-8Rd"/>
                                 </constraints>
@@ -182,9 +183,9 @@
                     </view>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="trailing" secondItem="aoB-0n-ALH" secondAttribute="trailing" constant="10" id="Cy8-aa-TUg"/>
+                    <constraint firstAttribute="trailing" secondItem="aoB-0n-ALH" secondAttribute="trailing" constant="15" id="Cy8-aa-TUg"/>
                     <constraint firstAttribute="bottom" secondItem="aoB-0n-ALH" secondAttribute="bottom" constant="10" id="GmL-R9-jW0"/>
-                    <constraint firstItem="aoB-0n-ALH" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="l3m-C9-HEI"/>
+                    <constraint firstItem="aoB-0n-ALH" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="l3m-C9-HEI"/>
                     <constraint firstItem="aoB-0n-ALH" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="qFU-R5-bQ6"/>
                 </constraints>
             </tableViewCellContentView>

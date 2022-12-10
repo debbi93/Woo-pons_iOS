@@ -90,7 +90,7 @@ extension RecentlyAddedViewController : UITableViewDelegate,UITableViewDataSourc
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 200
+        return 210
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -115,7 +115,7 @@ extension RecentlyAddedViewController : UITableViewDelegate,UITableViewDataSourc
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let recentData = self.recentlyAdded[indexPath.row]
-        pushToCouponDetail(couponDetail: recentData,titleString: recentData.companyName,isFromCouponTab: false,isHistory:false)
+        pushToCouponDetail(couponDetail: recentData,titleString: recentData.name,isFromCouponTab: false,isHistory:false)
         
     }
     

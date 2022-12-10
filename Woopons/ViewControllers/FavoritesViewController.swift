@@ -112,7 +112,7 @@ class FavoritesViewController: UIViewController {
     
     @objc func couponDetailAction(sender: UIButton){
         let data = favoriteList[sender.tag]
-        pushToCouponDetail(couponDetail: data,titleString: data.companyName,isFromCouponTab: false,isHistory:false)
+        pushToCouponDetail(couponDetail: data,titleString: data.name,isFromCouponTab: false,isHistory:false)
     }
     
     @objc func getCouponAction(sender: UIButton){
@@ -175,6 +175,6 @@ extension FavoritesViewController : UITableViewDelegate,UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let data = favoriteList[indexPath.row]
-        pushToCouponDetail(couponDetail: data,titleString: data.companyName,isFromCouponTab: false,isHistory:false)
+        pushToCouponDetail(couponDetail: data,titleString: data.name,isFromCouponTab: false,isHistory:false)
     }
 }

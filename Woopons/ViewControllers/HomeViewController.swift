@@ -11,7 +11,6 @@ class HomeViewController: UIViewController,UISearchBarDelegate {
     
     @IBOutlet weak var errorImage: UIImageView!
     @IBOutlet weak var homeTableView: UITableView!
-    @IBOutlet var headerView: UIView!
     @IBOutlet weak var searchBar: UISearchBar!
     
     var headerTitles = ["Select categories", "Recently added", "Top brands", "Trending categories"]
@@ -19,19 +18,18 @@ class HomeViewController: UIViewController,UISearchBarDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        homeTableView.tableHeaderView = headerView
         self.tabBarController?.tabBar.backgroundColor = UIColor.white
         homeTableView.register(UINib(nibName: "HomeTableCell", bundle: nil), forCellReuseIdentifier: "HomeTableCell")
-        self.tabBarController?.title = "Home"
         searchBar.delegate = self
         let tap = UITapGestureRecognizer(target: self, action: #selector(self.handleTap(_:)))
-        self.view.addGestureRecognizer(tap)
+       // self.view.addGestureRecognizer(tap)
         // Do any additional setup after loading the view.
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         getDashboardData()
+        self.tabBarController?.title = "Home"
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -141,15 +139,15 @@ class HomeViewController: UIViewController,UISearchBarDelegate {
             
             if let dict = response as? [String:AnyObject] {
                 self.dashboardData =  Home.eventWithObject(data: dict)
-                if self.dashboardData?.categoryList?.count == 0 && self.dashboardData?.topBrands?.count ==  0 {
-                    self.homeTableView.isHidden = true
-                    self.errorImage.isHidden = false
-                }
-                else {
-                    self.homeTableView.isHidden = true
-                    self.errorImage.isHidden = true
-
-                }
+//                if self.dashboardData?.categoryList?.count == 0 && self.dashboardData?.topBrands?.count ==  0 {
+//                    self.homeTableView.isHidden = true
+//                    self.errorImage.isHidden = false
+//                }
+//                else {
+//                    self.homeTableView.isHidden = true
+//                    self.errorImage.isHidden = true
+//
+//                }
                 self.homeTableView.reloadData()
             }
         }
@@ -174,7 +172,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         switch indexPath.section {
         case 0:
             if self.dashboardData?.categoryList?.count ?? 0 > 0 {
-                return 80
+                return 90
             }
             else {
                 return 0
@@ -188,20 +186,20 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             }
         case 2:
             if self.dashboardData?.topBrands?.count ?? 0 > 0 {
-                return 80
+                return 90
             }
             else {
                 return 0
             }
         case 3:
             if self.dashboardData?.trendingCategories?.count ?? 0 > 0 {
-                return 150
+                return 90
             }
             else {
                 return 0
             }
         default:
-            return 150
+            return 170
         }
     }
     
@@ -209,7 +207,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         
         let header = UIView()
         header.backgroundColor = UIColor.clear
-        let titleLabel = UILabel(frame: CGRect(x: 20, y: 0, width: 200, height: 20))
+        let titleLabel = UILabel(frame: CGRect(x: 16, y: 0, width: 200, height: 20))
         header.addSubview(titleLabel)
         let viewButton = UIButton(frame: CGRect(x: self.view.frame.width - 90, y: 0, width: 100, height: 20))
         viewButton.setTitleColor(UIColor(named: "primaryRed"), for: .normal)
@@ -446,20 +444,20 @@ extension HomeTableCell : UICollectionViewDelegate, UICollectionViewDataSource, 
         
         switch sectionTag {
         case 0:
-            return CGSize(width: CGFloat((collectionView.frame.size.width / 2.5) - 20), height: 80)
+            return CGSize(width: CGFloat((collectionView.frame.size.width / 2.5) - 20), height: 90)
         case 1:
             return CGSize(width: CGFloat((collectionView.frame.size.width / 1.5) - 10), height: 200)
         case 2:
-            return CGSize(width: CGFloat((collectionView.frame.size.width / 2.5) - 20), height: 80)
+            return CGSize(width: CGFloat((collectionView.frame.size.width / 2.5) - 20), height: 90)
         case 3:
-            return CGSize(width: CGFloat((collectionView.frame.size.width / 1.2) - 10), height: 150)
+            return CGSize(width: CGFloat((collectionView.frame.size.width / 1.2) - 10), height: 160)
         default:
-            return CGSize(width: CGFloat((collectionView.frame.size.width / 3) - 10), height: 150)
+            return CGSize(width: CGFloat((collectionView.frame.size.width / 3) - 10), height: 170)
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 5)
+        return UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
     }
 }
 

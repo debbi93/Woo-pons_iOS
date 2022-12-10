@@ -27,13 +27,13 @@ class ApiService {
         print(url)
         if (NetworkReachabilityManager()?.isReachable)!{
             
-           view.isUserInteractionEnabled = false
+            UIView().isUserInteractionEnabled = false
             view.startActivityIndicator()
             
             AF.request(url, method: .post, parameters: jsonString, encoding: JSONEncoding.default, headers: CustomHeaders.apiHeaders()).responseJSON {
                 response in
                 
-               view.isUserInteractionEnabled = true
+                UIView().isUserInteractionEnabled = true
                 view.stopActivityIndicator()
                 
                 switch(response.result) {
@@ -67,12 +67,12 @@ class ApiService {
         print(url)
         if (NetworkReachabilityManager()?.isReachable)!{
             
-           view.isUserInteractionEnabled = false
+            UIView().isUserInteractionEnabled = false
             
             AF.request(url, method: .post, parameters: jsonString, encoding: JSONEncoding.default, headers: CustomHeaders.apiHeaders()).responseJSON {
                 response in
                 
-               view.isUserInteractionEnabled = true
+                UIView().isUserInteractionEnabled = true
                 
                 switch(response.result) {
                 case .success(_):
@@ -105,13 +105,13 @@ class ApiService {
         print(url)
         if (NetworkReachabilityManager()?.isReachable)!{
             
-           view.isUserInteractionEnabled = false
+            UIView().isUserInteractionEnabled = false
             view.startActivityIndicator()
             
             AF.request(url, method: .get, encoding: JSONEncoding.default, headers: CustomHeaders.apiHeaders()).responseJSON {
                 response in
                 
-               view.isUserInteractionEnabled = true
+                UIView().isUserInteractionEnabled = true
                 view.stopActivityIndicator()
                 
                 switch(response.result) {
@@ -143,6 +143,7 @@ class ApiService {
      class func uploadImage(urlString:String,type :String,imageKey:String,fileData:Data,params:[String:AnyObject],view:UIView, success: @escaping (AnyObject) -> Void,failure: @escaping(Error)  -> Void) {
 
          let url = Constants.AppUrls.baseUrl + urlString
+         
          if (NetworkReachabilityManager()?.isReachable)!{
          let img = fileData
          let timeStamp = Date().timeIntervalSince1970 * 1000
@@ -153,7 +154,7 @@ class ApiService {
                  for (key, value) in params {
                      multipartFormData.append("\(value)".data(using: String.Encoding.utf8)!, withName: key)
                  }
-             }, to: url)
+         }, to: url ,headers: CustomHeaders.apiHeaders())
          .uploadProgress(queue: .main, closure: { progress in
                      //Current upload progress of file
                      print("Upload Progress: \(progress.fractionCompleted)")

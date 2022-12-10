@@ -18,7 +18,7 @@ public class MaterialActivityIndicatorView: UIView {
     }
 
     @IBInspectable
-    public var lineWidth: CGFloat = 2.0 {
+    public var lineWidth: CGFloat = 5.0 {
         didSet {
             indicator.lineWidth = lineWidth
             setNeedsLayout()

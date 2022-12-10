@@ -16,7 +16,7 @@ class UnlockCouponViewController: UIViewController {
     var titleString = ""
     var orderId = 0
     var coupon = ""
-    var count = 5
+    var count = 60
     var timer: Timer?
     
     override func viewDidLoad() {

@@ -54,7 +54,6 @@ class CouponDetailViewController: UIViewController, MTSlideToOpenDelegate {
             
             ApiService.postAPIWithHeaderAndParameters(urlString: Constants.AppUrls.addReview, view: self.view, jsonString: parameters as [String : AnyObject] ) { response in
                 
-              //  if let dict = response["data"] as? [String:AnyObject] {
                     self.showError(message: response["message"] as? String ?? "")
                     self.navigationController?.popViewController(animated: true)
                // }
@@ -95,6 +94,18 @@ class CouponDetailViewController: UIViewController, MTSlideToOpenDelegate {
     }
     }
     
+    func addRemoveFavorite(couponId:Int) {
+        
+        let parameters: [String: Any] = ["coupon_id":couponId]
+        
+        ApiService.postAPIWithHeaderAndParameters(urlString: Constants.AppUrls.addRemoveFavorite, view: self.view, jsonString: parameters as [String : AnyObject] ) { response in
+            self.showError(message: response["message"] as? String ?? "")
+        }
+    failure: { error in
+        self.showError(message: error.localizedDescription)
+    }
+    }
+    
     @objc func getCouponAction(sender: UIButton){
         
         addCoupon(couponId: self.couponDetail.id)
@@ -125,12 +136,38 @@ class CouponDetailViewController: UIViewController, MTSlideToOpenDelegate {
          self.successView.isHidden = true
          self.navigationController?.popViewController(animated: true)
      }
+    
+    private func didFinishTouchingCosmos(_ rating: Double) {
+        if self.couponDetail.rating == 0.0 {
+            self.rating = rating
+            addReview()
+        }
+    }
+    
+    @objc func favButtonAction(sender: UIButton){
+            let indexPath = IndexPath(row: sender.tag, section: 0)
+            let cell = detailTableView.cellForRow(at: indexPath) as? DescriptionTableCell
+            if cell?.favButton.imageView?.image == UIImage(named: "heart"){
+                cell?.favButton.setImage(UIImage(named: "heart-empty"), for: .normal)
+            }
+            else {
+                cell?.favButton.setImage(UIImage(named: "heart"), for: .normal)
+            }
+        addRemoveFavorite(couponId: self.couponDetail.id)
+        }
+    
 }
 
 extension CouponDetailViewController : UITableViewDelegate,UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        if isHistory && self.couponDetail.ratingCount != 0{
+            return 1
+        }
+        else {
+            return 2
+        }
+       
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -157,6 +194,8 @@ extension CouponDetailViewController : UITableViewDelegate,UITableViewDataSource
             cell.uniqueLabel.text = self.couponDetail.offer
             cell.aboutLabel.text = self.couponDetail.about
             cell.howToUseLabel.text = self.couponDetail.howToUse
+            cell.favButton.tag = indexPath.row
+            cell.favButton.addTarget(self, action: #selector(favButtonAction(sender:)), for: .touchUpInside)
             if self.couponDetail.isfavorite {
                 cell.favButton.setImage(UIImage(named: "heart"), for: .normal)
             }
@@ -167,10 +206,10 @@ extension CouponDetailViewController : UITableViewDelegate,UITableViewDataSource
             return cell
             
         case 1:
-            if isHistory {
+            if isHistory && self.couponDetail.rating == 0.0 {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "RateExperienceTableCell", for: indexPath) as! RateExperienceTableCell
                 cell.ratingView.settings.fillMode = .half
-            
+                cell.ratingView.didFinishTouchingCosmos = self.didFinishTouchingCosmos
                 return cell
             }
             else if (isFromCouponTab) {
@@ -179,38 +218,17 @@ extension CouponDetailViewController : UITableViewDelegate,UITableViewDataSource
                 cell.slider.delegate = self
                 return cell
             }
-            else {
+            else if (!isHistory){
                 let cell = tableView.dequeueReusableCell(withIdentifier: "GetCouponTableCell", for: indexPath) as! GetCouponTableCell
                 cell.getCouponButton.addTarget(self, action: #selector(getCouponAction(sender:)), for: .touchUpInside)
                 return cell
             }
             
         default:
-            return UITableViewCell()
+           break
         }
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        if isHistory {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "RateExperienceTableCell", for: indexPath) as! RateExperienceTableCell
-            
-            if self.couponDetail.rating == 0.0 {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
-                    self.addReview()
-                })
-//                cell.ratingView.didFinishTouchingCosmos = { rating in
-//                    print(rating)
-//
-//                }
-//
-//                cell.ratingView.didTouchCosmos = { rating in
-//                    cell.ratingView.rating = rating
-//                    DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
-//                        self.addReview()
-//                    })
-                }
-            }
-        }
+        return UITableViewCell()
     }
 
+    
+}
