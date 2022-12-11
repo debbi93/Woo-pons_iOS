@@ -14,7 +14,13 @@ class HomeViewController: UIViewController,UISearchBarDelegate {
     @IBOutlet weak var searchBar: UISearchBar!
     
     var headerTitles = ["Select categories", "Recently added", "Top brands", "Trending categories"]
+    var searchHeaderTitles = ["Select categories", "", "Top brands", ""]
+    
+    var buttonTitles = ["View all", "View all","View all","View all"]
+    var searchButtonTitles = ["View all","","View all",""]
+    
     var dashboardData : Home?
+    var isSearch = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,7 +29,7 @@ class HomeViewController: UIViewController,UISearchBarDelegate {
         searchBar.delegate = self
         let tap = UITapGestureRecognizer(target: self, action: #selector(self.handleTap(_:)))
         tap.cancelsTouchesInView = false
-       self.view.addGestureRecognizer(tap)
+        self.view.addGestureRecognizer(tap)
         // Do any additional setup after loading the view.
     }
     
@@ -83,7 +89,7 @@ class HomeViewController: UIViewController,UISearchBarDelegate {
     }
     
     func getDashboardData() {
-        
+        isSearch = false
         self.errorImage.isHidden = true
         ApiService.getAPIWithoutParameters(urlString: Constants.AppUrls.getHomeData, view: self.view) { response in
             self.homeTableView.isHidden = false
@@ -123,7 +129,7 @@ class HomeViewController: UIViewController,UISearchBarDelegate {
     }
     
     @objc func search(){
-        
+        isSearch = true
         let parameters: [String: Any] = ["search":self.searchBar.text ?? "" ]
         
         ApiService.postAPIWithHeaderAndParameters(urlString: Constants.AppUrls.searchData, view: self.view, jsonString: parameters as [String : AnyObject] ) { response in
@@ -137,7 +143,7 @@ class HomeViewController: UIViewController,UISearchBarDelegate {
                 else {
                     self.homeTableView.isHidden = false
                     self.errorImage.isHidden = true
-
+                    
                 }
                 self.homeTableView.reloadData()
             }
@@ -169,7 +175,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
                 return 0
             }
         case 1:
-            if self.dashboardData?.recentList?.count ?? 0 > 0 {
+            if self.dashboardData?.recentList?.count ?? 0 > 0 && !isSearch {
                 return 190
             }
             else {
@@ -183,7 +189,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
                 return 0
             }
         case 3:
-            if self.dashboardData?.trendingCategories?.count ?? 0 > 0 {
+            if self.dashboardData?.trendingCategories?.count ?? 0 > 0 && !isSearch {
                 return 160
             }
             else {
@@ -203,12 +209,20 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         let viewButton = UIButton(frame: CGRect(x: self.view.frame.width - 90, y: 0, width: 100, height: 20))
         viewButton.setTitleColor(UIColor(named: "primaryRed"), for: .normal)
         viewButton.titleLabel!.font = UIFont.init(name: "Poppins-Regular", size: 16.0)
-        viewButton.setTitle("View all", for: .normal)
-        viewButton.underline(color: "primaryRed")
+        
         header.addSubview(viewButton)
         titleLabel.textColor = .black
         titleLabel.font = UIFont.init(name: "Poppins-Regular", size: 16.0)
-        titleLabel.text = headerTitles[section]
+        if isSearch {
+            titleLabel.text = searchHeaderTitles[section]
+            viewButton.setTitle(searchButtonTitles[section], for: .normal)
+        }
+        else {
+            titleLabel.text = headerTitles[section]
+            viewButton.setTitle(buttonTitles[section], for: .normal)
+
+        }
+        viewButton.underline(color: "primaryRed")
         viewButton.tag = section
         viewButton.addTarget(self, action: #selector(HomeViewController.viewAllButtonClick(sender:)),for: .touchUpInside)
         return header
@@ -225,7 +239,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
                 return 0
             }
         case 1:
-            if self.dashboardData?.recentList?.count ?? 0 > 0 {
+            if self.dashboardData?.recentList?.count ?? 0 > 0  && !isSearch {
                 return 30
             }
             else {
@@ -239,7 +253,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
                 return 0
             }
         case 3:
-            if self.dashboardData?.trendingCategories?.count ?? 0 > 0 {
+            if self.dashboardData?.trendingCategories?.count ?? 0 > 0 && !isSearch {
                 return 30
             }
             else {
@@ -282,20 +296,20 @@ extension HomeTableCell : UICollectionViewDelegate, UICollectionViewDataSource, 
     
     @objc func couponDetailAction(sender: UIButton){
         
-       let row = sender.tag % 1000
+        let row = sender.tag % 1000
         let section = sender.tag / 1000
         let indexPath = NSIndexPath(row: row, section: section)
-
+        
         let cell = self.homeTableCollectionCell.cellForItem(at: indexPath as IndexPath) as? RecentsCollectionCell
         self.homeSection2Delegate?.collectionView(collectionviewcell: cell, index: indexPath as IndexPath,sectionTag: sectionTag, didTappedInTableViewCell: self)
     }
     
     @objc func exploreAction(sender: UIButton){
         
-       let row = sender.tag % 1000
+        let row = sender.tag % 1000
         let section = sender.tag / 1000
         let indexPath = NSIndexPath(row: row, section: section)
-
+        
         let cell = self.homeTableCollectionCell.cellForItem(at: indexPath as IndexPath) as? TrendingCollectionCell
         self.homeSection4Delegate?.collectionView(collectionviewcell: cell, index: indexPath as IndexPath, sectionTag: sectionTag,didTappedInTableViewCell: self)
     }
