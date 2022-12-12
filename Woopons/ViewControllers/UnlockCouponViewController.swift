@@ -55,14 +55,17 @@ class UnlockCouponViewController: UIViewController {
         
     }
     
+    @IBAction func closePopUpTapped(_ sender: Any) {
+        self.popUpView.isHidden = true
+    }
+    
+    
     func unlockCoupon() {
         
         let parameters: [String: Any] = ["order_id":self.orderId]
         
         ApiService.postAPIWithHeaderAndParameters(urlString: Constants.AppUrls.unlockCoupon, view: self.view, jsonString: parameters as [String : AnyObject] ) { response in
-            
-            self.showError(message: response["message"] as? String ?? "")
-            
+                        
         }
     failure: { error in
         self.showError(message: error.localizedDescription)

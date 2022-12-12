@@ -1393,6 +1393,19 @@ passages van Lorem Ipsum beschikbaar maarhet .</string>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GBS-57-m82">
                                         <rect key="frame" x="30" y="222.5" width="315" height="222"/>
                                         <subviews>
+                                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m2F-EU-8d0">
+                                                <rect key="frame" x="281" y="10" width="24" height="24"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="24" id="ba2-Od-Tbe"/>
+                                                    <constraint firstAttribute="width" constant="24" id="zH5-WT-5Ix"/>
+                                                </constraints>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" image="close" title=" "/>
+                                                <connections>
+                                                    <action selector="closePopUpTapped:" destination="dtL-Xw-ZM1" eventType="touchUpInside" id="rTy-o6-2W6"/>
+                                                </connections>
+                                            </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xfR-kp-zKl">
                                                 <rect key="frame" x="10" y="76" width="295" height="79"/>
                                                 <string key="text">Alert: Your coupon will expire within 60 seconds 
@@ -1439,11 +1452,13 @@ after unlocking</string>
                                             <constraint firstItem="xfR-kp-zKl" firstAttribute="leading" secondItem="GBS-57-m82" secondAttribute="leading" constant="10" id="764-ER-lND"/>
                                             <constraint firstItem="XjZ-lQ-qY0" firstAttribute="top" secondItem="GBS-57-m82" secondAttribute="top" constant="20" id="7Bp-hf-Ux1"/>
                                             <constraint firstAttribute="bottom" secondItem="nKO-Wk-iXZ" secondAttribute="bottom" constant="10" id="AZM-g8-naK"/>
+                                            <constraint firstItem="m2F-EU-8d0" firstAttribute="top" secondItem="GBS-57-m82" secondAttribute="top" constant="10" id="EwB-PO-2Zc"/>
                                             <constraint firstItem="nKO-Wk-iXZ" firstAttribute="leading" secondItem="GBS-57-m82" secondAttribute="leading" constant="20" id="Ppa-Zw-3DC"/>
                                             <constraint firstItem="XjZ-lQ-qY0" firstAttribute="centerX" secondItem="GBS-57-m82" secondAttribute="centerX" id="Wx1-oJ-L31"/>
                                             <constraint firstItem="nKO-Wk-iXZ" firstAttribute="top" secondItem="xfR-kp-zKl" secondAttribute="bottom" constant="15" id="hYb-RC-r1q"/>
                                             <constraint firstItem="nKO-Wk-iXZ" firstAttribute="centerX" secondItem="GBS-57-m82" secondAttribute="centerX" id="mDp-A6-CE4"/>
                                             <constraint firstItem="xfR-kp-zKl" firstAttribute="top" secondItem="XjZ-lQ-qY0" secondAttribute="bottom" constant="15" id="nWG-GU-6CX"/>
+                                            <constraint firstAttribute="trailing" secondItem="m2F-EU-8d0" secondAttribute="trailing" constant="10" id="yBn-hI-bGw"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -1488,10 +1503,11 @@ after unlocking</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mnP-gB-0dz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3594" y="-934"/>
+            <point key="canvasLocation" x="3592.8000000000002" y="-934.18290854572717"/>
         </scene>
     </scenes>
     <resources>
+        <image name="close" width="32" height="32"/>
         <image name="coupons" width="18" height="12"/>
         <image name="coupons-selected" width="18" height="12"/>
         <image name="home" width="17" height="18"/>

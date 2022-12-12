@@ -3,4 +3,230 @@
    uuid = "75404CE1-880C-4962-B3D0-5373C0DA1CD4"
    type = "0"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "109B2434-9D88-4EB5-A728-3E3021E1832B"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Woopons/ViewControllers/ProfileViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "155"
+            endingLineNumber = "155"
+            landmarkName = "uploadImageToServer()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "1BE4BE4D-C986-442D-974D-494784FC9BA1"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Woopons/Api Client/ApiService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "145"
+            endingLineNumber = "145"
+            landmarkName = "uploadImage(urlString:type:imageKey:fileData:params:view:success:failure:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "1230FD7C-F356-42FD-8D5E-1751487DB2B0"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Woopons/Api Client/ApiService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "147"
+            endingLineNumber = "147"
+            landmarkName = "uploadImage(urlString:type:imageKey:fileData:params:view:success:failure:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "1230FD7C-F356-42FD-8D5E-1751487DB2B0 - 5168f270d03fc25a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static Woopons.ApiService.uploadImage(urlString: Swift.String, type: Swift.String, imageKey: Swift.String, fileData: Foundation.Data, params: Swift.Dictionary&lt;Swift.String, Swift.AnyObject&gt;, view: __C.UIView, success: (Swift.AnyObject) -&gt; (), failure: (Swift.Error) -&gt; ()) -&gt; ()"
+                  moduleName = "Woopons"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/harsh/Documents/iOS%20Projects/Woo-pons_iOS/Woopons/Api%20Client/ApiService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "147"
+                  endingLineNumber = "147"
+                  offsetFromSymbolStart = "608">
+               </Location>
+               <Location
+                  uuid = "1230FD7C-F356-42FD-8D5E-1751487DB2B0 - 5168f270d03fc25a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static Woopons.ApiService.uploadImage(urlString: Swift.String, type: Swift.String, imageKey: Swift.String, fileData: Foundation.Data, params: Swift.Dictionary&lt;Swift.String, Swift.AnyObject&gt;, view: __C.UIView, success: (Swift.AnyObject) -&gt; (), failure: (Swift.Error) -&gt; ()) -&gt; ()"
+                  moduleName = "Woopons"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/harsh/Documents/iOS%20Projects/Woo-pons_iOS/Woopons/Api%20Client/ApiService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "147"
+                  endingLineNumber = "147"
+                  offsetFromSymbolStart = "2275">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "84187FDD-51FE-4E32-9AD4-1001D9D6C0CA"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Woopons/Api Client/ApiService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "149"
+            endingLineNumber = "149"
+            landmarkName = "uploadImage(urlString:type:imageKey:fileData:params:view:success:failure:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "49724F1C-48F2-408D-8EFD-516E9B9FAB26"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Woopons/Api Client/ApiService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "153"
+            endingLineNumber = "153"
+            landmarkName = "uploadImage(urlString:type:imageKey:fileData:params:view:success:failure:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "91464F83-D432-49E7-9974-5393F430E77C"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Woopons/Api Client/ApiService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "152"
+            endingLineNumber = "152"
+            landmarkName = "uploadImage(urlString:type:imageKey:fileData:params:view:success:failure:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "91464F83-D432-49E7-9974-5393F430E77C - 5168f270d03fc301"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static Woopons.ApiService.uploadImage(urlString: Swift.String, type: Swift.String, imageKey: Swift.String, fileData: Foundation.Data, params: Swift.Dictionary&lt;Swift.String, Swift.AnyObject&gt;, view: __C.UIView, success: (Swift.AnyObject) -&gt; (), failure: (Swift.Error) -&gt; ()) -&gt; ()"
+                  moduleName = "Woopons"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/harsh/Documents/iOS%20Projects/Woo-pons_iOS/Woopons/Api%20Client/ApiService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "152"
+                  endingLineNumber = "152"
+                  offsetFromSymbolStart = "1204">
+               </Location>
+               <Location
+                  uuid = "91464F83-D432-49E7-9974-5393F430E77C - d1264bc2d107c366"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Alamofire.MultipartFormData) -&gt; () in static Woopons.ApiService.uploadImage(urlString: Swift.String, type: Swift.String, imageKey: Swift.String, fileData: Foundation.Data, params: Swift.Dictionary&lt;Swift.String, Swift.AnyObject&gt;, view: __C.UIView, success: (Swift.AnyObject) -&gt; (), failure: (Swift.Error) -&gt; ()) -&gt; ()"
+                  moduleName = "Woopons"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/harsh/Documents/iOS%20Projects/Woo-pons_iOS/Woopons/Api%20Client/ApiService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "153"
+                  endingLineNumber = "153"
+                  offsetFromSymbolStart = "246">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B265D750-F876-456C-8001-D825A206B40E"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Woopons/Api Client/ApiService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "155"
+            endingLineNumber = "155"
+            landmarkName = "uploadImage(urlString:type:imageKey:fileData:params:view:success:failure:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D75E6D03-46B2-4267-BE81-9A4744D2A059"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Woopons/Api Client/ApiService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "158"
+            endingLineNumber = "158"
+            landmarkName = "uploadImage(urlString:type:imageKey:fileData:params:view:success:failure:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "D75E6D03-46B2-4267-BE81-9A4744D2A059 - 5168f270d03fc3cf"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static Woopons.ApiService.uploadImage(urlString: Swift.String, type: Swift.String, imageKey: Swift.String, fileData: Foundation.Data, params: Swift.Dictionary&lt;Swift.String, Swift.AnyObject&gt;, view: __C.UIView, success: (Swift.AnyObject) -&gt; (), failure: (Swift.Error) -&gt; ()) -&gt; ()"
+                  moduleName = "Woopons"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/harsh/Documents/iOS%20Projects/Woo-pons_iOS/Woopons/Api%20Client/ApiService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "158"
+                  endingLineNumber = "158"
+                  offsetFromSymbolStart = "1764">
+               </Location>
+               <Location
+                  uuid = "D75E6D03-46B2-4267-BE81-9A4744D2A059 - 17a62ab4d5d3c032"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (__C.NSProgress) -&gt; () in static Woopons.ApiService.uploadImage(urlString: Swift.String, type: Swift.String, imageKey: Swift.String, fileData: Foundation.Data, params: Swift.Dictionary&lt;Swift.String, Swift.AnyObject&gt;, view: __C.UIView, success: (Swift.AnyObject) -&gt; (), failure: (Swift.Error) -&gt; ()) -&gt; ()"
+                  moduleName = "Woopons"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/harsh/Documents/iOS%20Projects/Woo-pons_iOS/Woopons/Api%20Client/ApiService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "160"
+                  endingLineNumber = "160"
+                  offsetFromSymbolStart = "39">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>
