@@ -14,13 +14,10 @@ class HomeViewController: UIViewController,UISearchBarDelegate {
     @IBOutlet weak var searchBar: UISearchBar!
     
     var headerTitles = ["Select categories", "Recently added", "Top brands", "Trending categories"]
-    var searchHeaderTitles = ["Select categories", "", "Top brands", ""]
     
     var buttonTitles = ["View all", "View all","View all","View all"]
-    var searchButtonTitles = ["View all","","View all",""]
     
     var dashboardData : Home?
-    var isSearch = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,7 +50,7 @@ class HomeViewController: UIViewController,UISearchBarDelegate {
             }
         }
         if let textfield = searchBar.value(forKey: "searchField") as? UITextField {
-            textfield.textColor = UIColor(named: "black3")
+            textfield.textColor = .black
             textfield.tintColor = UIColor(named: "primaryRed")
             textfield.backgroundColor = UIColor.clear
             textfield.font = UIFont.init(name: "Poppins-Light", size: 15.0)
@@ -89,7 +86,6 @@ class HomeViewController: UIViewController,UISearchBarDelegate {
     }
     
     func getDashboardData() {
-        isSearch = false
         self.errorImage.isHidden = true
         ApiService.getAPIWithoutParameters(urlString: Constants.AppUrls.getHomeData, view: self.view) { response in
             self.homeTableView.isHidden = false
@@ -129,7 +125,6 @@ class HomeViewController: UIViewController,UISearchBarDelegate {
     }
     
     @objc func search(){
-        isSearch = true
         let parameters: [String: Any] = ["search":self.searchBar.text ?? "" ]
         
         ApiService.postAPIWithHeaderAndParameters(urlString: Constants.AppUrls.searchData, view: self.view, jsonString: parameters as [String : AnyObject] ) { response in
@@ -175,7 +170,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
                 return 0
             }
         case 1:
-            if self.dashboardData?.recentList?.count ?? 0 > 0 && !isSearch {
+            if self.dashboardData?.recentList?.count ?? 0 > 0 {
                 return 190
             }
             else {
@@ -189,7 +184,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
                 return 0
             }
         case 3:
-            if self.dashboardData?.trendingCategories?.count ?? 0 > 0 && !isSearch {
+            if self.dashboardData?.trendingCategories?.count ?? 0 > 0 {
                 return 160
             }
             else {
@@ -213,15 +208,8 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         header.addSubview(viewButton)
         titleLabel.textColor = .black
         titleLabel.font = UIFont.init(name: "Poppins-Regular", size: 16.0)
-        if isSearch {
-            titleLabel.text = searchHeaderTitles[section]
-            viewButton.setTitle(searchButtonTitles[section], for: .normal)
-        }
-        else {
-            titleLabel.text = headerTitles[section]
-            viewButton.setTitle(buttonTitles[section], for: .normal)
-
-        }
+        titleLabel.text = headerTitles[section]
+        viewButton.setTitle(buttonTitles[section], for: .normal)
         viewButton.underline(color: "primaryRed")
         viewButton.tag = section
         viewButton.addTarget(self, action: #selector(HomeViewController.viewAllButtonClick(sender:)),for: .touchUpInside)
@@ -236,28 +224,28 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
                 return 30
             }
             else {
-                return 0
+                return CGFloat.leastNormalMagnitude
             }
         case 1:
-            if self.dashboardData?.recentList?.count ?? 0 > 0  && !isSearch {
+            if self.dashboardData?.recentList?.count ?? 0 > 0 {
                 return 30
             }
             else {
-                return 0
+                return CGFloat.leastNormalMagnitude
             }
         case 2:
             if self.dashboardData?.topBrands?.count ?? 0 > 0 {
                 return 30
             }
             else {
-                return 0
+                return CGFloat.leastNormalMagnitude
             }
         case 3:
-            if self.dashboardData?.trendingCategories?.count ?? 0 > 0 && !isSearch {
+            if self.dashboardData?.trendingCategories?.count ?? 0 > 0  {
                 return 30
             }
             else {
-                return 0
+                return CGFloat.leastNormalMagnitude
             }
         default:
             return 30
@@ -512,8 +500,6 @@ extension HomeViewController : HomeSection4Delegate {
         self.pushToFavorites(pageTitle: data?.name ?? "", urlString: "\(Constants.AppUrls.getCouponsFromCategory)\(data?.id ?? 0)?page=")
     }
 }
-
-
 
 // MARK: - UIView Extension
 extension UIView {

@@ -55,7 +55,7 @@ import UIKit
             layoutIfNeeded()
         }
     }
-    public var thumbnailViewStartingDistance: CGFloat = 0.0 {
+    public var thumbnailViewStartingDistance: CGFloat = 10.0 {
         didSet {
             leadingThumbnailViewConstraint?.constant = thumbnailViewStartingDistance
             trailingDraggedViewConstraint?.constant = thumbnailViewStartingDistance

@@ -147,7 +147,7 @@ class ApiService {
          if (NetworkReachabilityManager()?.isReachable)!{
          let img = fileData
          let timeStamp = Date().timeIntervalSince1970 * 1000
-         let fileName = "image\(timeStamp).png"
+         let fileName = "image\(timeStamp).jpeg"
          
          AF.upload(multipartFormData: { (multipartFormData) in
              multipartFormData.append(fileData, withName: "file", fileName: fileName, mimeType: "image/jpeg")

@@ -397,6 +397,7 @@ extension UIButton {
 
 extension UIView {
     
+    
     func applyViewGradient() {
         self.backgroundColor = nil
         self.layoutIfNeeded()
@@ -738,27 +739,7 @@ extension UIView {
         mask.path = path.cgPath
         layer.mask = mask
     }
-    
-    //
-    //        func applyGradient()  {
-    //            let colors = [UIColor(named: "gradient1")!,UIColor(named: "gradient2")!,UIColor(named: "gradient3")!,UIColor(named: "gradient4")!]
-    //            self.applyGradient(colours: colors, locations: nil)
-    //        }
-    //
-    //
-    //        func applyGradient(colours: [UIColor], locations: [NSNumber]?) -> CAGradientLayer {
-    //            let colors = [UIColor(named: "gradient1")!,UIColor(named: "gradient2")!,UIColor(named: "gradient3")!,UIColor(named: "gradient4")!]
-    //            let locations = [0.0, 0.3, 0.7,1.0] // New line
-    //            let gradient: CAGradientLayer = CAGradientLayer()
-    //            gradient.frame = self.bounds
-    //            gradient.colors = colours.map { $0.cgColor }
-    //            gradient.locations = locations
-    //            self.layer.insertSublayer(gradient, at: 0)
-    //            return gradient
-    //
-    //
-    //
-    //        }
+  
 }
 
 class CustomSlide: UISlider {
@@ -769,13 +750,6 @@ class CustomSlide: UISlider {
         //set your bounds here
         return CGRect(origin: bounds.origin, size: CGSize(width: bounds.width, height: trackHeight))
     }
-    
-    //    override func awakeFromNib() {
-    //        self.setThumbImage(#imageLiteral(resourceName: "location"), for: .normal)
-    ////        self.thumbTintColor = .clear
-    //        self.setThumbImage(#imageLiteral(resourceName: "location"), for: .focused)
-    //        super.awakeFromNib()
-    //    }
     
     override func layoutSubviews() {
         super.layoutSubviews()

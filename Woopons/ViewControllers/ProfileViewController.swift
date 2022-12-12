@@ -104,7 +104,6 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     func setProfileData() {
         
-        self.profileImageView.setImage(with: profileModel?.image ?? "", placeholder: UIImage(named: "placeholder")!)
         if let image = profileModel?.image , !image.isEmpty {
             self.profileImageView.setImage(with: image, placeholder: UIImage(named: "placeholder")!)
         }

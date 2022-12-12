@@ -87,12 +87,12 @@ extension CategoriesViewController: UICollectionViewDelegate, UICollectionViewDa
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        return CGSize(width: CGFloat((collectionView.frame.size.width / 2) - 20), height: 80)
+        return CGSize(width: CGFloat((collectionView.frame.size.width / 2.04) - 20), height: 90)
         
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 20, left: 15, bottom: 15, right: 15)
+        return UIEdgeInsets(top: 10, left: 15, bottom: 15, right: 15)
     }
     
 }
