@@ -1391,7 +1391,7 @@ passages van Lorem Ipsum beschikbaar maarhet .</string>
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GBS-57-m82">
-                                        <rect key="frame" x="30" y="222.5" width="315" height="222"/>
+                                        <rect key="frame" x="30" y="236" width="315" height="195.5"/>
                                         <subviews>
                                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m2F-EU-8d0">
                                                 <rect key="frame" x="281" y="10" width="24" height="24"/>
@@ -1406,16 +1406,14 @@ passages van Lorem Ipsum beschikbaar maarhet .</string>
                                                     <action selector="closePopUpTapped:" destination="dtL-Xw-ZM1" eventType="touchUpInside" id="rTy-o6-2W6"/>
                                                 </connections>
                                             </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xfR-kp-zKl">
-                                                <rect key="frame" x="10" y="76" width="295" height="79"/>
-                                                <string key="text">Alert: Your coupon will expire within 60 seconds 
-after unlocking</string>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Alert: Your coupon will expire if you go back" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xfR-kp-zKl">
+                                                <rect key="frame" x="10" y="76" width="295" height="52.5"/>
                                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="16"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="nKO-Wk-iXZ">
-                                                <rect key="frame" x="20" y="170" width="275" height="42"/>
+                                                <rect key="frame" x="20" y="143.5" width="275" height="42"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iip-rT-fLU">
                                                         <rect key="frame" x="0.0" y="0.0" width="275" height="42"/>
