@@ -23,5 +23,9 @@
 	</dict>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+	<key>NSCameraUsageDescription</key>
+	<string>Allow app to access camera to change profile picture</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Allow app to access camera to change profile picture</string>
 </dict>
 </plist>
