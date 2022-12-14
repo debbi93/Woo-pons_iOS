@@ -75,7 +75,6 @@ class FavoritesViewController: UIViewController {
         let parameters: [String: Any] = ["coupon_id":couponId]
         
         ApiService.postAPIWithHeaderAndParameters(urlString: Constants.AppUrls.addRemoveFavorite, view: self.view, jsonString: parameters as [String : AnyObject] ) { response in
-            self.showError(message: response["message"] as? String ?? "")
         }
     failure: { error in
         self.showError(message: error.localizedDescription)
