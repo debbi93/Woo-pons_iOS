@@ -70,10 +70,10 @@ extension CategoriesViewController: UICollectionViewDelegate, UICollectionViewDa
         cell.categoryNameLabel.text = data.name
         cell.categoryImgView.image = nil
         if !data.image.isEmpty {
-            cell.categoryImgView.setImage(with: data.image, placeholder: UIImage(named: "placeholder")!)
+            cell.categoryImgView.setImage(with: data.image, placeholder: UIImage(named: "rectangle")!)
         }
         else {
-            cell.categoryImgView.image = UIImage(named: "placeholder")
+            cell.categoryImgView.image = UIImage(named: "rectangle")
         }
         
         return cell

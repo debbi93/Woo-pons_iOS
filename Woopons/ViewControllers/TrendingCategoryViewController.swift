@@ -103,10 +103,10 @@ extension TrendingCategoryViewController : UITableViewDelegate,UITableViewDataSo
         cell.descLabel.text = trendingData.description
         cell.imgView.image = nil
         if !trendingData.trendingImage.isEmpty {
-            cell.imgView.setImage(with: trendingData.trendingImage, placeholder: UIImage(named: "placeholder")!)
+            cell.imgView.setImage(with: trendingData.trendingImage, placeholder: UIImage(named: "rectangle")!)
         }
         else {
-            cell.imgView.image = UIImage(named: "placeholder")
+            cell.imgView.image = UIImage(named: "rectangle")
         }
         
         return cell

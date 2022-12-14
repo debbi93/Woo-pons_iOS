@@ -32,6 +32,7 @@ class CouponsViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        errorImage.isHidden = true
         self.tabBarController?.tabBar.backgroundColor = UIColor.white
         couponsTableView.register(UINib(nibName: "FavoriteTableCell", bundle: nil), forCellReuseIdentifier: "FavoriteTableCell")
         self.tabBarController?.title = "Coupons"
@@ -54,7 +55,10 @@ class CouponsViewController: UIViewController {
             if let dict = response as? [String:AnyObject] {
                 self.couponData = Coupon.eventWithObject(data: dict)
                 
-                if ((self.couponData?.newlyAdded?.count ?? 0) == 0) {
+                if ((self.couponData?.newlyAdded?.count ?? 0) == 0) && !self.isHistory {
+                    self.errorImage.isHidden = false
+                }
+               else if ((self.couponData?.history?.count ?? 0) == 0) && self.isHistory {
                     self.errorImage.isHidden = false
                 }
                 else {
@@ -209,10 +213,10 @@ extension CouponsViewController : UITableViewDelegate,UITableViewDataSource {
             cell.typeLabel.text = data?.repetition
             cell.imgView.image = nil
             if let image = data?.companyLogo , !image.isEmpty {
-                cell.imgView.setImage(with: image, placeholder: UIImage(named: "placeholder")!)
+                cell.imgView.setImage(with: image, placeholder: UIImage(named: "rectangle")!)
             }
             else {
-                cell.imgView.image = UIImage(named: "placeholder")
+                cell.imgView.image = UIImage(named: "rectangle")
             }
             cell.ratingLabel.text = "\(data?.ratingAvergae ?? 0.0) (\(data?.ratingCount ?? 0)) ratings"
             cell.ratingView.rating = data?.ratingAvergae ?? 0.0
@@ -239,10 +243,10 @@ extension CouponsViewController : UITableViewDelegate,UITableViewDataSource {
             cell.typeLabel.text = data?.repetition
             cell.imgView.image = nil
             if let image = data?.companyLogo , !image.isEmpty {
-                cell.imgView.setImage(with: image, placeholder: UIImage(named: "placeholder")!)
+                cell.imgView.setImage(with: image, placeholder: UIImage(named: "rectangle")!)
             }
             else {
-                cell.imgView.image = UIImage(named: "placeholder")
+                cell.imgView.image = UIImage(named: "rectangle")
             }
             cell.favButton.tag = indexPath.row
             cell.favButton.addTarget(self, action: #selector(favButtonAction(sender:)), for: .touchUpInside)

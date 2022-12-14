@@ -90,10 +90,10 @@ extension TopBrandsViewController: UICollectionViewDelegate, UICollectionViewDat
         let categoryData = self.topBrands[indexPath.item]
         cell.categoryImgView.image = nil
         if !categoryData.image.isEmpty {
-            cell.categoryImgView.setImage(with: categoryData.image, placeholder: UIImage(named: "placeholder")!)
+            cell.categoryImgView.setImage(with: categoryData.image, placeholder: UIImage(named: "rectangle")!)
         }
         else {
-            cell.categoryImgView.image = UIImage(named: "placeholder")
+            cell.categoryImgView.image = UIImage(named: "rectangle")
         }
         return cell
     }

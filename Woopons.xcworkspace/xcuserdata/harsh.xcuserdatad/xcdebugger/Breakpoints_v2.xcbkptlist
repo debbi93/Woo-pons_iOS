@@ -228,5 +228,149 @@
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "09F8D590-0957-46D5-824E-1B4A8C68B29C"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Woopons/ViewControllers/CouponsViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "59"
+            endingLineNumber = "59"
+            landmarkName = "getCoupons()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "DE3B2522-B305-49D1-80FA-70D526603EF8"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Woopons/ViewControllers/CouponsViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "65"
+            endingLineNumber = "65"
+            landmarkName = "getCoupons()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A94DB867-D4B0-4CC6-B040-1EB951228737"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Woopons/ViewControllers/CouponsViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "67"
+            endingLineNumber = "67"
+            landmarkName = "getCoupons()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D9C2E88C-1A8E-4CF4-9049-2F50000F2951"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Woopons/ViewControllers/CouponsViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "53"
+            endingLineNumber = "53"
+            landmarkName = "getCoupons()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "D9C2E88C-1A8E-4CF4-9049-2F50000F2951 - a78584fc8141ab38"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Woopons.CouponsViewController.getCoupons() -&gt; ()"
+                  moduleName = "Woopons"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/harsh/Documents/iOS%20Projects/Woo-pons_iOS/Woopons/ViewControllers/CouponsViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "53"
+                  endingLineNumber = "53"
+                  offsetFromSymbolStart = "37">
+               </Location>
+               <Location
+                  uuid = "D9C2E88C-1A8E-4CF4-9049-2F50000F2951 - b6e2f029f56a7d2d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.AnyObject) -&gt; () in Woopons.CouponsViewController.getCoupons() -&gt; ()"
+                  moduleName = "Woopons"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/harsh/Documents/iOS%20Projects/Woo-pons_iOS/Woopons/ViewControllers/CouponsViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "55"
+                  endingLineNumber = "55"
+                  offsetFromSymbolStart = "85">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "786E8F9E-1575-4B50-851F-85364EB39217"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Woopons/ViewControllers/CouponsViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "55"
+            endingLineNumber = "55"
+            landmarkName = "getCoupons()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "786E8F9E-1575-4B50-851F-85364EB39217 - b6e2f029f56a7d2d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.AnyObject) -&gt; () in Woopons.CouponsViewController.getCoupons() -&gt; ()"
+                  moduleName = "Woopons"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/harsh/Documents/iOS%20Projects/Woo-pons_iOS/Woopons/ViewControllers/CouponsViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "55"
+                  endingLineNumber = "55"
+                  offsetFromSymbolStart = "85">
+               </Location>
+               <Location
+                  uuid = "786E8F9E-1575-4B50-851F-85364EB39217 - b6e2f029f56a7d2d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.AnyObject) -&gt; () in Woopons.CouponsViewController.getCoupons() -&gt; ()"
+                  moduleName = "Woopons"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/harsh/Documents/iOS%20Projects/Woo-pons_iOS/Woopons/ViewControllers/CouponsViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "55"
+                  endingLineNumber = "55"
+                  offsetFromSymbolStart = "214">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

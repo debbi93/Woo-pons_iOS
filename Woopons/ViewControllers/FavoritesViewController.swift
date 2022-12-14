@@ -156,10 +156,10 @@ extension FavoritesViewController : UITableViewDelegate,UITableViewDataSource {
         cell.typeLabel.text = data.repetition
         cell.imgView.image = nil
         if !data.companyLogo.isEmpty {
-            cell.imgView.setImage(with: data.companyLogo, placeholder: UIImage(named: "placeholder")!)
+            cell.imgView.setImage(with: data.companyLogo, placeholder: UIImage(named: "rectangle")!)
         }
         else {
-            cell.imgView.image = UIImage(named: "placeholder")
+            cell.imgView.image = UIImage(named: "rectangle")
         }
         cell.ratingLabel.text = "\(data.ratingAvergae) (\(data.ratingCount)) ratings"
         cell.ratingView.rating = data.ratingAvergae

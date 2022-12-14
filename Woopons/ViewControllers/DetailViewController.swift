@@ -181,10 +181,10 @@ extension CouponDetailViewController : UITableViewDelegate,UITableViewDataSource
             let cell = tableView.dequeueReusableCell(withIdentifier: "DescriptionTableCell", for: indexPath) as! DescriptionTableCell
             cell.imgView.image = nil
             if !self.couponDetail.companyLogo.isEmpty {
-                cell.imgView.setImage(with: self.couponDetail.companyLogo, placeholder: UIImage(named: "placeholder")!)
+                cell.imgView.setImage(with: self.couponDetail.companyLogo, placeholder: UIImage(named: "rectangle")!)
             }
             else {
-                cell.imgView.image = UIImage(named: "placeholder")
+                cell.imgView.image = UIImage(named: "rectangle")
             }
             cell.ratingLabel.text = "\(self.couponDetail.ratingAvergae) (\(self.couponDetail.ratingCount)) ratings"
             cell.ratingView.rating = self.couponDetail.ratingAvergae
