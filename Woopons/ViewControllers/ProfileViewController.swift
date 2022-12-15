@@ -99,7 +99,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     }
     
     @IBAction func upgradeButtonAction(_ sender: UIButton) {
-        
+        self.pushToWebView(title: "Upgrade Plan",url: "\(Constants.AppUrls.imageBaseUrl)/?access_token=\(UserDefaults.standard.string(forKey: "accessToken") ?? "")")
     }
     
     func setProfileData() {

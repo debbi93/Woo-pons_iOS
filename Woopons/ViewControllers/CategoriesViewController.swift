@@ -87,7 +87,7 @@ extension CategoriesViewController: UICollectionViewDelegate, UICollectionViewDa
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        return CGSize(width: CGFloat((collectionView.frame.size.width / 2.04) - 20), height: 90)
+        return CGSize(width: CGFloat((collectionView.frame.size.width / 2.04) - 20), height: 100)
         
     }
     

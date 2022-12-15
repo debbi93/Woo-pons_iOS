@@ -53,10 +53,10 @@ extension SettingsViewController : UITableViewDelegate, UITableViewDataSource {
         case 2:
             self.pushToFeedback()
         case 3:
-            pushToWebView(title: "Terms & Conditions",url: "https://www.google.co.in/")
+            pushToWebView(title: "Terms & Conditions",url: Constants.AppUrls.termsUrl)
             
         case 4:
-            self.pushToWebView(title: "Privacy Policy",url: "https://www.google.co.in/")
+            self.pushToWebView(title: "Privacy Policy",url: Constants.AppUrls.privacyPolicyUrl)
         case 5:
             let storyboard = UIStoryboard(name: "Home", bundle: nil)
             let myAlert = storyboard.instantiateViewController(withIdentifier: "LogoutViewController")

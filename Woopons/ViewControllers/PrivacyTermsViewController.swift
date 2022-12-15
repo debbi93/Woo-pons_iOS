@@ -8,7 +8,7 @@
 import UIKit
 import WebKit
 
-class PrivacyTermsViewController: UIViewController {
+class PrivacyTermsViewController: UIViewController,WKNavigationDelegate {
     
     @IBOutlet weak var webView: WKWebView!
     
@@ -17,6 +17,7 @@ class PrivacyTermsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        webView.navigationDelegate = self
         self.setBackButtonWithTitle(title: "")
         self.title = titleString
         // Do any additional setup after loading the view.
@@ -24,9 +25,13 @@ class PrivacyTermsViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        view.startActivityIndicator()
         let url = URL (string: urlString)
         let requestObj = URLRequest(url: url!)
         webView.load(requestObj)
     }
     
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        view.stopActivityIndicator()
+    }
 }
