@@ -1503,6 +1503,160 @@ passages van Lorem Ipsum beschikbaar maarhet .</string>
             </objects>
             <point key="canvasLocation" x="3592.8000000000002" y="-934.18290854572717"/>
         </scene>
+        <!--Change Password View Controller-->
+        <scene sceneID="GvW-xp-hQh">
+            <objects>
+                <viewController restorationIdentifier="ChangePasswordViewController" storyboardIdentifier="ChangePasswordViewController" id="vD9-bX-amB" customClass="ChangePasswordViewController" customModule="Woopons" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="2Q4-1H-iNu">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fru-YR-nis">
+                                <rect key="frame" x="20" y="300" width="335" height="40"/>
+                                <color key="backgroundColor" name="primaryRed"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="Ckm-41-kKx"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="18"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Save Changes"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="saveButtonAction:" destination="vD9-bX-amB" eventType="touchUpInside" id="gRB-ee-x2V"/>
+                                </connections>
+                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="LeM-fL-CyF">
+                                <rect key="frame" x="20" y="100" width="335" height="160"/>
+                                <subviews>
+                                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g9c-aX-h0e">
+                                        <rect key="frame" x="0.0" y="0.0" width="335" height="40"/>
+                                        <subviews>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Old Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oBO-lF-uzf">
+                                                <rect key="frame" x="15" y="6.5" width="305" height="27"/>
+                                                <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="16"/>
+                                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="placeHolderColor">
+                                                        <color key="value" name="placeholderColor"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="maxLength">
+                                                        <integer key="value" value="50"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <outlet property="delegate" destination="vD9-bX-amB" id="oER-ar-jMp"/>
+                                                </connections>
+                                            </textField>
+                                        </subviews>
+                                        <color key="backgroundColor" name="textFieldBg"/>
+                                        <constraints>
+                                            <constraint firstItem="oBO-lF-uzf" firstAttribute="leading" secondItem="g9c-aX-h0e" secondAttribute="leading" constant="15" id="13C-NZ-5yH"/>
+                                            <constraint firstAttribute="trailing" secondItem="oBO-lF-uzf" secondAttribute="trailing" constant="15" id="AXg-rH-49A"/>
+                                            <constraint firstItem="oBO-lF-uzf" firstAttribute="centerY" secondItem="g9c-aX-h0e" secondAttribute="centerY" id="LYW-1v-SXb"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="20"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gRR-Ja-wPL">
+                                        <rect key="frame" x="0.0" y="60" width="335" height="40"/>
+                                        <subviews>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="New Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qHK-vC-ltU">
+                                                <rect key="frame" x="15" y="6.5" width="305" height="27"/>
+                                                <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="16"/>
+                                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="placeHolderColor">
+                                                        <color key="value" name="placeholderColor"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="maxLength">
+                                                        <integer key="value" value="50"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <outlet property="delegate" destination="vD9-bX-amB" id="xfw-PX-Kk2"/>
+                                                </connections>
+                                            </textField>
+                                        </subviews>
+                                        <color key="backgroundColor" name="textFieldBg"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="qHK-vC-ltU" secondAttribute="trailing" constant="15" id="Tap-kt-bMZ"/>
+                                            <constraint firstItem="qHK-vC-ltU" firstAttribute="centerY" secondItem="gRR-Ja-wPL" secondAttribute="centerY" id="W5X-4E-fxF"/>
+                                            <constraint firstItem="qHK-vC-ltU" firstAttribute="leading" secondItem="gRR-Ja-wPL" secondAttribute="leading" constant="15" id="yqB-aS-MK7"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="20"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="16P-mF-3Gp">
+                                        <rect key="frame" x="0.0" y="120" width="335" height="40"/>
+                                        <subviews>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Confirm Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hcj-Up-FNf">
+                                                <rect key="frame" x="15" y="6.5" width="305" height="27"/>
+                                                <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="16"/>
+                                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="placeHolderColor">
+                                                        <color key="value" name="placeholderColor"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="maxLength">
+                                                        <integer key="value" value="50"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <outlet property="delegate" destination="vD9-bX-amB" id="enj-NE-KNN"/>
+                                                </connections>
+                                            </textField>
+                                        </subviews>
+                                        <color key="backgroundColor" name="textFieldBg"/>
+                                        <constraints>
+                                            <constraint firstItem="hcj-Up-FNf" firstAttribute="leading" secondItem="16P-mF-3Gp" secondAttribute="leading" constant="15" id="JIt-JB-np8"/>
+                                            <constraint firstAttribute="trailing" secondItem="hcj-Up-FNf" secondAttribute="trailing" constant="15" id="kmi-a2-Ah0"/>
+                                            <constraint firstItem="hcj-Up-FNf" firstAttribute="centerY" secondItem="16P-mF-3Gp" secondAttribute="centerY" id="w1P-tW-eMn"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="20"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="160" id="Of3-3x-MWq"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="gRr-gk-oLF"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="gRr-gk-oLF" firstAttribute="trailing" secondItem="LeM-fL-CyF" secondAttribute="trailing" constant="20" id="7vh-6k-XII"/>
+                            <constraint firstItem="Fru-YR-nis" firstAttribute="leading" secondItem="gRr-gk-oLF" secondAttribute="leading" constant="20" id="H3y-ft-Xew"/>
+                            <constraint firstItem="LeM-fL-CyF" firstAttribute="leading" secondItem="gRr-gk-oLF" secondAttribute="leading" constant="20" id="PNY-ML-qmL"/>
+                            <constraint firstItem="gRr-gk-oLF" firstAttribute="trailing" secondItem="Fru-YR-nis" secondAttribute="trailing" constant="20" id="Z0x-a3-JkE"/>
+                            <constraint firstItem="LeM-fL-CyF" firstAttribute="top" secondItem="2Q4-1H-iNu" secondAttribute="top" constant="100" id="ikZ-su-c42"/>
+                            <constraint firstItem="Fru-YR-nis" firstAttribute="top" secondItem="LeM-fL-CyF" secondAttribute="bottom" constant="40" id="tTM-i9-aeY"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="ICy-9j-qz5"/>
+                    <connections>
+                        <outlet property="confirmPasswordTextField" destination="hcj-Up-FNf" id="2CP-EV-0O6"/>
+                        <outlet property="newPasswordTextField" destination="qHK-vC-ltU" id="a7n-HM-eoD"/>
+                        <outlet property="oldPasswordTextField" destination="oBO-lF-uzf" id="rdb-4C-4tx"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EOr-Jn-2sL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4383" y="-949"/>
+        </scene>
     </scenes>
     <resources>
         <image name="close" width="32" height="32"/>

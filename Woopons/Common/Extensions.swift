@@ -1291,7 +1291,7 @@ extension UIViewController {
     
     func pushToChangePassword(){
         
-        if let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ChangePasswordViewController") as? ChangePasswordViewController {
+        if let viewController = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(withIdentifier: "ChangePasswordViewController") as? ChangePasswordViewController {
             if let navigator = navigationController {
                 navigator.pushViewController(viewController, animated: true)
             }

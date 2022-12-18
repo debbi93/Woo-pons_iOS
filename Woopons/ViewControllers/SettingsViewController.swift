@@ -12,8 +12,8 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var versionLabel: UILabel!
     @IBOutlet weak var settingTableView: UITableView!
     
-    var imagesArr = ["profile","favorites","feedback","terms","privacy","logout"]
-    var namesArr = ["Profile","My favorites","Feedback & Suggestions","Terms & Conditions","Privacy policy","Log out"]
+    var imagesArr = ["profile","profile","favorites","feedback","terms","privacy","logout"]
+    var namesArr = ["Profile","Change Password","My favorites","Feedback & Suggestions","Terms & Conditions","Privacy policy","Log out"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,19 +49,21 @@ extension SettingsViewController : UITableViewDelegate, UITableViewDataSource {
         case 0:
             self.pushToProfile()
         case 1:
-            self.pushToFavorites(pageTitle: "My Favorites", urlString: Constants.AppUrls.getFavorites)
+            self.pushToChangePassword()
         case 2:
-            self.pushToFeedback()
+            self.pushToFavorites(pageTitle: "My Favorites", urlString: Constants.AppUrls.getFavorites)
         case 3:
+            self.pushToFeedback()
+        case 4:
             pushToWebView(title: "Terms & Conditions",url: Constants.AppUrls.termsUrl)
             
-        case 4:
-            self.pushToWebView(title: "Privacy Policy",url: Constants.AppUrls.privacyPolicyUrl)
         case 5:
+            self.pushToWebView(title: "Privacy Policy",url: Constants.AppUrls.privacyPolicyUrl)
+        case 6:
             let storyboard = UIStoryboard(name: "Home", bundle: nil)
             let myAlert = storyboard.instantiateViewController(withIdentifier: "LogoutViewController")
             self.presentfromBottomToTop(vc: myAlert)
-
+            
         default:
             break
         }

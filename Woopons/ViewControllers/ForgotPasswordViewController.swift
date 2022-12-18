@@ -9,6 +9,8 @@ import UIKit
 
 class ForgotPasswordViewController: UIViewController {
     
+    @IBOutlet weak var alertLabel: UILabel!
+    @IBOutlet weak var popupView: UIView!
     @IBOutlet weak var emailTextField: UITextField!
     
     
@@ -30,7 +32,7 @@ class ForgotPasswordViewController: UIViewController {
         if(emailTextField.text!.isEmptyOrWhitespace)() {
             self.showError(message: "Please enter your email address")
         }
-       else if !self.isValidEmail(self.emailTextField.text ?? "") {
+        else if !self.isValidEmail(self.emailTextField.text ?? "") {
             self.showError(message: "Please enter valid email address")
         }
         else {
@@ -44,14 +46,20 @@ class ForgotPasswordViewController: UIViewController {
         return emailTest.evaluate(with: emailString)
     }
     
+    @IBAction func okButtonTapped(_ sender: UIButton) {
+        self.popupView.isHidden = true
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    
     func forgotPassword() {
         
         let parameters: [String: Any] = ["email":self.emailTextField.text ?? "" ]
         
         ApiService.postAPIWithHeaderAndParameters(urlString: Constants.AppUrls.forgotPassword, view: self.view, jsonString: parameters as [String : AnyObject] ) { response in
             
-                self.showError(message: response["message"] as? String ?? "")
-                self.navigationController?.popViewController(animated: true)
+            self.alertLabel.text = response["message"] as? String ?? ""
+            self.popupView.isHidden = false
         }
     failure: { error in
         self.showError(message: error.localizedDescription)

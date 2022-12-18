@@ -35,6 +35,7 @@ struct Constants {
         static var addCoupon = "addcouponorder"
         static var removeCoupon = "removecoupon"
         static var unlockCoupon = "unlockcoupon"
+        static var changePassword = "updatepassword"
         static var privacyPolicyUrl = "https://woopons.xcelanceweb.com/privacy-policy"
         static var termsUrl = "https://woopons.xcelanceweb.com/terms"
     }
