@@ -12,7 +12,7 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var versionLabel: UILabel!
     @IBOutlet weak var settingTableView: UITableView!
     
-    var imagesArr = ["profile","profile","favorites","feedback","terms","privacy","logout"]
+    var imagesArr = ["profile","password","favorites","feedback","terms","privacy","logout"]
     var namesArr = ["Profile","Change Password","My favorites","Feedback & Suggestions","Terms & Conditions","Privacy policy","Log out"]
     
     override func viewDidLoad() {
