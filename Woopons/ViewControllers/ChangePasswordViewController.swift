@@ -40,6 +40,9 @@ class ChangePasswordViewController: UIViewController {
         else if(confirmPasswordTextField.text!.isEmptyOrWhitespace()){
             self.showError(message: "Please confirm your password")
         }
+        else if !(confirmPasswordTextField.text!.elementsEqual(self.newPasswordTextField.text!)){
+            self.showError(message: "Passwords do not match")
+        }
         else {
             changePassword()
         }
