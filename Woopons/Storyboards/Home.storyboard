@@ -1533,12 +1533,12 @@ passages van Lorem Ipsum beschikbaar maarhet .</string>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="LeM-fL-CyF">
                                 <rect key="frame" x="20" y="100" width="335" height="160"/>
                                 <subviews>
-                                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g9c-aX-h0e">
+                                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sQv-GE-yzB">
                                         <rect key="frame" x="0.0" y="0.0" width="335" height="40"/>
                                         <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Old Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oBO-lF-uzf">
-                                                <rect key="frame" x="15" y="6.5" width="305" height="27"/>
-                                                <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="16"/>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Old Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Fiw-tC-1bx">
+                                                <rect key="frame" x="15" y="6.5" width="263" height="27"/>
+                                                <fontDescription key="fontDescription" name="Poppins-Light" family="Poppins" pointSize="16"/>
                                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="color" keyPath="placeHolderColor">
@@ -1548,16 +1548,28 @@ passages van Lorem Ipsum beschikbaar maarhet .</string>
                                                         <integer key="value" value="50"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
-                                                <connections>
-                                                    <outlet property="delegate" destination="vD9-bX-amB" id="oER-ar-jMp"/>
-                                                </connections>
                                             </textField>
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jwn-oZ-1pl">
+                                                <rect key="frame" x="288" y="12" width="32" height="16"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="32" id="qle-G9-SkY"/>
+                                                    <constraint firstAttribute="height" constant="16" id="sKt-dw-Ae4"/>
+                                                </constraints>
+                                                <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" image="eye.slash" catalog="system" title=" "/>
+                                                <connections>
+                                                    <action selector="oldEyeAction:" destination="vD9-bX-amB" eventType="touchUpInside" id="dCp-6l-XS0"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" name="textFieldBg"/>
                                         <constraints>
-                                            <constraint firstItem="oBO-lF-uzf" firstAttribute="leading" secondItem="g9c-aX-h0e" secondAttribute="leading" constant="15" id="13C-NZ-5yH"/>
-                                            <constraint firstAttribute="trailing" secondItem="oBO-lF-uzf" secondAttribute="trailing" constant="15" id="AXg-rH-49A"/>
-                                            <constraint firstItem="oBO-lF-uzf" firstAttribute="centerY" secondItem="g9c-aX-h0e" secondAttribute="centerY" id="LYW-1v-SXb"/>
+                                            <constraint firstItem="Fiw-tC-1bx" firstAttribute="leading" secondItem="sQv-GE-yzB" secondAttribute="leading" constant="15" id="65A-Kq-YH5"/>
+                                            <constraint firstAttribute="trailing" secondItem="jwn-oZ-1pl" secondAttribute="trailing" constant="15" id="8yZ-8P-uZA"/>
+                                            <constraint firstItem="jwn-oZ-1pl" firstAttribute="leading" secondItem="Fiw-tC-1bx" secondAttribute="trailing" constant="10" id="FcX-LX-FFW"/>
+                                            <constraint firstItem="Fiw-tC-1bx" firstAttribute="centerY" secondItem="sQv-GE-yzB" secondAttribute="centerY" id="Q1A-Ow-ACt"/>
+                                            <constraint firstItem="jwn-oZ-1pl" firstAttribute="centerY" secondItem="sQv-GE-yzB" secondAttribute="centerY" id="nuW-j4-ucc"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -1565,12 +1577,12 @@ passages van Lorem Ipsum beschikbaar maarhet .</string>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
-                                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gRR-Ja-wPL">
+                                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pTG-0x-7ZD">
                                         <rect key="frame" x="0.0" y="60" width="335" height="40"/>
                                         <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="New Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qHK-vC-ltU">
-                                                <rect key="frame" x="15" y="6.5" width="305" height="27"/>
-                                                <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="16"/>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="New Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="s5h-bG-hTB">
+                                                <rect key="frame" x="15" y="6.5" width="263" height="27"/>
+                                                <fontDescription key="fontDescription" name="Poppins-Light" family="Poppins" pointSize="16"/>
                                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="color" keyPath="placeHolderColor">
@@ -1580,16 +1592,28 @@ passages van Lorem Ipsum beschikbaar maarhet .</string>
                                                         <integer key="value" value="50"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
-                                                <connections>
-                                                    <outlet property="delegate" destination="vD9-bX-amB" id="xfw-PX-Kk2"/>
-                                                </connections>
                                             </textField>
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kdD-ml-P8s">
+                                                <rect key="frame" x="288" y="12" width="32" height="16"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="16" id="6Rx-Rg-3Ln"/>
+                                                    <constraint firstAttribute="width" constant="32" id="gFo-Cd-93e"/>
+                                                </constraints>
+                                                <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" image="eye.slash" catalog="system" title=" "/>
+                                                <connections>
+                                                    <action selector="newEyeAction:" destination="vD9-bX-amB" eventType="touchUpInside" id="8n8-8y-swn"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" name="textFieldBg"/>
                                         <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="qHK-vC-ltU" secondAttribute="trailing" constant="15" id="Tap-kt-bMZ"/>
-                                            <constraint firstItem="qHK-vC-ltU" firstAttribute="centerY" secondItem="gRR-Ja-wPL" secondAttribute="centerY" id="W5X-4E-fxF"/>
-                                            <constraint firstItem="qHK-vC-ltU" firstAttribute="leading" secondItem="gRR-Ja-wPL" secondAttribute="leading" constant="15" id="yqB-aS-MK7"/>
+                                            <constraint firstItem="s5h-bG-hTB" firstAttribute="centerY" secondItem="pTG-0x-7ZD" secondAttribute="centerY" id="Eru-F4-RpO"/>
+                                            <constraint firstItem="kdD-ml-P8s" firstAttribute="centerY" secondItem="pTG-0x-7ZD" secondAttribute="centerY" id="QbA-5i-SK8"/>
+                                            <constraint firstItem="s5h-bG-hTB" firstAttribute="leading" secondItem="pTG-0x-7ZD" secondAttribute="leading" constant="15" id="dHs-ik-wrS"/>
+                                            <constraint firstAttribute="trailing" secondItem="kdD-ml-P8s" secondAttribute="trailing" constant="15" id="jWj-go-tuR"/>
+                                            <constraint firstItem="kdD-ml-P8s" firstAttribute="leading" secondItem="s5h-bG-hTB" secondAttribute="trailing" constant="10" id="luu-e7-5Ik"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -1597,12 +1621,12 @@ passages van Lorem Ipsum beschikbaar maarhet .</string>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
-                                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="16P-mF-3Gp">
+                                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I3K-TJ-OAz">
                                         <rect key="frame" x="0.0" y="120" width="335" height="40"/>
                                         <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Confirm Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hcj-Up-FNf">
-                                                <rect key="frame" x="15" y="6.5" width="305" height="27"/>
-                                                <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="16"/>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Confirm Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FjG-yL-OzE">
+                                                <rect key="frame" x="15" y="6.5" width="263" height="27"/>
+                                                <fontDescription key="fontDescription" name="Poppins-Light" family="Poppins" pointSize="16"/>
                                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="color" keyPath="placeHolderColor">
@@ -1612,16 +1636,28 @@ passages van Lorem Ipsum beschikbaar maarhet .</string>
                                                         <integer key="value" value="50"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
-                                                <connections>
-                                                    <outlet property="delegate" destination="vD9-bX-amB" id="enj-NE-KNN"/>
-                                                </connections>
                                             </textField>
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b6X-dW-lYs">
+                                                <rect key="frame" x="288" y="12" width="32" height="16"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="16" id="E4n-C9-sRO"/>
+                                                    <constraint firstAttribute="width" constant="32" id="qtG-FU-CxB"/>
+                                                </constraints>
+                                                <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" image="eye.slash" catalog="system" title=" "/>
+                                                <connections>
+                                                    <action selector="confirmEyeAction:" destination="vD9-bX-amB" eventType="touchUpInside" id="rWY-mO-eVx"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" name="textFieldBg"/>
                                         <constraints>
-                                            <constraint firstItem="hcj-Up-FNf" firstAttribute="leading" secondItem="16P-mF-3Gp" secondAttribute="leading" constant="15" id="JIt-JB-np8"/>
-                                            <constraint firstAttribute="trailing" secondItem="hcj-Up-FNf" secondAttribute="trailing" constant="15" id="kmi-a2-Ah0"/>
-                                            <constraint firstItem="hcj-Up-FNf" firstAttribute="centerY" secondItem="16P-mF-3Gp" secondAttribute="centerY" id="w1P-tW-eMn"/>
+                                            <constraint firstItem="b6X-dW-lYs" firstAttribute="leading" secondItem="FjG-yL-OzE" secondAttribute="trailing" constant="10" id="0qt-gO-SMv"/>
+                                            <constraint firstItem="b6X-dW-lYs" firstAttribute="centerY" secondItem="I3K-TJ-OAz" secondAttribute="centerY" id="Cx7-55-Zkm"/>
+                                            <constraint firstItem="FjG-yL-OzE" firstAttribute="leading" secondItem="I3K-TJ-OAz" secondAttribute="leading" constant="15" id="Ojb-6z-OG9"/>
+                                            <constraint firstItem="FjG-yL-OzE" firstAttribute="centerY" secondItem="I3K-TJ-OAz" secondAttribute="centerY" id="jFB-Fh-U9C"/>
+                                            <constraint firstAttribute="trailing" secondItem="b6X-dW-lYs" secondAttribute="trailing" constant="15" id="ypZ-qq-E7X"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -1648,9 +1684,12 @@ passages van Lorem Ipsum beschikbaar maarhet .</string>
                     </view>
                     <navigationItem key="navigationItem" id="ICy-9j-qz5"/>
                     <connections>
-                        <outlet property="confirmPasswordTextField" destination="hcj-Up-FNf" id="2CP-EV-0O6"/>
-                        <outlet property="newPasswordTextField" destination="qHK-vC-ltU" id="a7n-HM-eoD"/>
-                        <outlet property="oldPasswordTextField" destination="oBO-lF-uzf" id="rdb-4C-4tx"/>
+                        <outlet property="confirmEye" destination="b6X-dW-lYs" id="qK2-yR-PnR"/>
+                        <outlet property="confirmPasswordTextField" destination="FjG-yL-OzE" id="30J-Xm-HQ4"/>
+                        <outlet property="newEye" destination="kdD-ml-P8s" id="uRT-ty-72W"/>
+                        <outlet property="newPasswordTextField" destination="s5h-bG-hTB" id="aov-O7-VbQ"/>
+                        <outlet property="oldEye" destination="jwn-oZ-1pl" id="WFM-Hu-T9E"/>
+                        <outlet property="oldPasswordTextField" destination="Fiw-tC-1bx" id="KVK-Ms-Pck"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EOr-Jn-2sL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1662,6 +1701,7 @@ passages van Lorem Ipsum beschikbaar maarhet .</string>
         <image name="close" width="32" height="32"/>
         <image name="coupons" width="18" height="12"/>
         <image name="coupons-selected" width="18" height="12"/>
+        <image name="eye.slash" catalog="system" width="128" height="84"/>
         <image name="home" width="17" height="18"/>
         <image name="home-selected" width="17" height="18"/>
         <image name="placeholder" width="300" height="300"/>

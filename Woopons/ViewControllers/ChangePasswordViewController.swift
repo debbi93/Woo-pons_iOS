@@ -10,10 +10,16 @@ import UIKit
 class ChangePasswordViewController: UIViewController {
     
     
+    @IBOutlet weak var confirmEye: UIButton!
+    @IBOutlet weak var newEye: UIButton!
+    @IBOutlet weak var oldEye: UIButton!
     @IBOutlet weak var oldPasswordTextField: UITextField!
     @IBOutlet weak var newPasswordTextField: UITextField!
     @IBOutlet weak var confirmPasswordTextField: UITextField!
     
+    var oldIconClick = true
+    var newIconClick = true
+    var confirmIconClick = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,6 +54,40 @@ class ChangePasswordViewController: UIViewController {
         }
         
     }
+    
+    @IBAction func oldEyeAction(_ sender: UIButton) {
+        if oldIconClick {
+            oldPasswordTextField.isSecureTextEntry = false
+            oldEye.setImage(UIImage(systemName: "eye"), for: .normal)
+        } else {
+            oldPasswordTextField.isSecureTextEntry = true
+            oldEye.setImage(UIImage(systemName: "eye.slash"), for: .normal)
+        }
+        oldIconClick = !oldIconClick
+    }
+    
+    @IBAction func newEyeAction(_ sender: UIButton) {
+        if newIconClick {
+            newPasswordTextField.isSecureTextEntry = false
+            newEye.setImage(UIImage(systemName: "eye"), for: .normal)
+        } else {
+            newPasswordTextField.isSecureTextEntry = true
+            newEye.setImage(UIImage(systemName: "eye.slash"), for: .normal)
+        }
+        newIconClick = !newIconClick
+    }
+    
+    @IBAction func confirmEyeAction(_ sender: UIButton) {
+        if confirmIconClick {
+            confirmPasswordTextField.isSecureTextEntry = false
+            confirmEye.setImage(UIImage(systemName: "eye"), for: .normal)
+        } else {
+            confirmPasswordTextField.isSecureTextEntry = true
+            confirmEye.setImage(UIImage(systemName: "eye.slash"), for: .normal)
+        }
+        confirmIconClick = !confirmIconClick
+    }
+    
     
     
     // MARK: - Api Call's
