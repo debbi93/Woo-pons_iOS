@@ -22,7 +22,7 @@ class UnlockCouponViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.view.setScreenCaptureProtection()
         self.title =  titleString
         dottedView.addDashedBorder()
         self.couponCode.text = coupon
@@ -65,11 +65,34 @@ class UnlockCouponViewController: UIViewController {
         let parameters: [String: Any] = ["order_id":self.orderId]
         
         ApiService.postAPIWithHeaderAndParameters(urlString: Constants.AppUrls.unlockCoupon, view: self.view, jsonString: parameters as [String : AnyObject] ) { response in
-                        
+            
         }
     failure: { error in
         self.showError(message: error.localizedDescription)
     }
     }
     
+}
+private extension UIView {
+    func setScreenCaptureProtection() {
+        guard superview != nil else {
+            for subview in subviews { //to avoid layer cyclic crash, when it is a topmost view, adding all its subviews in textfield's layer, TODO: Find a better logic.
+                subview.setScreenCaptureProtection()
+            }
+            return
+        }
+        let guardTextField = UITextField()
+        guardTextField.backgroundColor = .clear
+        guardTextField.translatesAutoresizingMaskIntoConstraints = false
+        guardTextField.isSecureTextEntry = true
+        addSubview(guardTextField)
+        guardTextField.isUserInteractionEnabled = false
+        sendSubviewToBack(guardTextField)
+        layer.superlayer?.addSublayer(guardTextField.layer)
+        guardTextField.layer.sublayers?.first?.addSublayer(layer)
+        guardTextField.topAnchor.constraint(equalTo: self.topAnchor, constant: 0).isActive = true
+        guardTextField.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 0).isActive = true
+        guardTextField.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 0).isActive = true
+        guardTextField.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 0).isActive = true
+    }
 }
