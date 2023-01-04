@@ -160,7 +160,7 @@ extension FavoritesViewController : UITableViewDelegate,UITableViewDataSource {
         else {
             cell.imgView.image = UIImage(named: "rectangle")
         }
-        cell.ratingLabel.text = "\(data.ratingAvergae) (\(data.ratingCount)) ratings"
+        cell.ratingLabel.text = "\(data.ratingAvergae)"
         cell.ratingView.rating = data.ratingAvergae
         cell.favButton.tag = indexPath.row
         cell.detailsButton.tag = indexPath.row

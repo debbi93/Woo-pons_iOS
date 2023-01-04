@@ -218,7 +218,7 @@ extension CouponsViewController : UITableViewDelegate,UITableViewDataSource {
             else {
                 cell.imgView.image = UIImage(named: "rectangle")
             }
-            cell.ratingLabel.text = "\(data?.ratingAvergae ?? 0.0) (\(data?.ratingCount ?? 0)) ratings"
+            cell.ratingLabel.text = "\(data?.ratingAvergae ?? 0.0)"
             cell.ratingView.rating = data?.ratingAvergae ?? 0.0
             cell.detailsButton.tag = indexPath.row
             cell.typeLabel.isHidden = true
@@ -250,7 +250,7 @@ extension CouponsViewController : UITableViewDelegate,UITableViewDataSource {
             }
             cell.favButton.tag = indexPath.row
             cell.favButton.addTarget(self, action: #selector(favButtonAction(sender:)), for: .touchUpInside)
-            cell.ratingLabel.text = "\(data?.ratingAvergae ?? 0.0) (\(data?.ratingCount ?? 0)) ratings"
+            cell.ratingLabel.text = "\(data?.ratingAvergae ?? 0.0)"
             cell.ratingView.rating = data?.ratingAvergae ?? 0.0
             cell.detailsButton.tag = indexPath.row
             cell.couponButton.setTitle("Unlock Coupon", for: .normal)
