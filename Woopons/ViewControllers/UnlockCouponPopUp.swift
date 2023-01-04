@@ -12,7 +12,7 @@ class UnlockCouponPopUp: UIViewController {
     var couponId = ""
     var titleString = ""
     var orderId = 0
-    
+    var descString = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,7 +29,7 @@ class UnlockCouponPopUp: UIViewController {
     @IBAction func unlockButtonTapped(_ sender: UIButton) {
         
         self.dismiss(animated: true) {
-            self.pushToUnlockCoupon(title: self.titleString, coupon: self.couponId,orderId: self.orderId)
+            self.pushToUnlockCoupon(title: self.titleString, coupon: self.couponId,orderId: self.orderId, desc: self.descString)
 
         }
       

@@ -122,7 +122,7 @@ class CouponDetailViewController: UIViewController, MTSlideToOpenDelegate {
          
          self.popupView.isHidden = true
          self.redeemCouponView.isHidden = true
-         self.pushToUnlockCoupon(title: self.titleString, coupon: self.couponDetail.couponCode,orderId: self.couponDetail.orderId)
+         self.pushToUnlockCoupon(title: self.titleString, coupon: self.couponDetail.couponCode,orderId: self.couponDetail.orderId, desc: self.couponDetail.businessDescription)
          
      }
      @IBAction func noButtonTapped(_ sender: UIButton) {
@@ -141,6 +141,13 @@ class CouponDetailViewController: UIViewController, MTSlideToOpenDelegate {
             self.rating = rating
             addReview()
         }
+    }
+    
+    @objc func directionsButtonAction(sender: UIButton){
+       
+        let url = "http://maps.apple.com/maps?saddr=\(self.couponDetail.lat),\(self.couponDetail.lng)"
+        UIApplication.shared.openURL(URL(string:url)!)
+
     }
     
     @objc func favButtonAction(sender: UIButton){
@@ -166,7 +173,6 @@ extension CouponDetailViewController : UITableViewDelegate,UITableViewDataSource
         else {
             return 2
         }
-       
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -185,7 +191,7 @@ extension CouponDetailViewController : UITableViewDelegate,UITableViewDataSource
             else {
                 cell.imgView.image = UIImage(named: "rectangle")
             }
-            cell.ratingLabel.text = "\(self.couponDetail.ratingAvergae) (\(self.couponDetail.ratingCount)) ratings"
+            cell.ratingLabel.text = "\(self.couponDetail.ratingAvergae)"
             cell.ratingView.rating = self.couponDetail.ratingAvergae
             cell.nameLabel.text = self.couponDetail.companyName
             cell.locationLabel.text = self.couponDetail.companyLocation
@@ -193,8 +199,16 @@ extension CouponDetailViewController : UITableViewDelegate,UITableViewDataSource
             cell.uniqueLabel.text = self.couponDetail.offer
             cell.aboutLabel.text = self.couponDetail.about
             cell.howToUseLabel.text = self.couponDetail.howToUse
+            cell.aboutCompanyLbl.text = "About \(self.couponDetail.companyName)"
+            cell.aboutCompanyDescLbl.text = self.couponDetail.businessDescription
+            cell.potentialLbl.text = "\(self.couponDetail.companyName) has been operating for..."
+            cell.potentialDescLbl.text = self.couponDetail.potential
+            cell.howLongLbl.text = "\(self.couponDetail.companyName) would like you to know"
+            cell.howLongDescLbl.text = self.couponDetail.howLongBusiness
             cell.favButton.tag = indexPath.row
+            cell.directionsButton.tag = indexPath.row
             cell.favButton.addTarget(self, action: #selector(favButtonAction(sender:)), for: .touchUpInside)
+            cell.directionsButton.addTarget(self, action: #selector(directionsButtonAction(sender:)), for: .touchUpInside)
             if self.couponDetail.isfavorite {
                 cell.favButton.setImage(UIImage(named: "heart"), for: .normal)
             }

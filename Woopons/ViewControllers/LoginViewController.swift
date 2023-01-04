@@ -77,7 +77,7 @@ class LoginViewController: UIViewController {
     
     func doLogin() {
         
-        let parameters: [String: Any] = [ "password": self.passwordTextField.text ?? "" , "email":self.usernameTextField.text ?? "","mobile":true ]
+        let parameters: [String: Any] = [ "password": self.passwordTextField.text ?? "" , "email":self.usernameTextField.text ?? "","mobile":true, "device_id":UIDevice.current.identifierForVendor?.uuidString ?? ""]
         
         ApiService.postAPIWithHeaderAndParameters(urlString: Constants.AppUrls.login, view: self.view, jsonString: parameters as [String : AnyObject] ) { response in
             

@@ -13,7 +13,7 @@ class HomeViewController: UIViewController,UISearchBarDelegate {
     @IBOutlet weak var homeTableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     
-    var headerTitles = ["Select categories", "Recently added", "Top brands", "Trending categories"]
+    var headerTitles = ["Select categories", "Recently added", "Featured brands", "Trending categories"]
     
     var buttonTitles = ["View all", "View all","View all","View all"]
     

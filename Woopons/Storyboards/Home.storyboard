@@ -38,7 +38,7 @@
                                 </connections>
                             </tableView>
                             <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="pVg-IP-ZBn">
-                                <rect key="frame" x="37.5" y="159" width="300" height="300"/>
+                                <rect key="frame" x="112.5" y="227" width="150" height="164"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GC4-OO-0Jx">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
@@ -114,7 +114,7 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BjF-ZP-LsY">
                                                 <rect key="frame" x="10" y="15" width="315" height="52.5"/>
                                                 <string key="text">Are you sure you'd like to redeem your 
-Woo-Pon now?</string>
+WOO-PON now?</string>
                                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="16"/>
                                                 <color key="textColor" name="primaryRed"/>
                                                 <nil key="highlightedColor"/>
@@ -263,7 +263,7 @@ after unlocking</string>
                                 </connections>
                             </collectionView>
                             <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="2vh-RY-sPf">
-                                <rect key="frame" x="37.5" y="183.5" width="300" height="300"/>
+                                <rect key="frame" x="112.5" y="251.5" width="150" height="164"/>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="STq-ZJ-bc9"/>
@@ -343,7 +343,7 @@ after unlocking</string>
                                 </connections>
                             </tableView>
                             <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="Za3-UH-nMT">
-                                <rect key="frame" x="37.5" y="159" width="300" height="300"/>
+                                <rect key="frame" x="112.5" y="227" width="150" height="164"/>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="RyE-Yw-tfF"/>
@@ -797,7 +797,7 @@ logout?</string>
                                 </connections>
                             </tableView>
                             <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="jf2-a2-jCR">
-                                <rect key="frame" x="37.5" y="183.5" width="300" height="300"/>
+                                <rect key="frame" x="112.5" y="251.5" width="150" height="164"/>
                             </imageView>
                             <view hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="88k-YC-vsN">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -1026,7 +1026,7 @@ logout?</string>
                                 </connections>
                             </collectionView>
                             <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="svr-Nn-Zqi">
-                                <rect key="frame" x="37.5" y="183.5" width="300" height="300"/>
+                                <rect key="frame" x="112.5" y="251.5" width="150" height="164"/>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="rlb-Iw-FhN"/>
@@ -1066,7 +1066,7 @@ logout?</string>
                                 </connections>
                             </tableView>
                             <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="vzy-Gp-MpF">
-                                <rect key="frame" x="37.5" y="183.5" width="300" height="300"/>
+                                <rect key="frame" x="112.5" y="251.5" width="150" height="164"/>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="fnx-kV-shX"/>
@@ -1106,7 +1106,7 @@ logout?</string>
                                 </connections>
                             </tableView>
                             <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="pY3-KH-VlM">
-                                <rect key="frame" x="37.5" y="183.5" width="300" height="300"/>
+                                <rect key="frame" x="112.5" y="251.5" width="150" height="164"/>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="jpU-0d-ehp"/>
@@ -1212,7 +1212,7 @@ logout?</string>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Teh-Sf-3fr">
                                                 <rect key="frame" x="10" y="15" width="315" height="52.5"/>
                                                 <string key="text">Are you sure you'd like to redeem your 
-Woo-Pon now?</string>
+WOO-PON now?</string>
                                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="16"/>
                                                 <color key="textColor" name="primaryRed"/>
                                                 <nil key="highlightedColor"/>
@@ -1344,8 +1344,8 @@ after unlocking</string>
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You unlocked a new Woo-pon..." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OEy-Hr-7rA">
-                                <rect key="frame" x="62" y="20" width="251.5" height="26.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You unlocked a new WOO-PON..." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OEy-Hr-7rA">
+                                <rect key="frame" x="58.5" y="20" width="258.5" height="26.5"/>
                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="16"/>
                                 <color key="textColor" name="primaryRed"/>
                                 <nil key="highlightedColor"/>
@@ -1494,6 +1494,7 @@ passages van Lorem Ipsum beschikbaar maarhet .</string>
                     </view>
                     <connections>
                         <outlet property="couponCode" destination="KFp-g0-Fdt" id="56X-jY-5Gs"/>
+                        <outlet property="descLabel" destination="pfq-gC-PaZ" id="4qL-S3-MXV"/>
                         <outlet property="dottedView" destination="YRl-Qm-iOS" id="AyH-MR-27U"/>
                         <outlet property="popUpView" destination="S0v-03-gTz" id="Tyt-zc-Zc0"/>
                         <outlet property="timerLabel" destination="NGy-1h-cGF" id="and-Be-g9q"/>
@@ -1704,7 +1705,7 @@ passages van Lorem Ipsum beschikbaar maarhet .</string>
         <image name="eye.slash" catalog="system" width="128" height="84"/>
         <image name="home" width="17" height="18"/>
         <image name="home-selected" width="17" height="18"/>
-        <image name="placeholder" width="300" height="300"/>
+        <image name="placeholder" width="150" height="164"/>
         <image name="settings" width="15" height="16"/>
         <image name="settings-selected" width="15" height="16"/>
         <image name="splash" width="313" height="153"/>

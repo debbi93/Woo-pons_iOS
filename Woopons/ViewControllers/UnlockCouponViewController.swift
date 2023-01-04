@@ -9,12 +9,14 @@ import UIKit
 
 class UnlockCouponViewController: UIViewController {
     
+    @IBOutlet weak var descLabel: UILabel!
     @IBOutlet weak var dottedView: UIView!
     @IBOutlet weak var timerLabel: UILabel!
     @IBOutlet weak var popUpView: UIView!
     @IBOutlet weak var couponCode: UILabel!
     
     var titleString = ""
+    var descString = ""
     var orderId = 0
     var coupon = ""
     var count = 60
@@ -24,6 +26,7 @@ class UnlockCouponViewController: UIViewController {
         super.viewDidLoad()
         self.view.setScreenCaptureProtection()
         self.title =  titleString
+        self.descLabel.text = descString
         dottedView.addDashedBorder()
         self.couponCode.text = coupon
         self.timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateCounter), userInfo: nil, repeats: true)

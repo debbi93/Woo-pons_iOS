@@ -13,6 +13,7 @@ class RateExperienceTableCell: UITableViewCell {
     @IBOutlet weak var ratingView: CosmosView!
     override func awakeFromNib() {
         super.awakeFromNib()
+        ratingView.settings.fillMode = .full
         // Initialization code
     }
 

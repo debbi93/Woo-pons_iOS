@@ -21,6 +21,7 @@ class CouponsViewController: UIViewController {
     var couponData : Coupon?
     var titleString = ""
     var couponCode = ""
+    var descString = ""
     var orderId = 0
     
     override func viewDidLoad() {
@@ -121,7 +122,7 @@ class CouponsViewController: UIViewController {
     
     @IBAction func unlockButtonTapped(_ sender: Any) {
         self.popupView.isHidden = true
-        self.pushToUnlockCoupon(title: self.titleString, coupon: self.couponCode,orderId: self.orderId)
+        self.pushToUnlockCoupon(title: self.titleString, coupon: self.couponCode,orderId: self.orderId, desc: descString)
     }
     
     @IBAction func noButtonTapped(_ sender: Any) {
@@ -140,7 +141,7 @@ class CouponsViewController: UIViewController {
             self.titleString = data.name
             self.couponCode = data.couponCode
             self.orderId = data.orderId
-           
+            self.descString = data.businessDescription
         }
     }
     

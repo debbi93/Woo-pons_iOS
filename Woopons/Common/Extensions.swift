@@ -1397,11 +1397,12 @@ extension UIViewController {
         }
     }
     
-    func pushToUnlockCoupon(title:String,coupon:String,orderId:Int){
+    func pushToUnlockCoupon(title:String,coupon:String,orderId:Int,desc:String){
         
         if let viewController = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(withIdentifier: "UnlockCouponViewController") as? UnlockCouponViewController {
             if let navigator = navigationController {
                 viewController.titleString = title
+                viewController.descString = desc
                 viewController.coupon = coupon
                 viewController.orderId = orderId
                 navigator.pushViewController(viewController, animated: true)

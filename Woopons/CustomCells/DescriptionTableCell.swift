@@ -20,9 +20,17 @@ class DescriptionTableCell: UITableViewCell {
     @IBOutlet weak var uniqueLabel: UILabel!
     @IBOutlet weak var repititionLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
+    @IBOutlet weak var potentialDescLbl: UILabel!
     
+    @IBOutlet weak var directionsButton: UIButton!
+    @IBOutlet weak var howLongDescLbl: UILabel!
+    @IBOutlet weak var howLongLbl: UILabel!
+    @IBOutlet weak var potentialLbl: UILabel!
+    @IBOutlet weak var aboutCompanyDescLbl: UILabel!
+    @IBOutlet weak var aboutCompanyLbl: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
+        directionsButton.underline(color: "textFieldBg")
         // Initialization code
     }
 
