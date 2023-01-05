@@ -144,13 +144,15 @@ extension FavoritesViewController : UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "FavoriteTableCell", for: indexPath) as! FavoriteTableCell
         let data = favoriteList[indexPath.row]
-        
+        cell.imageNameLbl.text = data.companyName.getAcronyms().uppercased()
         cell.nameLabel.text = data.name
         if data.isfavorite {
             cell.favButton.setImage(UIImage(named: "heart"), for: .normal)
+            cell.nameView.isHidden = true
         }
         else {
             cell.favButton.setImage(UIImage(named: "heart-empty"), for: .normal)
+            cell.nameView.isHidden = false
         }
         cell.typeLabel.text = data.repetition
         cell.imgView.image = nil

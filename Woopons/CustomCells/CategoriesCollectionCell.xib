@@ -65,18 +65,43 @@
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </view>
+                    <view hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="24B-3s-dFf">
+                        <rect key="frame" x="0.0" y="5" width="178" height="112"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AK" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" translatesAutoresizingMaskIntoConstraints="NO" id="XVT-oj-GB7">
+                                <rect key="frame" x="70.333333333333329" y="33" width="37.333333333333329" height="46"/>
+                                <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="28"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" name="primaryRed"/>
+                        <constraints>
+                            <constraint firstItem="XVT-oj-GB7" firstAttribute="centerX" secondItem="24B-3s-dFf" secondAttribute="centerX" id="1wd-Uf-i0V"/>
+                            <constraint firstItem="XVT-oj-GB7" firstAttribute="centerY" secondItem="24B-3s-dFf" secondAttribute="centerY" id="tsx-dV-rgz"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="16"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
                 <constraint firstItem="6Cm-y6-1p7" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="1re-jD-7ek"/>
                 <constraint firstItem="6Cm-y6-1p7" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="5" id="1xg-UL-g2n"/>
+                <constraint firstItem="24B-3s-dFf" firstAttribute="trailing" secondItem="3VT-Fm-duQ" secondAttribute="trailing" id="2SD-Fe-B1O"/>
                 <constraint firstItem="3VT-Fm-duQ" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="5" id="8d3-CZ-NNc"/>
                 <constraint firstItem="lfL-kA-G5q" firstAttribute="centerY" secondItem="3VT-Fm-duQ" secondAttribute="centerY" id="Gnp-2J-gFQ"/>
                 <constraint firstAttribute="bottom" secondItem="3VT-Fm-duQ" secondAttribute="bottom" constant="5" id="MZ4-b6-KPZ"/>
+                <constraint firstItem="24B-3s-dFf" firstAttribute="leading" secondItem="3VT-Fm-duQ" secondAttribute="leading" id="V8p-y8-Rqw"/>
                 <constraint firstAttribute="trailing" secondItem="6Cm-y6-1p7" secondAttribute="trailing" id="W5E-3j-X07"/>
+                <constraint firstItem="24B-3s-dFf" firstAttribute="top" secondItem="3VT-Fm-duQ" secondAttribute="top" id="Xcc-YY-Bpa"/>
                 <constraint firstAttribute="trailing" secondItem="3VT-Fm-duQ" secondAttribute="trailing" id="Zr0-Zl-Dih"/>
                 <constraint firstItem="3VT-Fm-duQ" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="chQ-GZ-GsR"/>
+                <constraint firstItem="24B-3s-dFf" firstAttribute="bottom" secondItem="3VT-Fm-duQ" secondAttribute="bottom" id="fkK-Kv-BpJ"/>
                 <constraint firstAttribute="bottom" secondItem="6Cm-y6-1p7" secondAttribute="bottom" constant="5" id="qC8-Cb-tM9"/>
             </constraints>
             <size key="customSize" width="178" height="122"/>
@@ -84,6 +109,8 @@
                 <outlet property="bgView" destination="6Cm-y6-1p7" id="m9a-vj-RxV"/>
                 <outlet property="categoryImgView" destination="3VT-Fm-duQ" id="8ak-D0-unW"/>
                 <outlet property="categoryNameLabel" destination="lfL-kA-G5q" id="JYH-fj-mkH"/>
+                <outlet property="imageNameLbl" destination="XVT-oj-GB7" id="Wkq-jf-V2C"/>
+                <outlet property="nameView" destination="24B-3s-dFf" id="V3o-nP-aPf"/>
             </connections>
             <point key="canvasLocation" x="36.641221374045799" y="63.380281690140848"/>
         </collectionViewCell>
@@ -91,6 +118,9 @@
     <resources>
         <namedColor name="black5">
             <color red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="primaryRed">
+            <color red="0.74901960784313726" green="0.11764705882352941" blue="0.1803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="labelColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

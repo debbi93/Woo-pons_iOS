@@ -20,7 +20,7 @@ class TopBrandsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setBackButtonWithTitle(title: "")
-        self.title = "Top brands"
+        self.title = "Featured brands"
         brandsCollectionView.register(UINib(nibName: "CategoriesCollectionCell", bundle: nil), forCellWithReuseIdentifier: "CategoriesCollectionCell")
         // Do any additional setup after loading the view.
     }
@@ -89,11 +89,15 @@ extension TopBrandsViewController: UICollectionViewDelegate, UICollectionViewDat
         cell.categoryNameLabel.isHidden = true
         let categoryData = self.topBrands[indexPath.item]
         cell.categoryImgView.image = nil
+        cell.imageNameLbl.text = categoryData.name.getAcronyms().uppercased()
+
         if !categoryData.image.isEmpty {
             cell.categoryImgView.setImage(with: categoryData.image, placeholder: UIImage(named: "rectangle")!)
+            cell.nameView.isHidden = true
         }
         else {
             cell.categoryImgView.image = UIImage(named: "rectangle")
+            cell.nameView.isHidden = false
         }
         return cell
     }

@@ -338,6 +338,38 @@
             endingLineNumber = "56"
             landmarkName = "getCoupons()"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "786E8F9E-1575-4B50-851F-85364EB39217 - b6e2f029f56a7d4e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.AnyObject) -&gt; () in Woopons.CouponsViewController.getCoupons() -&gt; ()"
+                  moduleName = "Woopons"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/harsh/Documents/iOS%20Projects/Woo-pons_iOS/Woopons/ViewControllers/CouponsViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "56"
+                  endingLineNumber = "56"
+                  offsetFromSymbolStart = "97">
+               </Location>
+               <Location
+                  uuid = "786E8F9E-1575-4B50-851F-85364EB39217 - b6e2f029f56a7d4e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.AnyObject) -&gt; () in Woopons.CouponsViewController.getCoupons() -&gt; ()"
+                  moduleName = "Woopons"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/harsh/Documents/iOS%20Projects/Woo-pons_iOS/Woopons/ViewControllers/CouponsViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "56"
+                  endingLineNumber = "56"
+                  offsetFromSymbolStart = "250">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy

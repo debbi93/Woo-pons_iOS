@@ -10,6 +10,9 @@ import Cosmos
 
 class FavoriteTableCell: UITableViewCell {
 
+    @IBOutlet weak var nameView: UIView!
+    
+    @IBOutlet weak var imageNameLbl: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var ratingLabel: UILabel!
     @IBOutlet weak var favButton: UIButton!

@@ -40,6 +40,27 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </imageView>
+                            <view hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SBp-wt-JS6">
+                                <rect key="frame" x="15" y="15" width="160" height="90"/>
+                                <subviews>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AK" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="eNv-Ub-2nn">
+                                        <rect key="frame" x="72" y="35" width="16" height="20"/>
+                                        <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="12"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" name="primaryRed"/>
+                                <constraints>
+                                    <constraint firstItem="eNv-Ub-2nn" firstAttribute="centerX" secondItem="SBp-wt-JS6" secondAttribute="centerX" id="Eby-gW-4Ef"/>
+                                    <constraint firstItem="eNv-Ub-2nn" firstAttribute="centerY" secondItem="SBp-wt-JS6" secondAttribute="centerY" id="zsf-Aj-jCO"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="16"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SBf-pH-OB3">
                                 <rect key="frame" x="185" y="15" width="287" height="0.0"/>
                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="16"/>
@@ -96,10 +117,14 @@
                         </subviews>
                         <color key="backgroundColor" name="textFieldBg"/>
                         <constraints>
+                            <constraint firstItem="SBp-wt-JS6" firstAttribute="leading" secondItem="wf1-MC-fAE" secondAttribute="leading" id="ApE-6x-Bvb"/>
                             <constraint firstItem="SBf-pH-OB3" firstAttribute="top" secondItem="wf1-MC-fAE" secondAttribute="top" id="Bpw-oB-MO6"/>
+                            <constraint firstItem="SBp-wt-JS6" firstAttribute="bottom" secondItem="wf1-MC-fAE" secondAttribute="bottom" id="Dyf-EN-00H"/>
                             <constraint firstItem="SBf-pH-OB3" firstAttribute="leading" secondItem="wf1-MC-fAE" secondAttribute="trailing" constant="10" id="ENN-gm-V22"/>
+                            <constraint firstItem="SBp-wt-JS6" firstAttribute="trailing" secondItem="wf1-MC-fAE" secondAttribute="trailing" id="FH5-4e-McD"/>
                             <constraint firstItem="xdB-57-Ptf" firstAttribute="leading" secondItem="SBf-pH-OB3" secondAttribute="trailing" constant="10" id="JOz-g7-QDU"/>
                             <constraint firstItem="QdS-n1-LFM" firstAttribute="top" secondItem="SBf-pH-OB3" secondAttribute="bottom" id="OYU-bj-uKy"/>
+                            <constraint firstItem="SBp-wt-JS6" firstAttribute="top" secondItem="wf1-MC-fAE" secondAttribute="top" id="QIb-0F-eYB"/>
                             <constraint firstItem="wf1-MC-fAE" firstAttribute="leading" secondItem="8xu-4T-cVQ" secondAttribute="leading" constant="15" id="UGV-Ry-qBn"/>
                             <constraint firstItem="wf1-MC-fAE" firstAttribute="top" secondItem="8xu-4T-cVQ" secondAttribute="top" constant="15" id="XiJ-nc-9xp"/>
                             <constraint firstItem="xdB-57-Ptf" firstAttribute="centerY" secondItem="SBf-pH-OB3" secondAttribute="centerY" id="a8S-cm-LYK"/>
@@ -340,9 +365,11 @@ Ipsum beschikbaar maarhet.</string>
                 <outlet property="howLongDescLbl" destination="AzD-wa-XH6" id="AqS-JO-6ta"/>
                 <outlet property="howLongLbl" destination="KVJ-Wd-mV3" id="M9k-bQ-vrh"/>
                 <outlet property="howToUseLabel" destination="O4L-iX-pel" id="k9e-Qx-he5"/>
+                <outlet property="imageNameLbl" destination="eNv-Ub-2nn" id="iTs-0j-6Kq"/>
                 <outlet property="imgView" destination="wf1-MC-fAE" id="zX3-Oa-SRn"/>
                 <outlet property="locationLabel" destination="mJY-1Z-KGF" id="Cel-Uw-VzK"/>
                 <outlet property="nameLabel" destination="SBf-pH-OB3" id="ZiE-SQ-uoi"/>
+                <outlet property="nameView" destination="SBp-wt-JS6" id="6UR-1U-rvq"/>
                 <outlet property="potentialDescLbl" destination="uzM-00-LHD" id="Z9V-6k-ybO"/>
                 <outlet property="potentialLbl" destination="2Th-o7-Hin" id="86t-00-3D0"/>
                 <outlet property="ratingLabel" destination="M3G-UC-qwC" id="OKo-Fo-Udg"/>

@@ -10,6 +10,8 @@ import Cosmos
 
 class DescriptionTableCell: UITableViewCell {
 
+    @IBOutlet weak var imageNameLbl: UILabel!
+    @IBOutlet weak var nameView: UIView!
     @IBOutlet weak var imgView: UIImageView!
     @IBOutlet weak var ratingView: CosmosView!
     @IBOutlet weak var nameLabel: UILabel!

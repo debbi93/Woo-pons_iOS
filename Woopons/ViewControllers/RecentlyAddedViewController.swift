@@ -100,10 +100,13 @@ extension RecentlyAddedViewController : UITableViewDelegate,UITableViewDataSourc
         cell.imgView.image = nil
         if !recentData.companyLogo.isEmpty {
             cell.imgView.setImage(with: recentData.companyLogo, placeholder: UIImage(named: "rectangle")!)
+            cell.nameView.isHidden = true
         }
         else {
+            cell.nameView.isHidden = false
             cell.imgView.image = UIImage(named: "rectangle")
         }
+        cell.imageNameLbl.text = recentData.companyName.getAcronyms().uppercased()
         cell.nameLabel.text = recentData.name
         cell.categoryLabel.text = recentData.companyCategory
         cell.typeLabel.text = recentData.repetition

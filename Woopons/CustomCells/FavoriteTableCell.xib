@@ -9,6 +9,9 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <array key="Poppins-Medium.ttf">
+            <string>Poppins-Medium</string>
+        </array>
         <array key="Poppins-Regular.ttf">
             <string>Poppins-Regular</string>
         </array>
@@ -38,6 +41,27 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </imageView>
+                            <view hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EwU-cU-dU4">
+                                <rect key="frame" x="15" y="10" width="160" height="90"/>
+                                <subviews>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AK" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" translatesAutoresizingMaskIntoConstraints="NO" id="bsr-Gh-ztC">
+                                        <rect key="frame" x="61.333333333333329" y="22" width="37.333333333333329" height="46"/>
+                                        <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="28"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" name="primaryRed"/>
+                                <constraints>
+                                    <constraint firstItem="bsr-Gh-ztC" firstAttribute="centerX" secondItem="EwU-cU-dU4" secondAttribute="centerX" id="311-bX-VtO"/>
+                                    <constraint firstItem="bsr-Gh-ztC" firstAttribute="centerY" secondItem="EwU-cU-dU4" secondAttribute="centerY" id="E4G-6w-aDm"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="16"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zlJ-U6-R0p">
                                 <rect key="frame" x="185" y="10" width="284" height="0.0"/>
                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="16"/>
@@ -180,18 +204,22 @@
                             <constraint firstAttribute="trailing" secondItem="8Zt-xp-PJu" secondAttribute="trailing" constant="15" id="Bwj-31-dtn"/>
                             <constraint firstItem="NSB-1e-MaO" firstAttribute="top" secondItem="zgh-7q-RMK" secondAttribute="bottom" constant="10" id="EDJ-hx-dBI"/>
                             <constraint firstItem="zgh-7q-RMK" firstAttribute="top" secondItem="g2r-6D-32I" secondAttribute="bottom" constant="15" id="Hjc-Dz-Ebd"/>
+                            <constraint firstItem="EwU-cU-dU4" firstAttribute="trailing" secondItem="g2r-6D-32I" secondAttribute="trailing" id="IXt-BN-jeN"/>
                             <constraint firstAttribute="trailing" secondItem="NSB-1e-MaO" secondAttribute="trailing" id="MmQ-WF-1QU"/>
                             <constraint firstItem="zlJ-U6-R0p" firstAttribute="top" secondItem="g2r-6D-32I" secondAttribute="top" id="Npk-6g-nrY"/>
                             <constraint firstItem="8Zt-xp-PJu" firstAttribute="centerY" secondItem="zlJ-U6-R0p" secondAttribute="centerY" id="P8g-8A-VoO"/>
                             <constraint firstItem="g2r-6D-32I" firstAttribute="top" secondItem="hST-dX-tms" secondAttribute="top" constant="10" id="PGm-QG-WyY"/>
                             <constraint firstItem="YeN-3e-yZd" firstAttribute="top" secondItem="zlJ-U6-R0p" secondAttribute="bottom" id="PuB-CD-YMB"/>
                             <constraint firstItem="YeN-3e-yZd" firstAttribute="leading" secondItem="g2r-6D-32I" secondAttribute="trailing" constant="10" id="Skx-VU-eWe"/>
+                            <constraint firstItem="EwU-cU-dU4" firstAttribute="top" secondItem="g2r-6D-32I" secondAttribute="top" id="VhB-dY-Prg"/>
                             <constraint firstAttribute="bottom" secondItem="NSB-1e-MaO" secondAttribute="bottom" id="Yva-LL-fni"/>
+                            <constraint firstItem="EwU-cU-dU4" firstAttribute="bottom" secondItem="g2r-6D-32I" secondAttribute="bottom" id="Zo4-Om-ZjQ"/>
                             <constraint firstItem="zgh-7q-RMK" firstAttribute="centerY" secondItem="7Ab-MW-P8I" secondAttribute="centerY" id="ddn-OF-Tug"/>
                             <constraint firstItem="xNn-xa-y65" firstAttribute="leading" secondItem="g2r-6D-32I" secondAttribute="trailing" constant="10" id="ebt-Rb-D8y"/>
                             <constraint firstAttribute="trailing" secondItem="7Ab-MW-P8I" secondAttribute="trailing" constant="15" id="f33-SZ-BZB"/>
                             <constraint firstItem="g2r-6D-32I" firstAttribute="leading" secondItem="hST-dX-tms" secondAttribute="leading" constant="15" id="gWL-cP-zyu"/>
                             <constraint firstItem="8Zt-xp-PJu" firstAttribute="leading" secondItem="zlJ-U6-R0p" secondAttribute="trailing" constant="10" id="jYi-px-Ctg"/>
+                            <constraint firstItem="EwU-cU-dU4" firstAttribute="leading" secondItem="g2r-6D-32I" secondAttribute="leading" id="keU-8l-ofe"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -223,10 +251,12 @@
                 <outlet property="couponButton" destination="7Ab-MW-P8I" id="fg0-Tw-H8S"/>
                 <outlet property="detailsButton" destination="5Kb-s0-mWP" id="z1X-2e-SdD"/>
                 <outlet property="favButton" destination="8Zt-xp-PJu" id="ePH-Cq-nMi"/>
+                <outlet property="imageNameLbl" destination="bsr-Gh-ztC" id="dLq-VK-Ivl"/>
                 <outlet property="imgView" destination="g2r-6D-32I" id="Xbf-ct-PVa"/>
                 <outlet property="labelBottomConstraint" destination="EDJ-hx-dBI" id="mz4-tf-8t5"/>
                 <outlet property="labelTopConstraint" destination="Hjc-Dz-Ebd" id="78g-T9-O6x"/>
                 <outlet property="nameLabel" destination="zlJ-U6-R0p" id="Kel-AZ-I9j"/>
+                <outlet property="nameView" destination="EwU-cU-dU4" id="hC9-zH-PAh"/>
                 <outlet property="ratingLabel" destination="xNn-xa-y65" id="DIi-gu-Hpe"/>
                 <outlet property="ratingView" destination="YeN-3e-yZd" id="Jl2-zR-okl"/>
                 <outlet property="typeLabel" destination="zgh-7q-RMK" id="YOl-Ji-Yia"/>

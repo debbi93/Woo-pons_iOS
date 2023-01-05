@@ -9,6 +9,8 @@ import UIKit
 
 class RecentlyAddedTableCell: UITableViewCell {
 
+    @IBOutlet weak var imageNameLbl: UILabel!
+    @IBOutlet weak var nameView: UIView!
     @IBOutlet weak var yellowView: RightCornerView!
     @IBOutlet weak var redView: RightCornerView!
     @IBOutlet weak var imgView: UIImageView!

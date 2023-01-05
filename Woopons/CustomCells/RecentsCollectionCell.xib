@@ -10,6 +10,9 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <array key="Poppins-Medium.ttf">
+            <string>Poppins-Medium</string>
+        </array>
         <array key="Poppins-Regular.ttf">
             <string>Poppins-Regular</string>
         </array>
@@ -84,7 +87,7 @@
                                     <constraint firstItem="6GE-IO-7ar" firstAttribute="centerY" secondItem="rdK-6f-bvL" secondAttribute="centerY" id="lWK-cm-4Gf"/>
                                 </constraints>
                             </view>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="food" translatesAutoresizingMaskIntoConstraints="NO" id="eDk-u4-HQb">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eDk-u4-HQb">
                                 <rect key="frame" x="10" y="129" width="32" height="32"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="32" id="6OX-TS-IfE"/>
@@ -102,6 +105,27 @@
                                     <constraint firstAttribute="width" constant="30" id="AaC-hX-f32"/>
                                 </constraints>
                             </imageView>
+                            <view hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wLp-KK-pMc">
+                                <rect key="frame" x="10" y="129" width="32" height="32"/>
+                                <subviews>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AK" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="rW6-qY-RNp">
+                                        <rect key="frame" x="8" y="6" width="16" height="20"/>
+                                        <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="12"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" name="primaryRed"/>
+                                <constraints>
+                                    <constraint firstItem="rW6-qY-RNp" firstAttribute="centerY" secondItem="wLp-KK-pMc" secondAttribute="centerY" id="YRy-Zi-Nk2"/>
+                                    <constraint firstItem="rW6-qY-RNp" firstAttribute="centerX" secondItem="wLp-KK-pMc" secondAttribute="centerX" id="ekh-12-IYr"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="16"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m2T-PB-Bzg">
                                 <rect key="frame" x="198.66666666666666" y="136" width="96.333333333333343" height="25"/>
                                 <subviews>
@@ -156,7 +180,11 @@
                             <constraint firstAttribute="bottom" secondItem="eDk-u4-HQb" secondAttribute="bottom" constant="10" id="a4R-Qf-l5M"/>
                             <constraint firstItem="efn-SD-pc9" firstAttribute="top" secondItem="oDF-A7-Dj5" secondAttribute="top" constant="5" id="aMi-5P-Jrx"/>
                             <constraint firstItem="efn-SD-pc9" firstAttribute="leading" secondItem="oDF-A7-Dj5" secondAttribute="leading" constant="10" id="afx-Uz-UL8"/>
+                            <constraint firstItem="wLp-KK-pMc" firstAttribute="trailing" secondItem="eDk-u4-HQb" secondAttribute="trailing" id="c4Z-cb-arW"/>
+                            <constraint firstItem="wLp-KK-pMc" firstAttribute="leading" secondItem="eDk-u4-HQb" secondAttribute="leading" id="c9M-Jv-SDj"/>
                             <constraint firstItem="KnM-dE-VND" firstAttribute="centerY" secondItem="efn-SD-pc9" secondAttribute="centerY" id="e7l-pb-Ula"/>
+                            <constraint firstItem="wLp-KK-pMc" firstAttribute="bottom" secondItem="eDk-u4-HQb" secondAttribute="bottom" id="h98-Vj-Dlx"/>
+                            <constraint firstItem="wLp-KK-pMc" firstAttribute="top" secondItem="eDk-u4-HQb" secondAttribute="top" id="qMa-E3-rbr"/>
                             <constraint firstItem="KnM-dE-VND" firstAttribute="leading" secondItem="efn-SD-pc9" secondAttribute="trailing" id="uJ6-xc-iGO"/>
                             <constraint firstItem="eDk-u4-HQb" firstAttribute="top" secondItem="efn-SD-pc9" secondAttribute="bottom" constant="15" id="wjV-Cq-Da4"/>
                             <constraint firstItem="rdK-6f-bvL" firstAttribute="top" secondItem="oDF-A7-Dj5" secondAttribute="top" constant="5" id="xvA-hN-dKK"/>
@@ -193,8 +221,10 @@
             <connections>
                 <outlet property="categoryLabel" destination="6GE-IO-7ar" id="RIT-Sg-h2j"/>
                 <outlet property="detailButton" destination="Idr-jt-9M7" id="g5b-3S-1Zp"/>
+                <outlet property="imageNameLbl" destination="rW6-qY-RNp" id="h2Z-Xr-5iK"/>
                 <outlet property="imgView" destination="eDk-u4-HQb" id="FAc-y9-Qo2"/>
                 <outlet property="nameLabel" destination="JOC-Aa-sJ0" id="r5Z-gv-Cbt"/>
+                <outlet property="nameView" destination="wLp-KK-pMc" id="PWn-bG-bfR"/>
                 <outlet property="redView" destination="efn-SD-pc9" id="Wem-c1-gIk"/>
                 <outlet property="typeLabel" destination="apy-qm-YSm" id="6B7-yn-rel"/>
                 <outlet property="yellowView" destination="rdK-6f-bvL" id="yIX-Dh-Ums"/>
@@ -206,7 +236,6 @@
         <image name="arrow-red" width="6" height="11"/>
         <image name="barcode" width="158" height="25"/>
         <image name="design" width="26" height="124"/>
-        <image name="food" width="398" height="169"/>
         <namedColor name="black5">
             <color red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

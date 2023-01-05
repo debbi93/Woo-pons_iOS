@@ -363,11 +363,14 @@ extension HomeTableCell : UICollectionViewDelegate, UICollectionViewDataSource, 
             let recentData = self.recentList?[indexPath.item]
             cell.imgView.image = nil
             if let image = recentData?.companyLogo , !image.isEmpty {
+                cell.nameView.isHidden = true
                 cell.imgView.setImage(with: image, placeholder: UIImage(named: "rectangle")!)
             }
             else {
                 cell.imgView.image = UIImage(named: "rectangle")
+                cell.nameView.isHidden = false
             }
+            cell.imageNameLbl.text = recentData?.companyName.getAcronyms().uppercased()
             cell.nameLabel.text = recentData?.name
             cell.categoryLabel.text = recentData?.companyCategory
             cell.typeLabel.text = recentData?.repetition
@@ -382,11 +385,14 @@ extension HomeTableCell : UICollectionViewDelegate, UICollectionViewDataSource, 
             cell.categoryNameLabel.isHidden = true
             let categoryData = self.topBrands?[indexPath.item]
             cell.categoryImgView.image = nil
+            cell.imageNameLbl.text = categoryData?.name.getAcronyms().uppercased()
             if let image = categoryData?.image , !image.isEmpty {
                 cell.categoryImgView.setImage(with: image, placeholder: UIImage(named: "rectangle")!)
+                cell.nameView.isHidden = true
             }
             else {
                 cell.categoryImgView.image = UIImage(named: "rectangle")
+                cell.nameView.isHidden = false
             }
             
             return cell
@@ -509,4 +515,3 @@ extension UIView {
         self.transform = rotation
     }
 }
-

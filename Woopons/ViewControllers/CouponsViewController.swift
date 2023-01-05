@@ -214,10 +214,13 @@ extension CouponsViewController : UITableViewDelegate,UITableViewDataSource {
             cell.imgView.image = nil
             if let image = data?.companyLogo , !image.isEmpty {
                 cell.imgView.setImage(with: image, placeholder: UIImage(named: "rectangle")!)
+                cell.nameView.isHidden = true
             }
             else {
                 cell.imgView.image = UIImage(named: "rectangle")
+                cell.nameView.isHidden = false
             }
+            cell.imageNameLbl.text = data?.companyName.getAcronyms().uppercased()
             cell.ratingLabel.text = "\(data?.ratingAvergae ?? 0.0)"
             cell.ratingView.rating = data?.ratingAvergae ?? 0.0
             cell.detailsButton.tag = indexPath.row
