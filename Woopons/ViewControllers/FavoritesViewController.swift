@@ -148,19 +148,20 @@ extension FavoritesViewController : UITableViewDelegate,UITableViewDataSource {
         cell.nameLabel.text = data.name
         if data.isfavorite {
             cell.favButton.setImage(UIImage(named: "heart"), for: .normal)
-            cell.nameView.isHidden = true
         }
         else {
             cell.favButton.setImage(UIImage(named: "heart-empty"), for: .normal)
-            cell.nameView.isHidden = false
+           
         }
         cell.typeLabel.text = data.repetition
         cell.imgView.image = nil
         if !data.companyLogo.isEmpty {
             cell.imgView.setImage(with: data.companyLogo, placeholder: UIImage(named: "rectangle")!)
+            cell.nameView.isHidden = true
         }
         else {
             cell.imgView.image = UIImage(named: "rectangle")
+            cell.nameView.isHidden = false
         }
         cell.ratingLabel.text = "\(data.ratingAvergae)"
         cell.ratingView.rating = data.ratingAvergae
