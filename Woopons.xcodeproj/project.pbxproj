@@ -69,6 +69,7 @@
 		3AC676B2292B2F5D0012A7DF /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC676B1292B2F5D0012A7DF /* ChangePasswordViewController.swift */; };
 		3AD1ECAA292FBF2E00838D85 /* RightCornerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD1ECA9292FBF2E00838D85 /* RightCornerView.swift */; };
 		3AD1ECAC292FBF4B00838D85 /* LeftCornerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD1ECAB292FBF4B00838D85 /* LeftCornerView.swift */; };
+		3AD8CA96296FD90F0002439A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3AD8CA95296FD90F0002439A /* GoogleService-Info.plist */; };
 		3AE4DAEB2940C6D5009E5DE4 /* UnlockCouponPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE4DAEA2940C6D5009E5DE4 /* UnlockCouponPopUp.swift */; };
 		3AE4DAED2940C746009E5DE4 /* UnlockCouponViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE4DAEC2940C746009E5DE4 /* UnlockCouponViewController.swift */; };
 		3AE4DAEF2940CAA0009E5DE4 /* CouponSuccessPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE4DAEE2940CAA0009E5DE4 /* CouponSuccessPopUp.swift */; };
@@ -171,6 +172,7 @@
 		3AC676B1292B2F5D0012A7DF /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
 		3AD1ECA9292FBF2E00838D85 /* RightCornerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RightCornerView.swift; sourceTree = "<group>"; };
 		3AD1ECAB292FBF4B00838D85 /* LeftCornerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftCornerView.swift; sourceTree = "<group>"; };
+		3AD8CA95296FD90F0002439A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3AE4DAEA2940C6D5009E5DE4 /* UnlockCouponPopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnlockCouponPopUp.swift; sourceTree = "<group>"; };
 		3AE4DAEC2940C746009E5DE4 /* UnlockCouponViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnlockCouponViewController.swift; sourceTree = "<group>"; };
 		3AE4DAEE2940CAA0009E5DE4 /* CouponSuccessPopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponSuccessPopUp.swift; sourceTree = "<group>"; };
@@ -364,6 +366,7 @@
 				42FE59412929EC8B00AAC501 /* AppDelegate.swift */,
 				42FE59432929EC8B00AAC501 /* SceneDelegate.swift */,
 				42FE594A2929EC9000AAC501 /* Assets.xcassets */,
+				3AD8CA95296FD90F0002439A /* GoogleService-Info.plist */,
 				42FE594F2929EC9000AAC501 /* Info.plist */,
 			);
 			path = Woopons;
@@ -568,6 +571,7 @@
 				3A43B63A2936F2C400E57FB8 /* GetCouponTableCell.xib in Resources */,
 				3A43B6362936F22800E57FB8 /* ResetCouponTableCell.xib in Resources */,
 				3A17CD17292FA07A00B56D39 /* CategoriesCollectionCell.xib in Resources */,
+				3AD8CA96296FD90F0002439A /* GoogleService-Info.plist in Resources */,
 				3A43B6322936F14D00E57FB8 /* RateExperienceTableCell.xib in Resources */,
 				3A72C349292F136F009A9DD3 /* HomeTableCell.xib in Resources */,
 			);
@@ -927,9 +931,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Woopons/Woopons.entitlements;
-				CODE_SIGN_STYLE = Automatic;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = P6KW3LWKG4;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 6GK955NK9A;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Woopons/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -943,8 +949,10 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.app.woopons01;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.app.woo-pons";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = Development_woopnons;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -961,9 +969,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Woopons/Woopons.entitlements;
-				CODE_SIGN_STYLE = Automatic;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = P6KW3LWKG4;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 6GK955NK9A;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Woopons/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -977,8 +987,10 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.app.woopons01;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.app.woo-pons";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = Development_woopnons;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;

@@ -12,10 +12,11 @@ class HomeViewController: UIViewController,UISearchBarDelegate {
     @IBOutlet weak var errorImage: UIImageView!
     @IBOutlet weak var homeTableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var popupView: UIView!
     
     var headerTitles = ["Select categories", "Recently added", "Featured brands", "Trending categories"]
-    
     var buttonTitles = ["View all", "View all","View all","View all"]
+    let previousDate = UserDefaults.standard.value(forKey: "currentDate") as? Date
     
     var dashboardData : Home?
     
@@ -27,11 +28,18 @@ class HomeViewController: UIViewController,UISearchBarDelegate {
         let tap = UITapGestureRecognizer(target: self, action: #selector(self.handleTap(_:)))
         tap.cancelsTouchesInView = false
         self.view.addGestureRecognizer(tap)
+        if previousDate == nil {
+            UserDefaults.standard.set(Date(), forKey: "currentDate")
+        }
         // Do any additional setup after loading the view.
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        let components = Calendar.current.dateComponents([.day], from: previousDate ?? Date(), to: Date())
+        if (components.day ?? 0) > 7 {
+            self.popupView.isHidden = false
+        }
         getDashboardData()
         self.tabBarController?.title = "Home"
     }
@@ -147,6 +155,16 @@ class HomeViewController: UIViewController,UISearchBarDelegate {
         self.showError(message: error.localizedDescription)
     }
     }
+    
+    @IBAction func closeBtnAction(_ sender: UIButton) {
+        self.popupView.isHidden = true
+    }
+    
+    @IBAction func viewBtnAction(_ sender: UIButton) {
+        self.popupView.isHidden = true
+        UserDefaults.standard.set(Date(), forKey: "currentDate")
+        self.pushToTopBrands()
+    }
 }
 
 
@@ -171,7 +189,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             }
         case 1:
             if self.dashboardData?.recentList?.count ?? 0 > 0 {
-                return 190
+                return 170
             }
             else {
                 return 0
@@ -282,16 +300,6 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
 
 extension HomeTableCell : UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
-    @objc func couponDetailAction(sender: UIButton){
-        
-        let row = sender.tag % 1000
-        let section = sender.tag / 1000
-        let indexPath = NSIndexPath(row: row, section: section)
-        
-        let cell = self.homeTableCollectionCell.cellForItem(at: indexPath as IndexPath) as? RecentsCollectionCell
-        self.homeSection2Delegate?.collectionView(collectionviewcell: cell, index: indexPath as IndexPath,sectionTag: sectionTag, didTappedInTableViewCell: self)
-    }
-    
     @objc func exploreAction(sender: UIButton){
         
         let row = sender.tag % 1000
@@ -363,19 +371,14 @@ extension HomeTableCell : UICollectionViewDelegate, UICollectionViewDataSource, 
             let recentData = self.recentList?[indexPath.item]
             cell.imgView.image = nil
             if let image = recentData?.companyLogo , !image.isEmpty {
-                cell.nameView.isHidden = true
                 cell.imgView.setImage(with: image, placeholder: UIImage(named: "rectangle")!)
             }
             else {
                 cell.imgView.image = UIImage(named: "rectangle")
-                cell.nameView.isHidden = false
             }
-            cell.imageNameLbl.text = recentData?.companyName.getAcronyms().uppercased()
             cell.nameLabel.text = recentData?.name
             cell.categoryLabel.text = recentData?.companyCategory
             cell.typeLabel.text = recentData?.repetition
-            cell.detailButton.tag = (indexPath.section * 1000) + indexPath.row
-            cell.detailButton.addTarget(self, action: #selector(couponDetailAction(sender:)), for: .touchUpInside)
             return cell
             
             
@@ -445,7 +448,7 @@ extension HomeTableCell : UICollectionViewDelegate, UICollectionViewDataSource, 
         case 0:
             return CGSize(width: CGFloat((collectionView.frame.size.width / 2.5) - 20), height: 90)
         case 1:
-            return CGSize(width: CGFloat((collectionView.frame.size.width / 1.5) - 10), height: 190)
+            return CGSize(width: CGFloat((collectionView.frame.size.width / 1.5) - 10), height: 170)
         case 2:
             return CGSize(width: CGFloat((collectionView.frame.size.width / 2.5) - 20), height: 90)
         case 3:
@@ -514,4 +517,12 @@ extension UIView {
         let rotation = self.transform.rotated(by: radians);
         self.transform = rotation
     }
+}
+
+extension Date {
+
+    static func - (lhs: Date, rhs: Date) -> TimeInterval {
+        return lhs.timeIntervalSinceReferenceDate - rhs.timeIntervalSinceReferenceDate
+    }
+
 }

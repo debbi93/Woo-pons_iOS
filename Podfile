@@ -15,6 +15,7 @@ target 'Woopons' do
   pod 'Toast-Swift', '~> 5.0.1'
   pod 'MaterialActivityIndicator'
   pod 'MTSlideToOpen'
+  pod 'FirebaseMessaging'
 
   target 'WooponsTests' do
     inherit! :search_paths

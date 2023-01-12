@@ -124,7 +124,7 @@
                                 <rect key="frame" x="0.0" y="148" width="526" height="50"/>
                                 <subviews>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iug-aN-EUO">
-                                        <rect key="frame" x="15.000000000000007" y="10" width="122.66666666666669" height="30"/>
+                                        <rect key="frame" x="15.000000000000007" y="10" width="103.66666666666669" height="30"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="View details" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bN2-kD-LBV">
                                                 <rect key="frame" x="10" y="3.6666666666666572" width="83.666666666666671" height="23"/>
@@ -132,22 +132,13 @@
                                                 <color key="textColor" name="yellowText"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="right-arrow" translatesAutoresizingMaskIntoConstraints="NO" id="EhO-YE-H4j">
-                                                <rect key="frame" x="98.666666666666671" y="5" width="14" height="20"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="14" id="GV7-UU-QhX"/>
-                                                    <constraint firstAttribute="height" constant="20" id="OMJ-j1-CxL"/>
-                                                </constraints>
-                                            </imageView>
                                         </subviews>
                                         <color key="backgroundColor" name="primaryRed"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="8cf-XJ-Ni5"/>
                                             <constraint firstItem="bN2-kD-LBV" firstAttribute="centerY" secondItem="iug-aN-EUO" secondAttribute="centerY" id="DMc-9i-i2O"/>
                                             <constraint firstItem="bN2-kD-LBV" firstAttribute="leading" secondItem="iug-aN-EUO" secondAttribute="leading" constant="10" id="F88-lp-vXO"/>
-                                            <constraint firstItem="EhO-YE-H4j" firstAttribute="centerY" secondItem="iug-aN-EUO" secondAttribute="centerY" id="FYN-OH-46q"/>
-                                            <constraint firstItem="EhO-YE-H4j" firstAttribute="leading" secondItem="bN2-kD-LBV" secondAttribute="trailing" constant="5" id="KPm-XO-Gg0"/>
-                                            <constraint firstAttribute="trailing" secondItem="EhO-YE-H4j" secondAttribute="trailing" constant="10" id="gda-7J-yaW"/>
+                                            <constraint firstAttribute="trailing" secondItem="bN2-kD-LBV" secondAttribute="trailing" constant="10" id="vff-9I-Gxu"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -156,7 +147,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Kb-s0-mWP">
-                                        <rect key="frame" x="15.000000000000007" y="10" width="122.66666666666669" height="30"/>
+                                        <rect key="frame" x="15.000000000000007" y="10" width="103.66666666666669" height="30"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
@@ -266,7 +257,6 @@
     </objects>
     <resources>
         <image name="heart" width="16" height="14"/>
-        <image name="right-arrow" width="14" height="12"/>
         <namedColor name="black3">
             <color red="0.0" green="0.0" blue="0.0" alpha="0.30000001192092896" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

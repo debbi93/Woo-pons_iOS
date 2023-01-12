@@ -9,6 +9,7 @@ import UIKit
 
 class UnlockCouponViewController: UIViewController {
     
+    @IBOutlet weak var mainView: UIView!
     @IBOutlet weak var descLabel: UILabel!
     @IBOutlet weak var dottedView: UIView!
     @IBOutlet weak var timerLabel: UILabel!
@@ -24,7 +25,7 @@ class UnlockCouponViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.setScreenCaptureProtection()
+        self.mainView.setScreenCaptureProtection()
         self.title =  titleString
         self.descLabel.text = descString
         dottedView.addDashedBorder()

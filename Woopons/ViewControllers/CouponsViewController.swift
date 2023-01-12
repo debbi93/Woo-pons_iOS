@@ -11,9 +11,9 @@ class CouponsViewController: UIViewController {
     
     @IBOutlet weak var popupView: UIView!
     @IBOutlet weak var historyButtonView: UIView!
-    @IBOutlet weak var newButtonView: UIView!
+    @IBOutlet weak var favButtonView: UIView!
     @IBOutlet weak var historyButton: UIButton!
-    @IBOutlet weak var newButton: UIButton!
+    @IBOutlet weak var favButton: UIButton!
     @IBOutlet weak var couponsTableView: UITableView!
     @IBOutlet weak var errorImage: UIImageView!
     
@@ -23,6 +23,10 @@ class CouponsViewController: UIViewController {
     var couponCode = ""
     var descString = ""
     var orderId = 0
+    var favoriteList = [Favorites]()
+    var page = 1
+    var contentOffSet = CGFloat()
+    var totalCount = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,10 +40,11 @@ class CouponsViewController: UIViewController {
         errorImage.isHidden = true
         self.tabBarController?.tabBar.backgroundColor = UIColor.white
         couponsTableView.register(UINib(nibName: "FavoriteTableCell", bundle: nil), forCellReuseIdentifier: "FavoriteTableCell")
-        self.tabBarController?.title = "Coupons"
+        self.tabBarController?.title = "My WOO-PONS"
         self.couponsTableView.estimatedRowHeight = 80
         self.couponsTableView.rowHeight = UITableView.automaticDimension
         getCoupons()
+        getFavorites()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -56,10 +61,39 @@ class CouponsViewController: UIViewController {
             if let dict = response as? [String:AnyObject] {
                 self.couponData = Coupon.eventWithObject(data: dict)
                 
-                if ((self.couponData?.newlyAdded?.count ?? 0) == 0) && !self.isHistory {
+                if (self.totalCount == 0) && !self.isHistory {
                     self.errorImage.isHidden = false
                 }
                else if ((self.couponData?.history?.count ?? 0) == 0) && self.isHistory {
+                    self.errorImage.isHidden = false
+                }
+                else {
+                    self.errorImage.isHidden = true
+                }
+                self.couponsTableView.reloadData()
+            }
+        }
+    failure: { error in
+        self.showError(message: error.localizedDescription)
+    }
+    }
+    
+    func getFavorites() {
+        
+        ApiService.getAPIWithoutParameters(urlString: Constants.AppUrls.getFavorites + "\(page)&limit=20", view: self.view) { response in
+            
+            if let dict = response as? [String:AnyObject] {
+                let data = Favorites.eventWithObject(data: dict)
+                if self.page == 1 {
+                    self.favoriteList.removeAll()
+                }
+                if(data.count > 0){
+                    self.favoriteList.append(contentsOf: data)
+                }
+                if let total = response["data"] as? [String:AnyObject] {
+                    self.totalCount = total["total_count"] as? Int ?? 0
+                }
+                if self.totalCount == 0 {
                     self.errorImage.isHidden = false
                 }
                 else {
@@ -90,9 +124,9 @@ class CouponsViewController: UIViewController {
     @IBAction func historyButtonTapped(_ sender: UIButton) {
         errorImage.isHidden = true
         historyButton.tintColor = UIColor(named: "primaryRed")
-        newButton.tintColor = UIColor(named: "black5")
+        favButton.tintColor = UIColor(named: "black5")
         historyButtonView.backgroundColor = UIColor(named: "primaryRed")
-        newButtonView.backgroundColor = .clear
+        favButtonView.backgroundColor = .clear
         isHistory = true
         if ((self.couponData?.history?.count ?? 0) == 0){
             self.errorImage.isHidden = false
@@ -104,14 +138,14 @@ class CouponsViewController: UIViewController {
     }
     
     
-    @IBAction func newButtonTapped(_ sender: UIButton) {
+    @IBAction func favButtonTapped(_ sender: UIButton) {
         errorImage.isHidden = true
-        newButton.tintColor = UIColor(named: "primaryRed")
+        favButton.tintColor = UIColor(named: "primaryRed")
         historyButton.tintColor = UIColor(named: "black5")
-        newButtonView.backgroundColor = UIColor(named: "primaryRed")
+        favButtonView.backgroundColor = UIColor(named: "primaryRed")
         historyButtonView.backgroundColor = .clear
         isHistory = false
-        if ((self.couponData?.newlyAdded?.count ?? 0) == 0) {
+        if ((self.totalCount) == 0) {
             self.errorImage.isHidden = false
         }
         else {
@@ -130,19 +164,19 @@ class CouponsViewController: UIViewController {
     }
     
     @objc func couponDetailAction(sender: UIButton){
-        if let data = self.couponData?.newlyAdded?[sender.tag] {
+         let data = self.favoriteList[sender.tag]
             pushToCouponDetail(couponDetail: data,titleString: data.name,isFromCouponTab: true,isHistory:false)
-        }
+
     }
     
     @objc func getCouponAction(sender: UIButton){
         self.popupView.isHidden = false
-        if let data = self.couponData?.newlyAdded?[sender.tag] {
+         let data = self.favoriteList[sender.tag]
             self.titleString = data.name
             self.couponCode = data.couponCode
             self.orderId = data.orderId
             self.descString = data.businessDescription
-        }
+        
     }
     
     @objc func historyDetailAction(sender: UIButton){
@@ -164,8 +198,8 @@ class CouponsViewController: UIViewController {
             
         }
         else {
-            let data = self.couponData?.newlyAdded?[indexPath.row]
-            couponId = data?.id ?? 0
+            let data = self.favoriteList[indexPath.row]
+            couponId = data.id
         }
         let cell = couponsTableView.cellForRow(at: indexPath) as? FavoriteTableCell
         if cell?.favButton.imageView?.image == UIImage(named: "heart"){
@@ -186,7 +220,7 @@ extension CouponsViewController : UITableViewDelegate,UITableViewDataSource {
             return self.couponData?.history?.count ?? 0
         }
         else {
-            return self.couponData?.newlyAdded?.count ?? 0
+            return self.favoriteList.count
         }
     }
     
@@ -231,32 +265,32 @@ extension CouponsViewController : UITableViewDelegate,UITableViewDataSource {
             cell.labelBottomConstraint.constant = 0
         }
         else {
-            let data = self.couponData?.newlyAdded?[indexPath.row]
+            let data = favoriteList[indexPath.row]
             cell.typeLabel.isHidden = false
             cell.couponButton.isHidden = false
             cell.labelTopConstraint.constant = 15
             cell.labelBottomConstraint.constant = 10
-            if data?.isfavorite ?? false {
+            if data.isfavorite {
                 cell.favButton.setImage(UIImage(named: "heart"), for: .normal)
             }
             else {
                 cell.favButton.setImage(UIImage(named: "heart-empty"), for: .normal)
             }
-            cell.nameLabel.text = data?.name
-            cell.typeLabel.text = data?.repetition
+            cell.nameLabel.text = data.name
+            cell.typeLabel.text = data.repetition
             cell.imgView.image = nil
-            if let image = data?.companyLogo , !image.isEmpty {
-                cell.imgView.setImage(with: image, placeholder: UIImage(named: "rectangle")!)
+            if !data.companyLogo.isEmpty  {
+                cell.imgView.setImage(with: data.companyLogo, placeholder: UIImage(named: "rectangle")!)
             }
             else {
                 cell.imgView.image = UIImage(named: "rectangle")
             }
             cell.favButton.tag = indexPath.row
             cell.favButton.addTarget(self, action: #selector(favButtonAction(sender:)), for: .touchUpInside)
-            cell.ratingLabel.text = "\(data?.ratingAvergae ?? 0.0)"
-            cell.ratingView.rating = data?.ratingAvergae ?? 0.0
+            cell.ratingLabel.text = "\(data.ratingAvergae)"
+            cell.ratingView.rating = data.ratingAvergae
             cell.detailsButton.tag = indexPath.row
-            cell.couponButton.setTitle("Unlock Coupon", for: .normal)
+            cell.couponButton.setTitle("Activate WOO-PON", for: .normal)
             cell.couponButton.underline(color: "primaryRed")
             cell.detailsButton.addTarget(self, action: #selector(couponDetailAction(sender:)), for: .touchUpInside)
             cell.couponButton.addTarget(self, action: #selector(getCouponAction(sender:)), for: .touchUpInside)
@@ -274,9 +308,9 @@ extension CouponsViewController : UITableViewDelegate,UITableViewDataSource {
             }
         }
         else {
-            if let data = self.couponData?.newlyAdded?[indexPath.row] {
+             let data = self.favoriteList[indexPath.row]
                 pushToCouponDetail(couponDetail: data,titleString: data.name,isFromCouponTab: true,isHistory: false)
-            }
+            
         }
     }
     

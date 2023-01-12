@@ -76,10 +76,6 @@ class RecentlyAddedViewController: UIViewController {
         }
     }
     
-    @objc func couponDetailAction(sender: UIButton){
-        let data = recentlyAdded[sender.tag]
-        pushToCouponDetail(couponDetail: data,titleString: data.name,isFromCouponTab: false,isHistory:false)
-    }
 }
 
 
@@ -100,18 +96,13 @@ extension RecentlyAddedViewController : UITableViewDelegate,UITableViewDataSourc
         cell.imgView.image = nil
         if !recentData.companyLogo.isEmpty {
             cell.imgView.setImage(with: recentData.companyLogo, placeholder: UIImage(named: "rectangle")!)
-            cell.nameView.isHidden = true
         }
         else {
-            cell.nameView.isHidden = false
             cell.imgView.image = UIImage(named: "rectangle")
         }
-        cell.imageNameLbl.text = recentData.companyName.getAcronyms().uppercased()
         cell.nameLabel.text = recentData.name
         cell.categoryLabel.text = recentData.companyCategory
         cell.typeLabel.text = recentData.repetition
-        cell.detailButton.tag = indexPath.section
-        cell.detailButton.addTarget(self, action: #selector(couponDetailAction(sender:)), for: .touchUpInside)
         return cell
     }
     

@@ -31,7 +31,7 @@ class FavoriteTableCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        couponButton.isHidden = true
         // Configure the view for the selected state
     }
     

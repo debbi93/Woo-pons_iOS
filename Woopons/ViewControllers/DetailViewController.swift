@@ -11,11 +11,12 @@ import Cosmos
 
 class CouponDetailViewController: UIViewController, MTSlideToOpenDelegate {
    
-    @IBOutlet weak var successLabel: UILabel!
-    @IBOutlet weak var successView: UIView!
-    @IBOutlet weak var redeemCouponView: UIView!
+    @IBOutlet weak var errorMessageLbl: UILabel!
+    @IBOutlet weak var errorView: UIView!
+    @IBOutlet weak var unlockView: UIView!
     @IBOutlet weak var popupView: UIView!
     @IBOutlet weak var detailTableView: UITableView!
+    @IBOutlet weak var sliderView: MTSlideToOpenView!
     
     var titleString = ""
     var couponDetail = Favorites()
@@ -26,9 +27,11 @@ class CouponDetailViewController: UIViewController, MTSlideToOpenDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = titleString
+        sliderView.delegate = self
         self.detailTableView.estimatedRowHeight = 180
         self.detailTableView.rowHeight = UITableView.automaticDimension
         self.setBackButtonWithTitle(title: "")
+        setUpSlider()
         detailTableView.register(UINib(nibName: "DescriptionTableCell", bundle: nil), forCellReuseIdentifier: "DescriptionTableCell")
         detailTableView.register(UINib(nibName: "GetCouponTableCell", bundle: nil), forCellReuseIdentifier: "GetCouponTableCell")
         detailTableView.register(UINib(nibName: "RateExperienceTableCell", bundle: nil), forCellReuseIdentifier: "RateExperienceTableCell")
@@ -41,11 +44,25 @@ class CouponDetailViewController: UIViewController, MTSlideToOpenDelegate {
         self.detailTableView.reloadData()
     }
     
+    func setUpSlider(){
+        sliderView.sliderViewTopDistance = 0
+        sliderView.labelText = "Slide To Unlock"
+        sliderView.slidingColor = .clear
+        sliderView.layer.cornerRadius = 20
+        sliderView.textColor = UIColor(named: "yellowText")!
+        sliderView.sliderBackgroundColor = .clear
+        sliderView.thumbnailColor = .clear
+        sliderView.tintColor = .clear
+        sliderView.thumnailImageView.image = UIImage(named: "slider")
+    }
+    
     func mtSlideToOpenDelegateDidFinish(_ sender: MTSlideToOpen.MTSlideToOpenView) {
        
-        self.popupView.isHidden = false
-        self.redeemCouponView.isHidden = false
+        self.popupView.isHidden = true
+        self.unlockView.isHidden = true
         sender.resetStateWithAnimation(true)
+        addCoupon(couponId: self.couponDetail.id)
+        
     }
     
     func addReview () {
@@ -70,29 +87,39 @@ class CouponDetailViewController: UIViewController, MTSlideToOpenDelegate {
         
         ApiService.postAPIWithHeaderAndParameters(urlString: Constants.AppUrls.addCoupon, view: self.view, jsonString: parameters as [String : AnyObject] ) { response in
            
-            self.popupView.isHidden = false
-            self.successView.isHidden = false
-            self.successLabel.text = "Coupon Added"
+            if let dict = response["data"] as? [String:AnyObject] {
+                let upgradeBool = dict["plan_type_upgrade"] as? Bool ?? false
+                if upgradeBool  {
+                    self.popupView.isHidden = false
+                    self.errorView.isHidden = false
+                    self.errorMessageLbl.text = response["message"] as? String ?? ""
+                }
+                else {
+                    let orderId = dict["id"] as? Int ?? 0
+                    self.pushToUnlockCoupon(title: self.couponDetail.name, coupon: self.couponDetail.couponCode, orderId: orderId, desc: self.couponDetail.businessDescription)
+                }
+            }
+            
         }
     failure: { error in
         self.showError(message: error.localizedDescription)
     }
     }
     
-    func removeCoupon(orderId:Int) {
-        
-        let parameters: [String: Any] = ["order_id":orderId]
-        
-        ApiService.postAPIWithHeaderAndParameters(urlString: Constants.AppUrls.removeCoupon, view: self.view, jsonString: parameters as [String : AnyObject] ) { response in
-            
-            self.popupView.isHidden = false
-            self.successView.isHidden = false
-            self.successLabel.text = "Coupon Removed"
-        }
-    failure: { error in
-        self.showError(message: error.localizedDescription)
-    }
-    }
+//    func removeCoupon(orderId:Int) {
+//
+//        let parameters: [String: Any] = ["order_id":orderId]
+//
+//        ApiService.postAPIWithHeaderAndParameters(urlString: Constants.AppUrls.removeCoupon, view: self.view, jsonString: parameters as [String : AnyObject] ) { response in
+//
+//            self.popupView.isHidden = false
+//            self.successView.isHidden = false
+//            self.successLabel.text = "Coupon Removed"
+//        }
+//    failure: { error in
+//        self.showError(message: error.localizedDescription)
+//    }
+//    }
     
     func addRemoveFavorite(couponId:Int) {
         
@@ -107,33 +134,25 @@ class CouponDetailViewController: UIViewController, MTSlideToOpenDelegate {
     
     @objc func getCouponAction(sender: UIButton){
         
-        addCoupon(couponId: self.couponDetail.id)
+        self.popupView.isHidden = false
+        self.unlockView.isHidden = false
         
-    }
-    
-    @objc func removeCouponAction(sender: UIButton){
-        
-        removeCoupon(orderId: self.couponDetail.orderId)
     }
     
     // MARK: - Actions
      
-     @IBAction func unlockButtonTapped(_ sender: UIButton) {
-         
-         self.popupView.isHidden = true
-         self.redeemCouponView.isHidden = true
-         self.pushToUnlockCoupon(title: self.titleString, coupon: self.couponDetail.couponCode,orderId: self.couponDetail.orderId, desc: self.couponDetail.businessDescription)
-         
-     }
+    @IBAction func yesButtonTapped(_ sender: UIButton) {
+        self.popupView.isHidden = true
+        self.unlockView.isHidden = true
+        self.errorView.isHidden = true
+        self.pushToWebView(title: "Upgrade Plan",url: "\(Constants.AppUrls.imageBaseUrl)/?access_token=\(UserDefaults.standard.string(forKey: "accessToken") ?? "")")
+
+    }
+    
      @IBAction func noButtonTapped(_ sender: UIButton) {
          self.popupView.isHidden = true
-         self.redeemCouponView.isHidden = true
-     }
-     @IBAction func okButtonTapped(_ sender: UIButton) {
-         
-         self.popupView.isHidden = true
-         self.successView.isHidden = true
-         self.navigationController?.popViewController(animated: true)
+         self.unlockView.isHidden = true
+         self.errorView.isHidden = true
      }
     
     private func didFinishTouchingCosmos(_ rating: Double) {
@@ -228,12 +247,12 @@ extension CouponDetailViewController : UITableViewDelegate,UITableViewDataSource
                 cell.ratingView.didFinishTouchingCosmos = self.didFinishTouchingCosmos
                 return cell
             }
-            else if (isFromCouponTab) {
-                let cell = tableView.dequeueReusableCell(withIdentifier: "ResetCouponTableCell", for: indexPath) as! ResetCouponTableCell
-                cell.removeButton.addTarget(self, action: #selector(removeCouponAction(sender:)), for: .touchUpInside)
-                cell.slider.delegate = self
-                return cell
-            }
+//            else if (isFromCouponTab) {
+//                let cell = tableView.dequeueReusableCell(withIdentifier: "ResetCouponTableCell", for: indexPath) as! ResetCouponTableCell
+//                cell.removeButton.addTarget(self, action: #selector(removeCouponAction(sender:)), for: .touchUpInside)
+//                cell.slider.delegate = self
+//                return cell
+//            }
             else if (!isHistory){
                 let cell = tableView.dequeueReusableCell(withIdentifier: "GetCouponTableCell", for: indexPath) as! GetCouponTableCell
                 cell.getCouponButton.addTarget(self, action: #selector(getCouponAction(sender:)), for: .touchUpInside)
