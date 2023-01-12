@@ -224,9 +224,9 @@ extension CouponDetailViewController : UITableViewDelegate,UITableViewDataSource
             cell.aboutCompanyLbl.text = "About \(self.couponDetail.companyName)"
             cell.aboutCompanyDescLbl.text = self.couponDetail.businessDescription
             cell.potentialLbl.text = "\(self.couponDetail.companyName) has been operating for..."
-            cell.potentialDescLbl.text = self.couponDetail.potential
+            cell.potentialDescLbl.text = self.couponDetail.howLongBusiness
             cell.howLongLbl.text = "\(self.couponDetail.companyName) would like you to know"
-            cell.howLongDescLbl.text = self.couponDetail.howLongBusiness
+            cell.howLongDescLbl.text = self.couponDetail.potential
             cell.favButton.tag = indexPath.row
             cell.directionsButton.tag = indexPath.row
             cell.favButton.addTarget(self, action: #selector(favButtonAction(sender:)), for: .touchUpInside)
