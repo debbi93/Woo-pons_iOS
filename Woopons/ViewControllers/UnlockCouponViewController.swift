@@ -31,7 +31,7 @@ class UnlockCouponViewController: UIViewController,FirstControllerDelegate {
         self.view.setScreenCaptureProtection()
         self.title =  titleString
         self.descLabel.text = descString
-        // dottedView.addDashedBorder()
+         dottedView.addDashedBorder()
         self.couponCode.text = coupon
         NotificationCenter.default.addObserver(self, selector: #selector(self.background(_:)), name: UIApplication.didEnterBackgroundNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.foreground(_:)), name: UIApplication.willEnterForegroundNotification, object: nil)
