@@ -9,7 +9,6 @@ import UIKit
 
 class UnlockCouponViewController: UIViewController {
     
-    @IBOutlet weak var mainView: UIView!
     @IBOutlet weak var descLabel: UILabel!
     @IBOutlet weak var dottedView: UIView!
     @IBOutlet weak var timerLabel: UILabel!
@@ -61,6 +60,7 @@ class UnlockCouponViewController: UIViewController {
     {
         self.popUpView.isHidden = false
         self.couponCode.isHidden = true
+        
     }
     
     @IBAction func okTapped(_ sender: UIButton) {
