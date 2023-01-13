@@ -1527,8 +1527,8 @@ passages van Lorem Ipsum beschikbaar maarhet .</string>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YRl-Qm-iOS">
                                 <rect key="frame" x="10" y="196.5" width="355" height="40"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WOOPONS20OFF" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KFp-g0-Fdt">
-                                        <rect key="frame" x="87.5" y="2" width="180" height="36.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DFGDFFDG" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KFp-g0-Fdt">
+                                        <rect key="frame" x="5" y="2" width="345" height="36.5"/>
                                         <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="22"/>
                                         <color key="textColor" name="primaryRed"/>
                                         <nil key="highlightedColor"/>
@@ -1536,9 +1536,10 @@ passages van Lorem Ipsum beschikbaar maarhet .</string>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstItem="KFp-g0-Fdt" firstAttribute="centerX" secondItem="YRl-Qm-iOS" secondAttribute="centerX" id="316-bt-eUE"/>
+                                    <constraint firstAttribute="trailing" secondItem="KFp-g0-Fdt" secondAttribute="trailing" constant="5" id="Qhw-Od-K3f"/>
+                                    <constraint firstItem="KFp-g0-Fdt" firstAttribute="centerY" secondItem="YRl-Qm-iOS" secondAttribute="centerY" id="Y7X-7L-buX"/>
                                     <constraint firstAttribute="height" constant="40" id="cya-yb-zAD"/>
-                                    <constraint firstItem="KFp-g0-Fdt" firstAttribute="centerY" secondItem="YRl-Qm-iOS" secondAttribute="centerY" id="gdL-JU-F67"/>
+                                    <constraint firstItem="KFp-g0-Fdt" firstAttribute="leading" secondItem="YRl-Qm-iOS" secondAttribute="leading" constant="5" id="nKi-ih-lg9"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
