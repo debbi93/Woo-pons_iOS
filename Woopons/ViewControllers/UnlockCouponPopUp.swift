@@ -7,12 +7,15 @@
 
 import UIKit
 
+
 class UnlockCouponPopUp: UIViewController {
 
     var couponId = ""
     var titleString = ""
     var orderId = 0
     var descString = ""
+    weak var delegate: FirstControllerDelegate!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,17 +24,13 @@ class UnlockCouponPopUp: UIViewController {
     }
     
     @IBAction func noButtonTapped(_ sender: Any) {
-        self.dismiss(animated: true) {
-            self.navigationController?.popViewController(animated: true)
-        }
+        self.dismiss(animated: true)
     }
     
     @IBAction func unlockButtonTapped(_ sender: UIButton) {
         
-        self.dismiss(animated: true) {
-            self.pushToUnlockCoupon(title: self.titleString, coupon: self.couponId,orderId: self.orderId, desc: self.descString)
-
+        delegate.sendData(goBack: true)
+        self.dismiss(animated: true)
         }
-      
-    }
+    
 }

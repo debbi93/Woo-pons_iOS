@@ -7,7 +7,11 @@
 
 import UIKit
 
-class UnlockCouponViewController: UIViewController {
+protocol FirstControllerDelegate: AnyObject {
+    func sendData(goBack: Bool)
+}
+
+class UnlockCouponViewController: UIViewController,FirstControllerDelegate {
     
     @IBOutlet weak var descLabel: UILabel!
     @IBOutlet weak var dottedView: UIView!
@@ -22,11 +26,10 @@ class UnlockCouponViewController: UIViewController {
     var count = 60
     var timer: Timer?
     let userDefault = UserDefaults.standard
-    let guardTextField = UITextField()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.setScreenCaptureProtection(guardTextField: guardTextField)
+        self.view.setScreenCaptureProtection()
         self.title =  titleString
         self.descLabel.text = descString
         dottedView.addDashedBorder()
@@ -40,7 +43,14 @@ class UnlockCouponViewController: UIViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
         self.timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateCounter), userInfo: nil, repeats: true)
+    }
+    
+    func sendData(goBack: Bool) {
+        if goBack {
+            self.navigationController?.popToRootViewController(animated: true)
+        }
     }
     
     @objc func background(_ notification: Notification) {
@@ -58,9 +68,10 @@ class UnlockCouponViewController: UIViewController {
     
     @objc func barButtonDidTap(_ sender: UIBarButtonItem)
     {
-        self.popUpView.isHidden = false
-        self.couponCode.isHidden = true
-        
+        let storyboard = UIStoryboard(name: "Home", bundle: nil)
+        let secondVC = storyboard.instantiateViewController(withIdentifier: "UnlockCouponPopUp") as! UnlockCouponPopUp
+        secondVC.delegate = self
+        self.present(secondVC, animated: true)
     }
     
     @IBAction func okTapped(_ sender: UIButton) {
@@ -80,9 +91,7 @@ class UnlockCouponViewController: UIViewController {
     }
     
     @IBAction func closePopUpTapped(_ sender: Any) {
-        self.popUpView.isHidden = true
-        self.couponCode.isHidden = false
-        self.view.setScreenCaptureProtection(guardTextField: guardTextField)
+        self.view.setScreenCaptureProtection( )
     }
     
     func unlockCoupon() {
@@ -99,14 +108,14 @@ class UnlockCouponViewController: UIViewController {
     
 }
 private extension UIView {
-    func setScreenCaptureProtection(guardTextField:UITextField) {
+    func setScreenCaptureProtection() {
         guard superview != nil else {
             for subview in subviews { //to avoid layer cyclic crash, when it is a topmost view, adding all its subviews in textfield's layer, TODO: Find a better logic.
-                subview.setScreenCaptureProtection(guardTextField: guardTextField)
+                subview.setScreenCaptureProtection()
             }
             return
         }
-       // let guardTextField = UITextField()
+        let guardTextField = UITextField()
         guardTextField.backgroundColor = .clear
         guardTextField.translatesAutoresizingMaskIntoConstraints = false
         guardTextField.isSecureTextEntry = true
