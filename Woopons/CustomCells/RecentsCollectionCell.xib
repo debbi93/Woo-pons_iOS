@@ -10,6 +10,9 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <array key="Poppins-Medium.ttf">
+            <string>Poppins-Medium</string>
+        </array>
         <array key="Poppins-Regular.ttf">
             <string>Poppins-Regular</string>
         </array>
@@ -49,6 +52,27 @@
                                     <constraint firstAttribute="height" constant="100" id="GWq-mN-fpr"/>
                                 </constraints>
                             </imageView>
+                            <view hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xZl-uo-bX1">
+                                <rect key="frame" x="0.0" y="0.0" width="305" height="100"/>
+                                <subviews>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AK" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" translatesAutoresizingMaskIntoConstraints="NO" id="ht9-wg-AXd">
+                                        <rect key="frame" x="134" y="27" width="37" height="46"/>
+                                        <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="28"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" name="primaryRed"/>
+                                <constraints>
+                                    <constraint firstItem="ht9-wg-AXd" firstAttribute="centerY" secondItem="xZl-uo-bX1" secondAttribute="centerY" id="SNQ-jO-Wix"/>
+                                    <constraint firstItem="ht9-wg-AXd" firstAttribute="centerX" secondItem="xZl-uo-bX1" secondAttribute="centerX" id="viu-Tr-ni3"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Unlimited" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="apy-qm-YSm">
                                 <rect key="frame" x="50" y="108" width="245" height="20"/>
                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="12"/>
@@ -58,17 +82,21 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="xZl-uo-bX1" firstAttribute="top" secondItem="dEO-e3-Aun" secondAttribute="top" id="3Cd-ck-KJl"/>
                             <constraint firstAttribute="bottom" secondItem="6GE-IO-7ar" secondAttribute="bottom" constant="5" id="5IT-yp-F0c"/>
                             <constraint firstAttribute="trailing" secondItem="6GE-IO-7ar" secondAttribute="trailing" constant="10" id="CJN-W8-HTf"/>
                             <constraint firstItem="apy-qm-YSm" firstAttribute="leading" secondItem="JOC-Aa-sJ0" secondAttribute="trailing" constant="10" id="Cs3-tf-zop"/>
                             <constraint firstItem="apy-qm-YSm" firstAttribute="centerY" secondItem="JOC-Aa-sJ0" secondAttribute="centerY" id="J44-1M-jNq"/>
+                            <constraint firstItem="xZl-uo-bX1" firstAttribute="leading" secondItem="dEO-e3-Aun" secondAttribute="leading" id="Jq5-ty-aZb"/>
                             <constraint firstItem="dEO-e3-Aun" firstAttribute="top" secondItem="oDF-A7-Dj5" secondAttribute="top" id="LDv-Pv-8gl"/>
+                            <constraint firstItem="xZl-uo-bX1" firstAttribute="bottom" secondItem="dEO-e3-Aun" secondAttribute="bottom" id="LyP-rI-3My"/>
                             <constraint firstAttribute="trailing" secondItem="apy-qm-YSm" secondAttribute="trailing" constant="10" id="RNB-GY-oE6"/>
                             <constraint firstItem="dEO-e3-Aun" firstAttribute="leading" secondItem="oDF-A7-Dj5" secondAttribute="leading" id="Sua-Vs-TQw"/>
                             <constraint firstItem="6GE-IO-7ar" firstAttribute="leading" secondItem="oDF-A7-Dj5" secondAttribute="leading" constant="10" id="TtC-yv-IsK"/>
                             <constraint firstItem="JOC-Aa-sJ0" firstAttribute="leading" secondItem="oDF-A7-Dj5" secondAttribute="leading" constant="10" id="WJJ-lp-yXZ"/>
                             <constraint firstItem="6GE-IO-7ar" firstAttribute="top" secondItem="JOC-Aa-sJ0" secondAttribute="bottom" id="cxq-rK-8CG"/>
                             <constraint firstItem="JOC-Aa-sJ0" firstAttribute="top" secondItem="dEO-e3-Aun" secondAttribute="bottom" constant="8" id="edX-U5-BAF"/>
+                            <constraint firstItem="xZl-uo-bX1" firstAttribute="trailing" secondItem="dEO-e3-Aun" secondAttribute="trailing" id="tTP-Ig-sKr"/>
                             <constraint firstAttribute="trailing" secondItem="dEO-e3-Aun" secondAttribute="trailing" id="v86-Rw-2ts"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
@@ -101,8 +129,10 @@
             <size key="customSize" width="315" height="173"/>
             <connections>
                 <outlet property="categoryLabel" destination="6GE-IO-7ar" id="RIT-Sg-h2j"/>
+                <outlet property="imageNameLabel" destination="ht9-wg-AXd" id="7Fy-iu-ZNL"/>
                 <outlet property="imgView" destination="dEO-e3-Aun" id="2se-P2-e81"/>
                 <outlet property="nameLabel" destination="JOC-Aa-sJ0" id="r5Z-gv-Cbt"/>
+                <outlet property="nameView" destination="xZl-uo-bX1" id="ayf-1B-1YX"/>
                 <outlet property="typeLabel" destination="apy-qm-YSm" id="6B7-yn-rel"/>
             </connections>
             <point key="canvasLocation" x="141.22137404580153" y="62.323943661971832"/>
@@ -112,6 +142,9 @@
         <image name="food" width="398" height="169"/>
         <namedColor name="black5">
             <color red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="primaryRed">
+            <color red="0.74901960784313726" green="0.11764705882352941" blue="0.1803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

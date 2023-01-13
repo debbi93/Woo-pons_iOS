@@ -94,11 +94,14 @@ extension RecentlyAddedViewController : UITableViewDelegate,UITableViewDataSourc
         
         let recentData = self.recentlyAdded[indexPath.row]
         cell.imgView.image = nil
+        cell.imageNameLabel.text = recentData.companyName.getAcronyms().uppercased()
         if !recentData.companyLogo.isEmpty {
+            cell.nameView.isHidden = true
             cell.imgView.setImage(with: recentData.companyLogo, placeholder: UIImage(named: "rectangle")!)
         }
         else {
             cell.imgView.image = UIImage(named: "rectangle")
+            cell.nameView.isHidden = false
         }
         cell.nameLabel.text = recentData.name
         cell.categoryLabel.text = recentData.companyCategory

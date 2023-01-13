@@ -62,6 +62,7 @@ class CouponDetailViewController: UIViewController, MTSlideToOpenDelegate {
         self.unlockView.isHidden = true
         sender.resetStateWithAnimation(true)
         addCoupon(couponId: self.couponDetail.id)
+       // self.pushToUnlockCoupon(title: "self.couponDetail.name", coupon: "self.couponDetail.couponCode", orderId: 0, desc: "self.couponDetail.businessDescription")
         
     }
     

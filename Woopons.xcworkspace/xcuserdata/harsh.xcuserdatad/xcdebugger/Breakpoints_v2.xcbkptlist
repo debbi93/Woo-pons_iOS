@@ -7,16 +7,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "58F7A427-1005-40C1-9732-CDA414440CB3"
+            uuid = "4AFD7320-40F3-44D6-9363-3A9731906E25"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Woopons/ViewControllers/DetailViewController.swift"
+            filePath = "Woopons/ViewControllers/UnlockCouponViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "89"
-            endingLineNumber = "89"
-            landmarkName = "addCoupon(couponId:)"
+            startingLineNumber = "58"
+            endingLineNumber = "58"
+            landmarkName = "foreground(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

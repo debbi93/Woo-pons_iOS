@@ -370,11 +370,14 @@ extension HomeTableCell : UICollectionViewDelegate, UICollectionViewDataSource, 
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RecentsCollectionCell", for: indexPath) as! RecentsCollectionCell
             let recentData = self.recentList?[indexPath.item]
             cell.imgView.image = nil
+            cell.imageNameLabel.text = recentData?.companyName.getAcronyms().uppercased()
             if let image = recentData?.companyLogo , !image.isEmpty {
                 cell.imgView.setImage(with: image, placeholder: UIImage(named: "rectangle")!)
+                cell.nameView.isHidden = true
             }
             else {
                 cell.imgView.image = UIImage(named: "rectangle")
+                cell.nameView.isHidden = false
             }
             cell.nameLabel.text = recentData?.name
             cell.categoryLabel.text = recentData?.companyCategory

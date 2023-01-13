@@ -10,6 +10,9 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <array key="Poppins-Medium.ttf">
+            <string>Poppins-Medium</string>
+        </array>
         <array key="Poppins-Regular.ttf">
             <string>Poppins-Regular</string>
         </array>
@@ -60,6 +63,27 @@
                                 <color key="textColor" name="black5"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ejh-xD-ed5">
+                                <rect key="frame" x="0.0" y="0.0" width="343" height="130"/>
+                                <subviews>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AK" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" translatesAutoresizingMaskIntoConstraints="NO" id="FjF-6t-ILN">
+                                        <rect key="frame" x="153" y="42" width="37" height="46"/>
+                                        <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="28"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" name="primaryRed"/>
+                                <constraints>
+                                    <constraint firstItem="FjF-6t-ILN" firstAttribute="centerY" secondItem="Ejh-xD-ed5" secondAttribute="centerY" id="UUm-iP-pbr"/>
+                                    <constraint firstItem="FjF-6t-ILN" firstAttribute="centerX" secondItem="Ejh-xD-ed5" secondAttribute="centerX" id="gSp-qY-gPe"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
@@ -69,7 +93,11 @@
                             <constraint firstItem="pn5-h3-hvH" firstAttribute="leading" secondItem="YPV-6E-8LT" secondAttribute="leading" constant="10" id="Dsr-pg-UkG"/>
                             <constraint firstItem="9aX-YL-7ei" firstAttribute="centerY" secondItem="pn5-h3-hvH" secondAttribute="centerY" id="JkC-UB-fRy"/>
                             <constraint firstAttribute="trailing" secondItem="9aX-YL-7ei" secondAttribute="trailing" constant="10" id="KIB-5z-Vbe"/>
+                            <constraint firstItem="Ejh-xD-ed5" firstAttribute="leading" secondItem="iPw-fH-Rhq" secondAttribute="leading" id="UY6-gV-gFp"/>
+                            <constraint firstItem="Ejh-xD-ed5" firstAttribute="bottom" secondItem="iPw-fH-Rhq" secondAttribute="bottom" id="WnS-yj-6Am"/>
+                            <constraint firstItem="Ejh-xD-ed5" firstAttribute="top" secondItem="iPw-fH-Rhq" secondAttribute="top" id="gxh-3G-Ub0"/>
                             <constraint firstItem="iPw-fH-Rhq" firstAttribute="leading" secondItem="YPV-6E-8LT" secondAttribute="leading" id="hZ9-ec-BOU"/>
+                            <constraint firstItem="Ejh-xD-ed5" firstAttribute="trailing" secondItem="iPw-fH-Rhq" secondAttribute="trailing" id="hmi-N1-esV"/>
                             <constraint firstItem="pn5-h3-hvH" firstAttribute="top" secondItem="iPw-fH-Rhq" secondAttribute="bottom" constant="8" id="jV3-uJ-k2k"/>
                             <constraint firstItem="iPw-fH-Rhq" firstAttribute="top" secondItem="YPV-6E-8LT" secondAttribute="top" id="lIN-xF-83d"/>
                             <constraint firstItem="9aX-YL-7ei" firstAttribute="leading" secondItem="pn5-h3-hvH" secondAttribute="trailing" constant="10" id="nET-WL-Myz"/>
@@ -105,8 +133,10 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="categoryLabel" destination="SA6-xx-ij5" id="heC-Br-2Pi"/>
+                <outlet property="imageNameLabel" destination="FjF-6t-ILN" id="N48-Re-Y2Q"/>
                 <outlet property="imgView" destination="iPw-fH-Rhq" id="mpO-Nx-YNO"/>
                 <outlet property="nameLabel" destination="pn5-h3-hvH" id="Zy4-Cf-fYV"/>
+                <outlet property="nameView" destination="Ejh-xD-ed5" id="lVl-DQ-zJU"/>
                 <outlet property="typeLabel" destination="9aX-YL-7ei" id="rhN-Cj-lfv"/>
             </connections>
             <point key="canvasLocation" x="89.312977099236633" y="81.690140845070431"/>
@@ -116,6 +146,9 @@
         <image name="food" width="398" height="169"/>
         <namedColor name="black5">
             <color red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="primaryRed">
+            <color red="0.74901960784313726" green="0.11764705882352941" blue="0.1803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
