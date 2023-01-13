@@ -1504,10 +1504,6 @@ Please only redeem at checkout with worker present."</string>
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GdQ-aP-goK">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You unlocked a new WOO-PON..." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OEy-Hr-7rA">
                                 <rect key="frame" x="58.5" y="20" width="258.5" height="26.5"/>
                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="16"/>
@@ -1641,16 +1637,12 @@ passages van Lorem Ipsum beschikbaar maarhet .</string>
                         <viewLayoutGuide key="safeArea" id="A8J-l6-xfr"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="GdQ-aP-goK" firstAttribute="leading" secondItem="A8J-l6-xfr" secondAttribute="leading" id="2Hs-1j-eWV"/>
                             <constraint firstItem="pfq-gC-PaZ" firstAttribute="top" secondItem="OEy-Hr-7rA" secondAttribute="bottom" constant="15" id="2lE-hn-sRz"/>
                             <constraint firstItem="NGy-1h-cGF" firstAttribute="centerX" secondItem="A8J-l6-xfr" secondAttribute="centerX" id="84b-eh-7ef"/>
-                            <constraint firstItem="GdQ-aP-goK" firstAttribute="top" secondItem="ZF6-Yp-xKd" secondAttribute="top" id="9Ng-JC-tGC"/>
-                            <constraint firstItem="S0v-03-gTz" firstAttribute="top" secondItem="A8J-l6-xfr" secondAttribute="top" id="DgD-Wh-NJd"/>
+                            <constraint firstItem="S0v-03-gTz" firstAttribute="top" secondItem="ZF6-Yp-xKd" secondAttribute="top" id="Cjq-9r-UKN"/>
                             <constraint firstItem="YRl-Qm-iOS" firstAttribute="top" secondItem="pfq-gC-PaZ" secondAttribute="bottom" constant="20" id="J1A-73-nYx"/>
                             <constraint firstItem="A8J-l6-xfr" firstAttribute="trailing" secondItem="pfq-gC-PaZ" secondAttribute="trailing" constant="20" id="QMS-Ij-qwz"/>
-                            <constraint firstItem="S0v-03-gTz" firstAttribute="bottom" secondItem="A8J-l6-xfr" secondAttribute="bottom" id="SNr-aU-nWe"/>
-                            <constraint firstItem="A8J-l6-xfr" firstAttribute="trailing" secondItem="GdQ-aP-goK" secondAttribute="trailing" id="W3A-BO-297"/>
-                            <constraint firstAttribute="bottom" secondItem="GdQ-aP-goK" secondAttribute="bottom" id="WA1-dZ-gzF"/>
+                            <constraint firstAttribute="bottom" secondItem="S0v-03-gTz" secondAttribute="bottom" id="b5R-op-kjz"/>
                             <constraint firstItem="OEy-Hr-7rA" firstAttribute="top" secondItem="A8J-l6-xfr" secondAttribute="top" constant="20" id="eG4-CK-lbl"/>
                             <constraint firstItem="NGy-1h-cGF" firstAttribute="top" secondItem="YRl-Qm-iOS" secondAttribute="bottom" constant="25" id="ei0-Pe-dSx"/>
                             <constraint firstItem="A8J-l6-xfr" firstAttribute="trailing" secondItem="YRl-Qm-iOS" secondAttribute="trailing" constant="10" id="her-mm-fFD"/>
@@ -1665,7 +1657,6 @@ passages van Lorem Ipsum beschikbaar maarhet .</string>
                         <outlet property="couponCode" destination="KFp-g0-Fdt" id="56X-jY-5Gs"/>
                         <outlet property="descLabel" destination="pfq-gC-PaZ" id="4qL-S3-MXV"/>
                         <outlet property="dottedView" destination="YRl-Qm-iOS" id="AyH-MR-27U"/>
-                        <outlet property="mainView" destination="GdQ-aP-goK" id="Z4G-FC-xAn"/>
                         <outlet property="popUpView" destination="S0v-03-gTz" id="Tyt-zc-Zc0"/>
                         <outlet property="timerLabel" destination="NGy-1h-cGF" id="and-Be-g9q"/>
                     </connections>
