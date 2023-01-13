@@ -24,6 +24,7 @@ class UnlockCouponPopUp: UIViewController {
     }
     
     @IBAction func noButtonTapped(_ sender: Any) {
+        delegate.sendData(goBack: false)
         self.dismiss(animated: true)
     }
     

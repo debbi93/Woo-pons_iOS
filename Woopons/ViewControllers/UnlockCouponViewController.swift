@@ -16,7 +16,6 @@ class UnlockCouponViewController: UIViewController,FirstControllerDelegate {
     @IBOutlet weak var descLabel: UILabel!
     @IBOutlet weak var dottedView: UIView!
     @IBOutlet weak var timerLabel: UILabel!
-    @IBOutlet weak var popUpView: UIView!
     @IBOutlet weak var couponCode: UILabel!
     
     var titleString = ""
@@ -32,7 +31,7 @@ class UnlockCouponViewController: UIViewController,FirstControllerDelegate {
         self.view.setScreenCaptureProtection()
         self.title =  titleString
         self.descLabel.text = descString
-        dottedView.addDashedBorder()
+        // dottedView.addDashedBorder()
         self.couponCode.text = coupon
         NotificationCenter.default.addObserver(self, selector: #selector(self.background(_:)), name: UIApplication.didEnterBackgroundNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.foreground(_:)), name: UIApplication.willEnterForegroundNotification, object: nil)
@@ -43,11 +42,11 @@ class UnlockCouponViewController: UIViewController,FirstControllerDelegate {
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
         self.timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateCounter), userInfo: nil, repeats: true)
     }
     
     func sendData(goBack: Bool) {
+        couponCode.isHidden = false
         if goBack {
             self.navigationController?.popToRootViewController(animated: true)
         }
@@ -61,7 +60,6 @@ class UnlockCouponViewController: UIViewController,FirstControllerDelegate {
     @objc func foreground(_ notification: Notification) {
         let timerValue = userDefault.value(forKey: "OTPTimer") as? Int ?? 0
         let otpTimeStamp = userDefault.value(forKey: "OTPTimeStamp") as? Date
-        
         let components = Calendar.current.dateComponents([.second], from: otpTimeStamp ?? Date(), to: Date())
         self.count = timerValue - (components.second ?? 0)
     }
@@ -71,11 +69,9 @@ class UnlockCouponViewController: UIViewController,FirstControllerDelegate {
         let storyboard = UIStoryboard(name: "Home", bundle: nil)
         let secondVC = storyboard.instantiateViewController(withIdentifier: "UnlockCouponPopUp") as! UnlockCouponPopUp
         secondVC.delegate = self
-        self.present(secondVC, animated: true)
-    }
-    
-    @IBAction func okTapped(_ sender: UIButton) {
-        self.navigationController?.popToRootViewController(animated: true)
+        couponCode.isHidden = true
+        secondVC.modalPresentationStyle = .overCurrentContext
+        self.present(secondVC, animated: false)
     }
     
     @objc func updateCounter() {
@@ -88,10 +84,6 @@ class UnlockCouponViewController: UIViewController,FirstControllerDelegate {
             timer?.invalidate()
             self.navigationController?.popToRootViewController(animated: true)
         }
-    }
-    
-    @IBAction func closePopUpTapped(_ sender: Any) {
-        self.view.setScreenCaptureProtection( )
     }
     
     func unlockCoupon() {
