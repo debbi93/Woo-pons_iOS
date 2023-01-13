@@ -61,7 +61,6 @@ class UnlockCouponViewController: UIViewController {
     {
         self.popUpView.isHidden = false
         self.couponCode.isHidden = true
-        guardTextField.isSecureTextEntry = false
     }
     
     @IBAction func okTapped(_ sender: UIButton) {
