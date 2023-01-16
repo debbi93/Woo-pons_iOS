@@ -77,7 +77,11 @@ class UnlockCouponViewController: UIViewController,FirstControllerDelegate {
     @objc func updateCounter() {
         
         if count > 0 {
-            self.timerLabel.text = "00:\(count)"
+                self.timerLabel.text = "0:0\(count)"
+            }
+            else {
+                self.timerLabel.text = "0:\(count)"
+            }
             count -= 1
         }
         else if count == 0 {
