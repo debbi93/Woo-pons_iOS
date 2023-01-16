@@ -52,7 +52,7 @@
                         <rect key="frame" x="10" y="110" width="358" height="84"/>
                         <string key="text">Please note: Once clicked, this can not be reversed. Your 
 WOO-PON will stay active for 60 seconds. Please only
- redeem at checkout with worker present."</string>
+ redeem at checkout with worker present.</string>
                         <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="12"/>
                         <color key="textColor" name="black5"/>
                         <nil key="highlightedColor"/>
