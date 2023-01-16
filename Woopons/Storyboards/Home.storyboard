@@ -1522,9 +1522,12 @@ Please only redeem at checkout with worker present."</string>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PE4-9z-IHc">
                                         <rect key="frame" x="25" y="208" width="325" height="50"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FGFHG" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="930-Su-jCM">
-                                                <rect key="frame" x="130.5" y="8.5" width="64.5" height="33"/>
-                                                <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="20"/>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dotted" translatesAutoresizingMaskIntoConstraints="NO" id="6tc-Se-xVp">
+                                                <rect key="frame" x="0.0" y="0.0" width="325" height="50"/>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FDH" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="930-Su-jCM">
+                                                <rect key="frame" x="10" y="10" width="305" height="30"/>
+                                                <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="18"/>
                                                 <color key="textColor" name="primaryRed"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -1532,18 +1535,22 @@ Please only redeem at checkout with worker present."</string>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="AeH-QO-oP6"/>
-                                            <constraint firstItem="930-Su-jCM" firstAttribute="centerY" secondItem="PE4-9z-IHc" secondAttribute="centerY" id="BJL-m3-3GR"/>
-                                            <constraint firstItem="930-Su-jCM" firstAttribute="centerX" secondItem="PE4-9z-IHc" secondAttribute="centerX" id="bDH-EJ-A6S"/>
+                                            <constraint firstItem="6tc-Se-xVp" firstAttribute="top" secondItem="PE4-9z-IHc" secondAttribute="top" id="Dyv-Iu-IyC"/>
+                                            <constraint firstItem="6tc-Se-xVp" firstAttribute="leading" secondItem="PE4-9z-IHc" secondAttribute="leading" id="H15-Dn-7kM"/>
+                                            <constraint firstAttribute="trailing" secondItem="6tc-Se-xVp" secondAttribute="trailing" id="QpU-hw-IYP"/>
+                                            <constraint firstAttribute="trailing" secondItem="930-Su-jCM" secondAttribute="trailing" constant="10" id="WK1-8J-ztl"/>
+                                            <constraint firstItem="930-Su-jCM" firstAttribute="centerY" secondItem="6tc-Se-xVp" secondAttribute="centerY" id="fwW-2U-hai"/>
+                                            <constraint firstItem="930-Su-jCM" firstAttribute="leading" secondItem="PE4-9z-IHc" secondAttribute="leading" constant="10" id="sNL-Su-hcf"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                <real key="value" value="6"/>
+                                                <real key="value" value="0.0"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                <real key="value" value="1"/>
+                                                <real key="value" value="0.0"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                <color key="value" name="primaryRed"/>
+                                                <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
@@ -1582,13 +1589,12 @@ Please only redeem at checkout with worker present."</string>
                     <connections>
                         <outlet property="couponCode" destination="930-Su-jCM" id="dIi-XL-cGy"/>
                         <outlet property="descLabel" destination="CP0-ws-d1w" id="XZi-mL-DMY"/>
-                        <outlet property="dottedView" destination="PE4-9z-IHc" id="IOQ-Hh-xrh"/>
                         <outlet property="timerLabel" destination="QFo-m1-pb6" id="iVE-aj-Y2c"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PQM-9Y-j4S" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3524" y="-242"/>
+            <point key="canvasLocation" x="3524" y="-242.42878560719643"/>
         </scene>
         <!--Unlock Coupon Pop Up-->
         <scene sceneID="abk-1v-SmV">
@@ -1897,6 +1903,7 @@ Please only redeem at checkout with worker present."</string>
         <image name="close" width="32" height="32"/>
         <image name="coupons" width="18" height="12"/>
         <image name="coupons-selected" width="18" height="12"/>
+        <image name="dotted" width="398" height="50"/>
         <image name="eye.slash" catalog="system" width="128" height="84"/>
         <image name="home" width="17" height="18"/>
         <image name="home-selected" width="17" height="18"/>

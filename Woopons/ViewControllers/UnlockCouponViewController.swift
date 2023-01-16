@@ -14,7 +14,6 @@ protocol FirstControllerDelegate: AnyObject {
 class UnlockCouponViewController: UIViewController,FirstControllerDelegate {
     
     @IBOutlet weak var descLabel: UILabel!
-    @IBOutlet weak var dottedView: UIView!
     @IBOutlet weak var timerLabel: UILabel!
     @IBOutlet weak var couponCode: UILabel!
     
@@ -31,7 +30,6 @@ class UnlockCouponViewController: UIViewController,FirstControllerDelegate {
         self.view.setScreenCaptureProtection()
         self.title =  titleString
         self.descLabel.text = descString
-         dottedView.addDashedBorder()
         self.couponCode.text = coupon
         NotificationCenter.default.addObserver(self, selector: #selector(self.background(_:)), name: UIApplication.didEnterBackgroundNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.foreground(_:)), name: UIApplication.willEnterForegroundNotification, object: nil)
