@@ -85,6 +85,7 @@ class UnlockCouponViewController: UIViewController,FirstControllerDelegate {
         }
         else if count == 0 {
             timer?.invalidate()
+            self.dismiss(animated: true)
             self.navigationController?.popToRootViewController(animated: true)
         }
     }
