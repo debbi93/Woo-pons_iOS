@@ -14,7 +14,7 @@ class NewlyAdded {
         
         var value:[Favorites] = []
         
-        if let details = data["data"] as? [String:AnyObject],  let coupons = details["newly_added"] as? [AnyObject] {
+        if let details = data["data"] as? [String:AnyObject],  let coupons = details["favorite"] as? [AnyObject] {
             
             for coupon in coupons {
                 let categoryDetails = Favorites()

@@ -23,10 +23,6 @@ class CouponsViewController: UIViewController {
     var couponCode = ""
     var descString = ""
     var orderId = 0
-    var favoriteList = [Favorites]()
-    var page = 1
-    var contentOffSet = CGFloat()
-    var totalCount = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,7 +40,7 @@ class CouponsViewController: UIViewController {
         self.couponsTableView.estimatedRowHeight = 80
         self.couponsTableView.rowHeight = UITableView.automaticDimension
         getCoupons()
-        getFavorites()
+        //  getFavorites()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -61,39 +57,10 @@ class CouponsViewController: UIViewController {
             if let dict = response as? [String:AnyObject] {
                 self.couponData = Coupon.eventWithObject(data: dict)
                 
-                if (self.totalCount == 0) && !self.isHistory {
+                if ((self.couponData?.favorites?.count ?? 0) == 0) && !self.isHistory {
                     self.errorImage.isHidden = false
                 }
-               else if ((self.couponData?.history?.count ?? 0) == 0) && self.isHistory {
-                    self.errorImage.isHidden = false
-                }
-                else {
-                    self.errorImage.isHidden = true
-                }
-                self.couponsTableView.reloadData()
-            }
-        }
-    failure: { error in
-        self.showError(message: error.localizedDescription)
-    }
-    }
-    
-    func getFavorites() {
-        
-        ApiService.getAPIWithoutParameters(urlString: Constants.AppUrls.getFavorites + "\(page)&limit=20", view: self.view) { response in
-            
-            if let dict = response as? [String:AnyObject] {
-                let data = Favorites.eventWithObject(data: dict)
-                if self.page == 1 {
-                    self.favoriteList.removeAll()
-                }
-                if(data.count > 0){
-                    self.favoriteList.append(contentsOf: data)
-                }
-                if let total = response["data"] as? [String:AnyObject] {
-                    self.totalCount = total["total_count"] as? Int ?? 0
-                }
-                if self.totalCount == 0 {
+                else if ((self.couponData?.history?.count ?? 0) == 0) && self.isHistory {
                     self.errorImage.isHidden = false
                 }
                 else {
@@ -117,7 +84,7 @@ class CouponsViewController: UIViewController {
         self.showError(message: error.localizedDescription)
     }
     }
-
+    
     // MARK: - Actions
     
     
@@ -145,7 +112,7 @@ class CouponsViewController: UIViewController {
         favButtonView.backgroundColor = UIColor(named: "primaryRed")
         historyButtonView.backgroundColor = .clear
         isHistory = false
-        if ((self.totalCount) == 0) {
+        if ((self.couponData?.favorites?.count ?? 0) == 0){
             self.errorImage.isHidden = false
         }
         else {
@@ -164,19 +131,19 @@ class CouponsViewController: UIViewController {
     }
     
     @objc func couponDetailAction(sender: UIButton){
-         let data = self.favoriteList[sender.tag]
+        if let data = self.couponData?.favorites?[sender.tag] {
             pushToCouponDetail(couponDetail: data,titleString: data.name,isFromCouponTab: true,isHistory:false)
-
+        }
     }
     
     @objc func getCouponAction(sender: UIButton){
         self.popupView.isHidden = false
-         let data = self.favoriteList[sender.tag]
+        if let data = self.couponData?.favorites?[sender.tag] {
             self.titleString = data.name
             self.couponCode = data.couponCode
             self.orderId = data.orderId
             self.descString = data.businessDescription
-        
+        }
     }
     
     @objc func historyDetailAction(sender: UIButton){
@@ -192,14 +159,15 @@ class CouponsViewController: UIViewController {
         let indexPath = IndexPath(row: sender.tag, section: 0)
         var couponId = 0
         if isHistory {
-         
+            
             let data = self.couponData?.history?[indexPath.row]
             couponId = data?.id ?? 0
             
         }
         else {
-            let data = self.favoriteList[indexPath.row]
-            couponId = data.id
+            if let data = self.couponData?.favorites?[indexPath.row] {
+                couponId = data.id
+            }
         }
         let cell = couponsTableView.cellForRow(at: indexPath) as? FavoriteTableCell
         if cell?.favButton.imageView?.image == UIImage(named: "heart"){
@@ -208,8 +176,8 @@ class CouponsViewController: UIViewController {
         else {
             cell?.favButton.setImage(UIImage(named: "heart"), for: .normal)
         }
-            addRemoveFavorite(couponId:couponId )
-        }
+        addRemoveFavorite(couponId:couponId )
+    }
     
 }
 
@@ -220,7 +188,7 @@ extension CouponsViewController : UITableViewDelegate,UITableViewDataSource {
             return self.couponData?.history?.count ?? 0
         }
         else {
-            return self.favoriteList.count
+            return self.couponData?.favorites?.count ?? 0
         }
     }
     
@@ -233,7 +201,7 @@ extension CouponsViewController : UITableViewDelegate,UITableViewDataSource {
         
         
         if isHistory {
-           let data = self.couponData?.history?[indexPath.row]
+            let data = self.couponData?.history?[indexPath.row]
             
             if data?.isfavorite ?? false {
                 cell.favButton.setImage(UIImage(named: "heart"), for: .normal)
@@ -265,53 +233,56 @@ extension CouponsViewController : UITableViewDelegate,UITableViewDataSource {
             cell.labelBottomConstraint.constant = 0
         }
         else {
-            let data = favoriteList[indexPath.row]
+            let data = self.couponData?.favorites?[indexPath.row]
             cell.typeLabel.isHidden = false
             cell.couponButton.isHidden = false
             cell.labelTopConstraint.constant = 15
             cell.labelBottomConstraint.constant = 10
-            if data.isfavorite {
+            cell.imageNameLbl.text = data?.companyName.getAcronyms().uppercased()
+            if data?.isfavorite ?? false {
                 cell.favButton.setImage(UIImage(named: "heart"), for: .normal)
             }
             else {
                 cell.favButton.setImage(UIImage(named: "heart-empty"), for: .normal)
             }
-            cell.nameLabel.text = data.name
-            cell.typeLabel.text = data.repetition
+            cell.nameLabel.text = data?.name
+            cell.typeLabel.text = data?.repetition
             cell.imgView.image = nil
-            if !data.companyLogo.isEmpty  {
-                cell.imgView.setImage(with: data.companyLogo, placeholder: UIImage(named: "rectangle")!)
+            if let image = data?.companyLogo , !image.isEmpty {                cell.imgView.setImage(with: data?.companyLogo ?? "", placeholder: UIImage(named: "rectangle")!)
+                cell.nameView.isHidden = true
+                
             }
             else {
                 cell.imgView.image = UIImage(named: "rectangle")
+                cell.nameView.isHidden = false
             }
             cell.favButton.tag = indexPath.row
             cell.favButton.addTarget(self, action: #selector(favButtonAction(sender:)), for: .touchUpInside)
-            cell.ratingLabel.text = "\(data.ratingAvergae)"
-            cell.ratingView.rating = data.ratingAvergae
+            cell.ratingLabel.text = "\(data?.ratingAvergae ?? 0.0)"
+            cell.ratingView.rating = data?.ratingAvergae ?? 0.0
             cell.detailsButton.tag = indexPath.row
             cell.couponButton.setTitle("Activate WOO-PON", for: .normal)
             cell.couponButton.underline(color: "primaryRed")
             cell.detailsButton.addTarget(self, action: #selector(couponDetailAction(sender:)), for: .touchUpInside)
             cell.couponButton.addTarget(self, action: #selector(getCouponAction(sender:)), for: .touchUpInside)
             cell.couponButton.tag = indexPath.row
-
+            
         }
-      
+        
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if isHistory {
             if let data = self.couponData?.history?[indexPath.row] {
-               pushToCouponDetail(couponDetail: data,titleString: data.name,isFromCouponTab: false,isHistory: true)
+                pushToCouponDetail(couponDetail: data,titleString: data.name,isFromCouponTab: false,isHistory: true)
             }
         }
         else {
-             let data = self.favoriteList[indexPath.row]
+            if let data = self.couponData?.favorites?[indexPath.row] {
                 pushToCouponDetail(couponDetail: data,titleString: data.name,isFromCouponTab: true,isHistory: false)
-            
+                
+            }
         }
     }
-    
 }
