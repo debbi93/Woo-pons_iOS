@@ -77,7 +77,7 @@ class CouponsViewController: UIViewController {
         
         let parameters: [String: Any] = ["coupon_id":couponId]
         
-        ApiService.postAPIWithHeaderAndParameters(urlString: Constants.AppUrls.addRemoveFavorite, view: self.view, jsonString: parameters as [String : AnyObject] ) { response in
+        ApiService.postAPIWithHeaderAndParameters1(urlString: Constants.AppUrls.addRemoveFavorite, view: self.view, jsonString: parameters as [String : AnyObject] ) { response in
             self.getCoupons()
         }
     failure: { error in
