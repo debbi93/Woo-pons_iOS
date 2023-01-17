@@ -165,7 +165,7 @@ class CouponDetailViewController: UIViewController, MTSlideToOpenDelegate {
     
     @objc func directionsButtonAction(sender: UIButton){
        
-        let url = "http://maps.apple.com/maps?saddr=\(self.couponDetail.lat),\(self.couponDetail.lng)"
+        let url = "http://maps.apple.com/maps?daddr=\(self.couponDetail.lat),\(self.couponDetail.lng)"
         UIApplication.shared.openURL(URL(string:url)!)
 
     }
