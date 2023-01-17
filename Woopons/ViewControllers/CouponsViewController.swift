@@ -40,7 +40,6 @@ class CouponsViewController: UIViewController {
         self.couponsTableView.estimatedRowHeight = 80
         self.couponsTableView.rowHeight = UITableView.automaticDimension
         getCoupons()
-        //  getFavorites()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -79,6 +78,7 @@ class CouponsViewController: UIViewController {
         let parameters: [String: Any] = ["coupon_id":couponId]
         
         ApiService.postAPIWithHeaderAndParameters(urlString: Constants.AppUrls.addRemoveFavorite, view: self.view, jsonString: parameters as [String : AnyObject] ) { response in
+            self.getCoupons()
         }
     failure: { error in
         self.showError(message: error.localizedDescription)
@@ -89,6 +89,7 @@ class CouponsViewController: UIViewController {
     
     
     @IBAction func historyButtonTapped(_ sender: UIButton) {
+        getCoupons()
         errorImage.isHidden = true
         historyButton.tintColor = UIColor(named: "primaryRed")
         favButton.tintColor = UIColor(named: "black5")
@@ -106,6 +107,7 @@ class CouponsViewController: UIViewController {
     
     
     @IBAction func favButtonTapped(_ sender: UIButton) {
+        getCoupons()
         errorImage.isHidden = true
         favButton.tintColor = UIColor(named: "primaryRed")
         historyButton.tintColor = UIColor(named: "black5")
