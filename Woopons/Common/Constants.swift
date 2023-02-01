@@ -11,7 +11,7 @@ struct Constants {
     
     struct AppUrls {
         static let baseUrl = "https://www.getwoopons.com/api/v1/"
-        static let imageBaseUrl = "https://woopons.xcelanceweb.com"
+        static let imageBaseUrl = "https://www.getwoopons.com"
         static var login = "auth/login"
         static var myProfile = "user/myaccount"
         static var logout = "logout"
