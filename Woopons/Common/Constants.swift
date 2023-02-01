@@ -10,7 +10,7 @@ import Foundation
 struct Constants {
     
     struct AppUrls {
-        static let baseUrl = "https://woopons.xcelanceweb.com/api/v1/"
+        static let baseUrl = "https://www.getwoopons.com/api/v1/"
         static let imageBaseUrl = "https://woopons.xcelanceweb.com"
         static var login = "auth/login"
         static var myProfile = "user/myaccount"
@@ -36,7 +36,7 @@ struct Constants {
         static var removeCoupon = "removecoupon"
         static var unlockCoupon = "unlockcoupon"
         static var changePassword = "updatepassword"
-        static var privacyPolicyUrl = "https://woopons.xcelanceweb.com/privacy-policy"
-        static var termsUrl = "https://woopons.xcelanceweb.com/terms"
+        static var privacyPolicyUrl = "https://www.getwoopons.com/privacy-policy"
+        static var termsUrl = "https://www.getwoopons.com/terms"
     }
 }
